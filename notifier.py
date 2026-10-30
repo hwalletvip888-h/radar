@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""TapeOut 安全警报推送引擎。
+"""TapeOut 安全警报推送引擎（轮询分发）。
 
 读 watcher.py 产出的 alerts.json，按 subscriptions.json 里的订阅配置，
-把告警分发给订阅者的渠道（Telegram / Webhook）。
+把告警分发给订阅者的渠道（Telegram / Webhook）。到期订阅自动失效。
 
 用法：
   python notifier.py            # 把「未推送」的告警推一遍
@@ -16,88 +16,25 @@
         "id": "alice",
         "channels": ["telegram"],
         "telegram_chat_id": "123456789",
+        "expiry": 1750000000,
         "filters": {"processors": [], "tasks": [], "types": []}   // 空 = 全部
       }
     ]
   }
 
-Telegram bot token 通过环境变量 TELEGRAM_BOT_TOKEN 提供。
+Telegram bot token 通过环境变量 TELEGRAM_BOT_TOKEN 或 .bot_token 提供。
 状态存 notifier_state.json（记住哪些告警已推过，避免重复）。
+共享工具在 common.py。
 """
-import json, os, time, sys, urllib.request
+import os
+import sys
+import time
 
-BASE = os.path.dirname(os.path.abspath(__file__))
-SUBS_FILE = os.path.join(BASE, "subscriptions.json")
+from common import (BASE, SUBS_FILE, load_token, load_json, save_json,
+                    active_subscribers, push_alert)
+
 ALERTS_FILE = os.path.join(BASE, "alerts.json")
 STATE_FILE = os.path.join(BASE, "notifier_state.json")
-
-TIER_EMOJI = {"high": "🔴", "mid": "🟡", "low": "⚪"}
-TYPE_LABEL = {"revoked": "矿机被撤销", "counterexample": "新反例登记"}
-
-
-def load_token():
-    """优先取环境变量 TELEGRAM_BOT_TOKEN，否则读 .bot_token 文件"""
-    tok = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
-    if tok:
-        return tok
-    f = os.path.join(BASE, ".bot_token")
-    if os.path.exists(f):
-        try:
-            return open(f, encoding="utf-8").read().strip()
-        except Exception:
-            pass
-    return ""
-
-
-def load_json(path, default):
-    try:
-        return json.load(open(path, encoding="utf-8"))
-    except Exception:
-        return default
-
-
-def save_json(path, obj):
-    json.dump(obj, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-
-
-def match(alert, filters):
-    """判断一条告警是否命中订阅者的过滤条件。空过滤 = 全部命中。"""
-    procs = filters.get("processors", [])
-    tasks = filters.get("tasks", [])
-    types = filters.get("types", [])
-    title = alert.get("title", "") + " " + alert.get("detail", "")
-    # 处理器/题目从标题+详情里做关键词匹配（简单版）
-    if procs and not any(p in title for p in procs):
-        return False
-    if tasks and not any(f"题 #{t}" in title or f"task {t}" in title for t in tasks):
-        return False
-    if types and alert.get("type") not in types:
-        return False
-    return True
-
-
-def send_telegram(token, chat_id, text):
-    url = f"https://api.telegram.org/bot{token}/sendMessage"
-    body = json.dumps({"chat_id": chat_id, "text": text, "disable_web_page_preview": True}).encode()
-    req = urllib.request.Request(url, data=body, headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=20) as r:
-        return json.loads(r.read().decode())
-
-
-def send_webhook(url, payload):
-    body = json.dumps(payload).encode()
-    req = urllib.request.Request(url, data=body, headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=20) as r:
-        return r.status
-
-
-def format_alert(alert):
-    t = alert.get("type", "")
-    title = alert.get("title", "")
-    return (f"{TIER_EMOJI.get(alert.get('tier'), '⚪')} {title}\n"
-            f"{alert.get('detail', '')}\n"
-            f"影响：{alert.get('impact', '')}\n"
-            f"交易：https://bscscan.com/tx/{alert.get('tx', '')}")
 
 
 def main():
@@ -110,35 +47,18 @@ def main():
         state = load_json(STATE_FILE, {"sent": []})
         sent = set(state.get("sent", []))
 
-        pushed = 0
+        subscribers = active_subscribers(cfg)  # 过滤过期订阅
+        total_pushed = 0
         for alert in alerts:
             key = alert.get("tx") or (alert.get("title") + str(alert.get("ts")))
             if key in sent:
                 continue
-            text = format_alert(alert)
-            for sub in cfg.get("subscribers", []):
-                if not match(alert, sub.get("filters", {})):
-                    continue
-                for ch in sub.get("channels", []):
-                    try:
-                        if ch == "telegram" and tg_token and sub.get("telegram_chat_id"):
-                            send_telegram(tg_token, sub["telegram_chat_id"], text)
-                            print(f"[notifier] → telegram 推给 {sub['id']}: {alert['title']}")
-                        elif ch == "webhook" and sub.get("webhook_url"):
-                            send_webhook(sub["webhook_url"], alert)
-                            print(f"[notifier] → webhook 推给 {sub['id']}")
-                        elif ch == "tapesend":
-                            print(f"[notifier] ⚠ tapesend 渠道待接（发到容器端点）: {sub['id']}")
-                        else:
-                            print(f"[notifier] 跳过 {sub['id']} 的渠道 {ch}（未配置 token/url）")
-                    except Exception as e:
-                        print(f"[notifier] 推送失败 {sub['id']}/{ch}: {e}")
-                pushed += 1
+            total_pushed += push_alert(alert, subscribers, tg_token)
             sent.add(key)
 
         state["sent"] = sorted(sent)[-5000:]
         save_json(STATE_FILE, state)
-        print(f"[notifier] 本轮处理 {len(alerts)} 条告警，新推送 {pushed} 次")
+        print(f"[notifier] 本轮处理 {len(alerts)} 条告警，活跃订阅 {len(subscribers)} 个，新推送 {total_pushed} 次")
 
         if loop is None:
             break

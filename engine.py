@@ -7,12 +7,13 @@ WebSocket 实时订阅 BNB PodMining 的 Revoked / CounterexampleAdded 事件，
 到期订阅自动失效。
 
 用法：
-  python engine.py              # 跑一次：先补扫最近 N 块，再挂 WebSocket 实时监听
+  python engine.py              # 挂 WebSocket 实时监听
   python engine.py --replay     # demo 模式：重放最近一次撤销事件，演示「检测→推送」全流程
-  python engine.py --once       # 只补扫一次历史，不挂 WebSocket
+  python engine.py --once       # 只重放一次，不挂 WebSocket
 
 订阅：subscriptions.json（免费/Pro/企业三套餐，带 expiry 到期时间）。
-推送：Telegram（TELEGRAM_BOT_TOKEN 环境变量）/ Webhook。
+推送：Telegram / Webhook（token 读 .bot_token 或环境变量 TELEGRAM_BOT_TOKEN）。
+共享工具在 common.py（匹配/推送/读 token 等）。
 """
 import asyncio
 import json
@@ -24,9 +25,9 @@ import urllib.request
 from web3 import AsyncWeb3
 from web3.providers import WebSocketProvider
 
+from common import PROCESSORS, load_token, load_subs, active_subscribers, push_alert
+
 BASE = os.path.dirname(os.path.abspath(__file__))
-SUBS_FILE = os.path.join(BASE, "subscriptions.json")
-STATE_FILE = os.path.join(BASE, "engine_state.json")
 
 POD = "0x7E2E0DC66a3bD9103E69b766afA62d9f7b697b46"
 BNB_WS = "wss://bsc.publicnode.com"
@@ -36,34 +37,6 @@ GETMINER_SEL = "0x0527edc2"
 # 事件 topic0
 REVOKED_T0 = "0xe52b422ce6b3cd73243c813dcbc499543bb477dd997c5d177b52c03562347ce5"
 CE_T0 = "0x46ff8dc9a41ea4f2cc01bb124e2fc899797dbfa40dca6f4310aa69e9cfd2f3a2"
-
-PROCESSORS = {
-    "0x1f5cb4aeae1807bf60c3b9c0d8adbcc14e91f12c": "Behemoth",
-    "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c": "TapeOut",
-}
-
-TIER_EMOJI = {"high": "🔴", "mid": "🟡", "low": "⚪"}
-
-
-def load_token():
-    """优先取环境变量 TELEGRAM_BOT_TOKEN，否则读 .bot_token 文件"""
-    tok = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
-    if tok:
-        return tok
-    f = os.path.join(BASE, ".bot_token")
-    if os.path.exists(f):
-        try:
-            return open(f, encoding="utf-8").read().strip()
-        except Exception:
-            pass
-    return ""
-
-
-def load_subs():
-    try:
-        return json.load(open(SUBS_FILE, encoding="utf-8"))
-    except Exception:
-        return {"subscribers": []}
 
 
 def http_rpc(method, params):
@@ -100,7 +73,6 @@ def get_miner(key):
 
 def build_alert(event, log):
     """把一条链上事件变成一条分级告警。event: 'Revoked' / 'CounterexampleAdded'"""
-    t0 = log["topics"][0]
     topics = log["topics"]
     data = log.get("data", "0x")[2:]
     words = [data[i:i + 64] for i in range(0, len(data), 64)]
@@ -140,77 +112,6 @@ def build_alert(event, log):
         "tx": log["transactionHash"],
         "block": int(log["blockNumber"], 16),
     }
-
-
-def match(alert, filters):
-    procs = filters.get("processors", [])
-    tasks = filters.get("tasks", [])
-    types = filters.get("types", [])
-    title = alert.get("title", "") + " " + alert.get("detail", "")
-    if procs and not any(p in title for p in procs):
-        return False
-    if tasks and not any(f"题 #{t}" in title for t in tasks):
-        return False
-    if types and alert.get("type") not in types:
-        return False
-    return True
-
-
-def send_telegram(token, chat_id, text):
-    url = f"https://api.telegram.org/bot{token}/sendMessage"
-    body = json.dumps({"chat_id": chat_id, "text": text, "disable_web_page_preview": True}).encode()
-    req = urllib.request.Request(url, data=body, headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=20) as r:
-        return json.loads(r.read().decode())
-
-
-def send_webhook(url, payload):
-    body = json.dumps(payload).encode()
-    req = urllib.request.Request(url, data=body, headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=20) as r:
-        return r.status
-
-
-def format_alert(alert):
-    return (f"{TIER_EMOJI.get(alert.get('tier'), '⚪')} {alert['title']}\n"
-            f"{alert.get('detail', '')}\n"
-            f"影响：{alert.get('impact', '')}\n"
-            f"交易：https://bscscan.com/tx/{alert.get('tx', '')}")
-
-
-def active_subscribers(subs, now=None):
-    """过滤出未过期的订阅者"""
-    now = now or time.time()
-    out = []
-    for s in subs.get("subscribers", []):
-        exp = s.get("expiry")
-        if exp is None or exp > now:
-            out.append(s)
-    return out
-
-
-def push_alert(alert, subscribers, tg_token):
-    text = format_alert(alert)
-    pushed = 0
-    for sub in subscribers:
-        if not match(alert, sub.get("filters", {})):
-            continue
-        for ch in sub.get("channels", []):
-            try:
-                if ch == "telegram" and tg_token and sub.get("telegram_chat_id"):
-                    send_telegram(tg_token, sub["telegram_chat_id"], text)
-                    print(f"  [推送] telegram → {sub.get('id')}")
-                elif ch == "webhook" and sub.get("webhook_url"):
-                    send_webhook(sub["webhook_url"], alert)
-                    print(f"  [推送] webhook → {sub.get('id')}")
-                elif ch == "tapesend":
-                    print(f"  [推送] tapesend 待接 → {sub.get('id')}")
-                else:
-                    print(f"  [跳过] {sub.get('id')} 的 {ch} 未配置")
-            except Exception as e:
-                print(f"  [失败] {sub.get('id')}/{ch}: {e}")
-        pushed += 1
-    return pushed
 
 
 def replay_alert():
@@ -261,7 +162,7 @@ async def listen_real_time(tg_token):
         print(f"\n[engine] 🔔 检测到新事件：{alert['title']}")
         subs = active_subscribers(load_subs())
         n = push_alert(alert, subs, tg_token)
-        print(f"[engine] 已推给 {n} 个订阅者")
+        print(f"[engine] 已推 {n} 次")
         # 追加到 alerts.json
         alerts = []
         if os.path.exists(os.path.join(BASE, "alerts.json")):
@@ -281,7 +182,7 @@ async def main():
         if alert:
             print(f"\n[engine] ▶ 重放最近一次撤销：{alert['title']} · {alert['impact']}")
             n = push_alert(alert, active, tg_token)
-            print(f"[engine] 已推给 {n} 个订阅者")
+            print(f"[engine] 已推 {n} 次")
         else:
             print("[engine] 没有可重放的历史事件")
 

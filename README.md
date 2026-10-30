@@ -38,6 +38,21 @@ TapeOut 上 2 万台矿机在挖 BEM，协议内建「反例审查」能永久�
 | **L2 分级广播** | 🔴 高（矿主，直接损失）→ 🟡 中（依赖 BEM 的下游）→ ⚪ 低（仅归档） |
 | **L3 状态追踪** | 广播后生命周期：撤销（终局）→ 下游迁移 → 坏币标记 |
 
+## 实时订阅 + 付费（产品闭环）
+
+连钱包订阅（上链）→ 引擎监听链上事件 → 命中订阅者 → 自动推送到 Telegram / Webhook。
+
+| 套餐 | 价格 | 权益 |
+|---|---|---|
+| 免费 Free | 0（只付 gas） | 全局告警 + 周报 |
+| Pro | 0.2 BEM/月 | 实时推送 + 体检 |
+| 企业 Enterprise | 定制（owner 定价） | API + 批量 |
+
+- **链上订阅记录 = 平台用户量凭证**（每个订阅者都有可验证的链上记录）
+- 合约 `contracts/AlertSubscription.sol`：订阅 / 续费 / 升级补差价 / 取消退款，X Layer 桥接 BEM 收款
+- 实时引擎 `engine.py`：WebSocket 订阅 BNB PodMining 的 Revoked / CounterexampleAdded，推送给有效订阅者
+- Telegram 绑定 bot `bot.py`：订阅页生成深链 → 用户点 Start → 自动绑定「钱包 ↔ Telegram」
+
 ## 文件结构
 
 ```
@@ -50,7 +65,17 @@ deweb-search/
 ├── blast_radius.json    下游 BEM 流向
 ├── graph_onchain.py     真实图谱构建器 → graph_onchain.json
 ├── graph_onchain.json   真实对象图（109 电路 / 4 处理器 / 12 被撤销 / 233 关系）
-├── graph.html           主界面：对象搜索 / 关系图 / 影响追溯 / 告警广播（四视图）
+├── graph.html           主界面：对象搜索 / 关系图 / 影响追溯 / 告警广播 / 实时告警
+├── subscribe.html       订阅页（连钱包 → 选套餐 → 绑定 Telegram）
+├── deploy.html          订阅合约部署页（含已编译字节码）
+├── contracts/           三套餐付费订阅合约 AlertSubscription.sol（Free/Pro/Enterprise）
+├── engine.py            实时告警引擎（WebSocket 事件订阅 → 富化 → 分级 → 推送）
+├── common.py            告警管线共享工具（推送 / 匹配 / 读 token / 过滤过期）
+├── bot.py               Telegram 订阅绑定 bot（/start 深链 → 写 subscriptions.json）
+├── notifier.py          轮询分发（读 alerts.json 推送，与 engine 二选一）
+├── watcher.py           链上事件监听（扫链写 alerts.json）
+├── brand/               海豚珍珠品牌资产（logo / favicon / 头像）
+├── deploy/              X Layer DeWEB 部署包
 ├── main-processors.json 官网 processor 全表（1456 台）
 ├── pod-*.json           官网挖矿配置/统计/题库/测试向量
 ├── graph.py / sites.json / graph.json  旧版（描述文本种子数据，已弃用）
@@ -69,6 +94,14 @@ python -m http.server 8899 # 起本地服务
 # 浏览器打开 http://localhost:8899/graph.html
 ```
 
+实时告警引擎（依赖 web3 + websockets，token 读 `.bot_token` 或环境变量 `TELEGRAM_BOT_TOKEN`）：
+
+```bash
+python engine.py --replay   # demo：重放最近一次撤销，演示「检测→推送」全流程
+python engine.py            # 常驻：WebSocket 实时监听并推送
+python bot.py               # 常驻：Telegram 订阅绑定 bot（/start 深链）
+```
+
 ## 真实对象图
 
 - **processor** 处理器 4（Behemoth P=6 / TapeOut P=1 / RefBench / Genesis，共 1456 台里只有前两台可挖矿）
@@ -82,4 +115,4 @@ python -m http.server 8899 # 起本地服务
 - 下游爆炸半径已接两层：**一级**（谁从被撤销矿机领走 BEM，`blast_radius.json`）+ **二级**（这些地址转给谁、进了哪个 DEX 池，`bem_flow.json`，实测 728 BEM 进了 PancakeSwap BEM/USDT 池）。但这是「从 9 个源地址出发的流出」，不是精确的逐币 taint 追踪（9 个地址还有其它合法矿机的 BEM，坏币被稀释了）。
 - 电路 → 容器 → tape:// 网站的映射还没接（需要 ERC-6551 容器派生 + SiteRegistry），这 12 台矿机大概率不托管网站，所以不是当前重点。
 - 意图解析是关键词启发式，非真 NLP。
-- 前端是本地静态页，未上链部署（DeWEB 部署需要钱包 + OKB，见 DEPLOY.md）。
+- 前端已部署到 X Layer DeWEB：`tape://11.2.4.tape`，官方网关 **https://11-2-4.tapekit.org/**（注意名字里的点换成横线，否则 SSL 报错）。本地预览用 `python -m http.server`。

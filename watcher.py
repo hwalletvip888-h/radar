@@ -14,6 +14,8 @@
 """
 import json, time, sys, urllib.request, os
 
+from common import PROCESSORS
+
 POD = "0x7E2E0DC66a3bD9103E69b766afA62d9f7b697b46"
 RPCS = ["https://tapeout.net/rpc", "https://bsc-dataseed.bnbchain.org/", "https://bsc-dataseed.binance.org/"]
 CHUNK = 50000
@@ -26,12 +28,6 @@ EVENTS = {
     "0xe52b422ce6b3cd73243c813dcbc499543bb477dd997c5d177b52c03562347ce5": "Revoked",
     "0x46ff8dc9a41ea4f2cc01bb124e2fc899797dbfa40dca6f4310aa69e9cfd2f3a2": "CounterexampleAdded",
     "0xc167316d53fbdff5ab2c8e45514426acd104c84efb1e239fe4b517ebb32ba88e": "Stopped",
-}
-
-PROCESSORS = {
-    "0x1f5cb4aeae1807bf60c3b9c0d8adbcc14e91f12c": "Behemoth",
-    "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c": "TapeOut",
-    "0xf4412c52ec3dd7fca5f518b6662f77b02bde28e": "RefBench",
 }
 
 
@@ -125,6 +121,19 @@ def build_alert(d):
             "title": f"⚠️ 新反例登记：{proc} #{d.get('circuitId')}",
             "detail": f"题 #{d.get('taskId')} 被补入新反例向量",
             "impact": "参考实现被加固",
+            "tx": d["tx"],
+            "block": d["block"],
+        }
+    if name == "Stopped":
+        m = get_miner(d.get("key")) or {}
+        proc = PROCESSORS.get((m.get("circuits") or "").lower(), (m.get("circuits") or "?")[:10])
+        return {
+            "ts": int(time.time() * 1000),
+            "type": "stopped",
+            "tier": "low",
+            "title": f"⏹️ 矿机停挖：{proc} #{m.get('circuitId', '?')}",
+            "detail": f"矿主主动停挖（by {d.get('by', '?')}）",
+            "impact": "算力退出，BEM 停止产出",
             "tx": d["tx"],
             "block": d["block"],
         }
