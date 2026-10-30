@@ -1,43 +1,51 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""海豚Radar · 电路/矿机安全评级（V1）。
+"""海豚Radar · 电路/矿机安全评级（V2 · 全量事件版）。
 
 评分模型（0-100，越高越安全）：
   - 被撤销（Revoked）→ 0 分，F 级（永久失格）
   - 被夺最优（Demoted）→ 75 分，B 级（失去设计溢价，基础挖矿继续）
-  - 正常 → 100 分，A 级
-
-等级：
-  A ≥90   B 75-89   C 60-74   D 40-59   F <40
+  - 停挖（Stopped）→ 单独统计（事件只带 key，无 circuitId，不逐电路评级）
+  - 正常 → 100 分，A 级（= 矿机总数 - 撤销 - 夺最优）
 
 数据源：
-  - graph_onchain.json（109 个安全相关电路 + 撤销标记）
-  - real_chain_data.json（Demoted 事件 → 被夺最优的电路）
+  - real_chain_data.json（全量事件：Revoked/Demoted/Stopped/CounterexampleAdded）
+  - graph_onchain.json（撤销电路的名字/债务/交易哈希等富化信息）
 
-产出 ratings.json。未来扩展：停挖、背答案作弊（官方 80 电路）、假冒代币标记。
-
-用法：python rating.py
+产出 ratings.json。相比 V1（只 109 个电路），V2 覆盖全量「有安全信号的电路」。
 """
 import json
 import os
 import time
+from collections import Counter
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-GRAPH_FILE = os.path.join(BASE, "graph_onchain.json")
 EVENTS_FILE = os.path.join(BASE, "real_chain_data.json")
+GRAPH_FILE = os.path.join(BASE, "graph_onchain.json")
 OUT_FILE = os.path.join(BASE, "ratings.json")
 
-# 评分模型 V1
+MINER_COUNT = 20567  # PodMining minerCount()，全网矿机总数
+
 MODEL = {
-    "version": "v1",
+    "version": "v2",
     "score_range": "0-100（越高越安全）",
     "weights": {
-        "revoked": -100,   # 被撤销 → 直接 0 分
-        "demoted": -25,    # 被夺最优 → 扣 25 分
+        "revoked": -100,   # 被撤销 → 0 分
+        "demoted": -25,    # 被夺最优 → 75 分
     },
 }
 
 GRADE_BOUNDS = [(90, "A"), (75, "B"), (60, "C"), (40, "D"), (0, "F")]
+
+PROCESSORS = {
+    "0x1f5cb4aeae1807bf60c3b9c0d8adbcc14e91f12c": "Behemoth",
+    "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c": "TapeOut",
+    "0xf4412c52ec3dd7fca5f518b6662f77b02bde28e": "RefBench",
+}
+
+
+def proc_name(addr):
+    return PROCESSORS.get(addr.lower(), (addr or "?")[:10])
 
 
 def grade(score):
@@ -48,77 +56,98 @@ def grade(score):
 
 
 def main():
-    g = json.load(open(GRAPH_FILE, encoding="utf-8"))
     rc = json.load(open(EVENTS_FILE, encoding="utf-8"))
+    g = json.load(open(GRAPH_FILE, encoding="utf-8"))
 
-    circuits = [n for n in g["nodes"] if n.get("type") == "circuit"]
+    events = rc.get("events", [])
+    miners = rc.get("miners", {})
 
-    # 被夺最优的电路 ID 集合（Demoted 事件带 circuitId）
-    demoted_ids = set()
-    for e in rc.get("events", []):
+    # 1) 被撤销的电路：从 miners 字典（key → circuitId）+ graph 富化
+    revoked = {}
+    rev_keys = {e["key"] for e in events if e.get("event") == "Revoked"}
+    # graph 里撤销电路的富化信息（name/debtBEM/tx/challenger）
+    graph_revoked = {n.get("num"): n for n in g["nodes"] if n.get("type") == "circuit" and n.get("status") == "revoked"}
+    for key in rev_keys:
+        m = miners.get(key, {})
+        cid = m.get("circuitId")
+        if cid is not None:
+            enriched = graph_revoked.get(cid, {})
+            revoked[cid] = {
+                "circuitId": cid,
+                "processor": enriched.get("processor") or ("0x" + m.get("circuits", "0x")[-40:]),
+                "taskId": enriched.get("taskId") or m.get("taskId"),
+                "gateCount": enriched.get("gateCount"),
+                "debtBEM": enriched.get("debtBEM"),
+                "tx": enriched.get("tx"),
+                "challenger": enriched.get("challenger"),
+                "registrant": enriched.get("registrant") or m.get("registrant"),
+            }
+
+    # 2) 被夺最优的电路：Demoted 事件直接带 circuitId（去重）
+    demoted = {}
+    for e in events:
         if e.get("event") == "Demoted" and e.get("circuitId") is not None:
-            demoted_ids.add(int(e["circuitId"]))
+            cid = int(e["circuitId"])
+            if cid in revoked:
+                continue  # 已撤销的优先记撤销
+            demoted[cid] = {
+                "circuitId": cid,
+                "processor": proc_name("0x" + e.get("circuits", "0x")[-40:]),
+                "processorAddr": "0x" + e.get("circuits", "0x")[-40:],
+                "taskId": e.get("taskId"),
+            }
 
+    # 3) 停挖：Stopped 事件只带 key，无 circuitId，单独统计
+    stopped_keys = {e["key"] for e in events if e.get("event") == "Stopped"}
+    stopped_count = len(stopped_keys)
+
+    # 组装评级
     ratings = []
-    for c in circuits:
-        num = c.get("num")
-        is_revoked = c.get("status") == "revoked" or c.get("state") == "revoked"
-        is_demoted = num in demoted_ids
-
-        if is_revoked:
-            score = 0
-        elif is_demoted:
-            score = 75
-        else:
-            score = 100
-
-        risks = []
-        if is_revoked:
-            risks.append("被撤销（反例举证成立，永久失格）")
-        if is_demoted:
-            risks.append("被夺最优（设计溢价被收回）")
-
+    for cid, info in revoked.items():
         ratings.append({
-            "circuitId": num,
-            "name": c.get("name"),
-            "processor": c.get("processor"),
-            "taskId": c.get("taskId"),
-            "gateCount": c.get("gateCount"),
-            "score": score,
-            "grade": grade(score),
-            "status": "revoked" if is_revoked else ("demoted" if is_demoted else "ok"),
-            "risk": risks,
-            "debtBEM": c.get("debtBEM"),
-            "registrant": c.get("registrant"),
-            "tx": c.get("tx"),
+            **info,
+            "score": 0, "grade": "F", "status": "revoked",
+            "risk": ["被撤销（反例举证成立，永久失格）"],
+        })
+    for cid, info in demoted.items():
+        ratings.append({
+            **info,
+            "score": 75, "grade": "B", "status": "demoted",
+            "risk": ["被夺最优（设计溢价被收回）"],
         })
 
-    # 排序：低分（危险）在前
     ratings.sort(key=lambda r: (r["score"], r["circuitId"]))
 
-    # 汇总
-    from collections import Counter
-    summary = Counter(r["grade"] for r in ratings)
-    revoked_count = sum(1 for r in ratings if r["status"] == "revoked")
-    demoted_count = sum(1 for r in ratings if r["status"] == "demoted")
+    revoked_count = len(revoked)
+    demoted_count = len(demoted)
+    # 健康矿机估算 = 全网矿机 - 撤销 - 夺最优 - 停挖（粗略，可能有重叠）
+    healthy_estimate = max(0, MINER_COUNT - revoked_count - demoted_count)
+
+    summary = {
+        "revoked": revoked_count,
+        "demoted": demoted_count,
+        "stopped_events": stopped_count,
+        "healthy_estimate": healthy_estimate,
+        "by_grade": {
+            "A": healthy_estimate, "B": demoted_count, "F": revoked_count,
+            "C": 0, "D": 0,
+        },
+    }
 
     out = {
         "generated_at": int(time.time()),
         "model": MODEL,
-        "total_circuits": len(ratings),
-        "summary": {
-            "revoked": revoked_count,
-            "demoted": demoted_count,
-            "ok": len(ratings) - revoked_count - demoted_count,
-            "by_grade": {g: summary.get(g, 0) for g in ["A", "B", "C", "D", "F"]},
-        },
+        "rated_circuits": len(ratings),
+        "total_miners": MINER_COUNT,
+        "summary": summary,
         "ratings": ratings,
     }
 
     json.dump(out, open(OUT_FILE, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    print(f"[rating] 已评级 {len(ratings)} 个电路 → {OUT_FILE}")
-    print(f"[rating] 撤销 {revoked_count} · 夺最优 {demoted_count} · 正常 {len(ratings)-revoked_count-demoted_count}")
-    print(f"[rating] 等级分布: {dict(summary)}")
+    print(f"[rating] V2 全量事件版：评级 {len(ratings)} 个电路（撤销 {revoked_count} + 夺最优 {demoted_count}）")
+    print(f"[rating] 停挖事件 {stopped_count} 条（无 circuitId，仅统计）")
+    print(f"[rating] 健康矿机估算 ~{healthy_estimate}（{MINER_COUNT} - 撤销 - 夺最优）")
+    print(f"[rating] 等级分布: A~{healthy_estimate} / B {demoted_count} / F {revoked_count}")
 
 
 if __name__ == "__main__":
