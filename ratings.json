@@ -1,0 +1,1772 @@
+{
+ "generated_at": 1793375308,
+ "model": {
+  "version": "v1",
+  "score_range": "0-100（越高越安全）",
+  "weights": {
+   "revoked": -100,
+   "demoted": -25
+  }
+ },
+ "total_circuits": 109,
+ "summary": {
+  "revoked": 12,
+  "demoted": 97,
+  "ok": 0,
+  "by_grade": {
+   "A": 0,
+   "B": 97,
+   "C": 0,
+   "D": 0,
+   "F": 12
+  }
+ },
+ "ratings": [
+  {
+   "circuitId": 1965,
+   "name": "Circuit Behemoth #1965",
+   "processor": "Behemoth",
+   "taskId": 260,
+   "gateCount": 79,
+   "score": 0,
+   "grade": "F",
+   "status": "revoked",
+   "risk": [
+    "被撤销（反例举证成立，永久失格）",
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": 3384.3952,
+   "registrant": "0xdad19177128fc63b9de5aac7c9afb08ede8830dd",
+   "tx": "0x8e5d67c396127d2ccca09fa58eab3ae985ea1babf739ca1f29333b92dcba9c0d"
+  },
+  {
+   "circuitId": 2247,
+   "name": "Circuit TapeOut #2247",
+   "processor": "TapeOut",
+   "taskId": 228,
+   "gateCount": 12,
+   "score": 0,
+   "grade": "F",
+   "status": "revoked",
+   "risk": [
+    "被撤销（反例举证成立，永久失格）",
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": 2.1359,
+   "registrant": "0x216566d25be326cb7ae09ba37b485e644e89a36c",
+   "tx": "0x2234e26942caae8b6b4f1c6ea9592459e7dba043ccf2589cdeb63e4e82b9bb14"
+  },
+  {
+   "circuitId": 2479,
+   "name": "Circuit TapeOut #2479",
+   "processor": "TapeOut",
+   "taskId": 16,
+   "gateCount": 28,
+   "score": 0,
+   "grade": "F",
+   "status": "revoked",
+   "risk": [
+    "被撤销（反例举证成立，永久失格）"
+   ],
+   "debtBEM": 4.9771,
+   "registrant": "0x20afe109fdfedfbbe9b24e85c980b9083ae08a6a",
+   "tx": "0xb5fe51f74c4780d54e54c8baa583637b1670bb245ae676dc426948b936b1c46c"
+  },
+  {
+   "circuitId": 2483,
+   "name": "Circuit TapeOut #2483",
+   "processor": "TapeOut",
+   "taskId": 16,
+   "gateCount": 28,
+   "score": 0,
+   "grade": "F",
+   "status": "revoked",
+   "risk": [
+    "被撤销（反例举证成立，永久失格）"
+   ],
+   "debtBEM": 4.9777,
+   "registrant": "0x20afe109fdfedfbbe9b24e85c980b9083ae08a6a",
+   "tx": "0x03ef793f019369728e48f363ab197039c9d1599fcbfe0fe8292c75260018aac3"
+  },
+  {
+   "circuitId": 7555,
+   "name": "Circuit TapeOut #7555",
+   "processor": "TapeOut",
+   "taskId": 18,
+   "gateCount": 10,
+   "score": 0,
+   "grade": "F",
+   "status": "revoked",
+   "risk": [
+    "被撤销（反例举证成立，永久失格）"
+   ],
+   "debtBEM": 1.7778,
+   "registrant": "0xef66404ff59e425a3ff153475af63322c2b81939",
+   "tx": "0xaf7b1a233be1ebf4a7fa89957bd875676d4288299ee7f6e4571eb3a79cb29f9e"
+  },
+  {
+   "circuitId": 9101,
+   "name": "Circuit TapeOut #9101",
+   "processor": "TapeOut",
+   "taskId": 6,
+   "gateCount": 5,
+   "score": 0,
+   "grade": "F",
+   "status": "revoked",
+   "risk": [
+    "被撤销（反例举证成立，永久失格）"
+   ],
+   "debtBEM": 1.4538,
+   "registrant": "0xef66404ff59e425a3ff153475af63322c2b81939",
+   "tx": "0xcd117ef20a79516a07b170e7153109f1b7a174589e455feff5cfb522a2f42ac6"
+  },
+  {
+   "circuitId": 11931,
+   "name": "Circuit TapeOut #11931",
+   "processor": "TapeOut",
+   "taskId": 260,
+   "gateCount": 79,
+   "score": 0,
+   "grade": "F",
+   "status": "revoked",
+   "risk": [
+    "被撤销（反例举证成立，永久失格）"
+   ],
+   "debtBEM": 564.0659,
+   "registrant": "0x98a5dc75815fa4e8f0979306fa2e16280f21de51",
+   "tx": "0x8dd04405720e7c6c66d6f5ea473b4af034cc4f8a25f15f9ad08d846f082b1d87"
+  },
+  {
+   "circuitId": 11989,
+   "name": "Circuit TapeOut #11989",
+   "processor": "TapeOut",
+   "taskId": 146,
+   "gateCount": 22,
+   "score": 0,
+   "grade": "F",
+   "status": "revoked",
+   "risk": [
+    "被撤销（反例举证成立，永久失格）"
+   ],
+   "debtBEM": 71.2056,
+   "registrant": "0xc96992e37a63ae73a082d998a364ec8925df6834",
+   "tx": "0xacaac1ccdba81f80e2804b41909039d91860abe239f40ed72db7746ec70a86eb"
+  },
+  {
+   "circuitId": 12008,
+   "name": "Circuit TapeOut #12008",
+   "processor": "TapeOut",
+   "taskId": 260,
+   "gateCount": 76,
+   "score": 0,
+   "grade": "F",
+   "status": "revoked",
+   "risk": [
+    "被撤销（反例举证成立，永久失格）"
+   ],
+   "debtBEM": 565.5076,
+   "registrant": "0xc96992e37a63ae73a082d998a364ec8925df6834",
+   "tx": "0x9221ec163a5faa1ac0cddc9da52c4b835a7cc631b331c8cc79306862c524d296"
+  },
+  {
+   "circuitId": 12220,
+   "name": "Circuit TapeOut #12220",
+   "processor": "TapeOut",
+   "taskId": 153,
+   "gateCount": 51,
+   "score": 0,
+   "grade": "F",
+   "status": "revoked",
+   "risk": [
+    "被撤销（反例举证成立，永久失格）"
+   ],
+   "debtBEM": 9.0666,
+   "registrant": "0x7b6a52d504d18b39656a5508b7a0bc67526ea60c",
+   "tx": "0xe31c8d5a01a9f922a379b542fda85c63c93a74363c9f7e6d79e97a89926a1aa9"
+  },
+  {
+   "circuitId": 12270,
+   "name": "Circuit TapeOut #12270",
+   "processor": "TapeOut",
+   "taskId": 153,
+   "gateCount": 50,
+   "score": 0,
+   "grade": "F",
+   "status": "revoked",
+   "risk": [
+    "被撤销（反例举证成立，永久失格）"
+   ],
+   "debtBEM": 59.459,
+   "registrant": "0x7b6a52d504d18b39656a5508b7a0bc67526ea60c",
+   "tx": "0x1b9d12006d02a36d2e0ef1078609487bbae5deedea06c40858ad7e327e696ee3"
+  },
+  {
+   "circuitId": 13945,
+   "name": "Circuit TapeOut #13945",
+   "processor": "TapeOut",
+   "taskId": 146,
+   "gateCount": 24,
+   "score": 0,
+   "grade": "F",
+   "status": "revoked",
+   "risk": [
+    "被撤销（反例举证成立，永久失格）"
+   ],
+   "debtBEM": 7.5702,
+   "registrant": "0x5f0976aa502ed6b41c79065103ec85325c7b1f07",
+   "tx": "0x390b9b7383cc3ebe3af42b22d1efe1b5e52cc1cd1473f3b979596f49ba4bd67a"
+  },
+  {
+   "circuitId": 1060,
+   "name": "Circuit Behemoth #1060",
+   "processor": "Behemoth",
+   "taskId": 259,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1081,
+   "name": "Circuit Behemoth #1081",
+   "processor": "Behemoth",
+   "taskId": 142,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1083,
+   "name": "Circuit Behemoth #1083",
+   "processor": "Behemoth",
+   "taskId": 260,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1154,
+   "name": "Circuit Behemoth #1154",
+   "processor": "Behemoth",
+   "taskId": 145,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1211,
+   "name": "Circuit Behemoth #1211",
+   "processor": "Behemoth",
+   "taskId": 154,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1229,
+   "name": "Circuit Behemoth #1229",
+   "processor": "Behemoth",
+   "taskId": 39,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1250,
+   "name": "Circuit Behemoth #1250",
+   "processor": "Behemoth",
+   "taskId": 42,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1461,
+   "name": "Circuit Behemoth #1461",
+   "processor": "Behemoth",
+   "taskId": 72,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1486,
+   "name": "Circuit Behemoth #1486",
+   "processor": "Behemoth",
+   "taskId": 145,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1497,
+   "name": "Circuit Behemoth #1497",
+   "processor": "Behemoth",
+   "taskId": 144,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1506,
+   "name": "Circuit Behemoth #1506",
+   "processor": "Behemoth",
+   "taskId": 93,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1566,
+   "name": "Circuit Behemoth #1566",
+   "processor": "Behemoth",
+   "taskId": 120,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1630,
+   "name": "Circuit Behemoth #1630",
+   "processor": "Behemoth",
+   "taskId": 94,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1708,
+   "name": "Circuit Behemoth #1708",
+   "processor": "Behemoth",
+   "taskId": 150,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1714,
+   "name": "Circuit Behemoth #1714",
+   "processor": "Behemoth",
+   "taskId": 135,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1727,
+   "name": "Circuit Behemoth #1727",
+   "processor": "Behemoth",
+   "taskId": 205,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1728,
+   "name": "Circuit Behemoth #1728",
+   "processor": "Behemoth",
+   "taskId": 152,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1788,
+   "name": "Circuit Behemoth #1788",
+   "processor": "Behemoth",
+   "taskId": 42,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1792,
+   "name": "Circuit Behemoth #1792",
+   "processor": "Behemoth",
+   "taskId": 66,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1852,
+   "name": "Circuit Behemoth #1852",
+   "processor": "Behemoth",
+   "taskId": 61,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1885,
+   "name": "Circuit Behemoth #1885",
+   "processor": "Behemoth",
+   "taskId": 142,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1887,
+   "name": "Circuit Behemoth #1887",
+   "processor": "Behemoth",
+   "taskId": 174,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1898,
+   "name": "Circuit Behemoth #1898",
+   "processor": "Behemoth",
+   "taskId": 70,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1904,
+   "name": "Circuit Behemoth #1904",
+   "processor": "Behemoth",
+   "taskId": 256,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1920,
+   "name": "Circuit Behemoth #1920",
+   "processor": "Behemoth",
+   "taskId": 35,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1934,
+   "name": "Circuit Behemoth #1934",
+   "processor": "Behemoth",
+   "taskId": 161,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1966,
+   "name": "Circuit Behemoth #1966",
+   "processor": "Behemoth",
+   "taskId": 145,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1970,
+   "name": "Circuit Behemoth #1970",
+   "processor": "Behemoth",
+   "taskId": 173,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1977,
+   "name": "Circuit Behemoth #1977",
+   "processor": "Behemoth",
+   "taskId": 195,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1978,
+   "name": "Circuit Behemoth #1978",
+   "processor": "Behemoth",
+   "taskId": 146,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 1997,
+   "name": "Circuit Behemoth #1997",
+   "processor": "Behemoth",
+   "taskId": 34,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 2001,
+   "name": "Circuit Behemoth #2001",
+   "processor": "Behemoth",
+   "taskId": 209,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 2009,
+   "name": "Circuit Behemoth #2009",
+   "processor": "Behemoth",
+   "taskId": 159,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 2019,
+   "name": "Circuit Behemoth #2019",
+   "processor": "Behemoth",
+   "taskId": 142,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 2020,
+   "name": "Circuit Behemoth #2020",
+   "processor": "Behemoth",
+   "taskId": 48,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 2022,
+   "name": "Circuit Behemoth #2022",
+   "processor": "Behemoth",
+   "taskId": 136,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 2029,
+   "name": "Circuit Behemoth #2029",
+   "processor": "Behemoth",
+   "taskId": 153,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 2039,
+   "name": "Circuit Behemoth #2039",
+   "processor": "Behemoth",
+   "taskId": 143,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 3112,
+   "name": "Circuit TapeOut #3112",
+   "processor": "TapeOut",
+   "taskId": 72,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 3162,
+   "name": "Circuit TapeOut #3162",
+   "processor": "TapeOut",
+   "taskId": 145,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 3217,
+   "name": "Circuit TapeOut #3217",
+   "processor": "TapeOut",
+   "taskId": 260,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 3314,
+   "name": "Circuit TapeOut #3314",
+   "processor": "TapeOut",
+   "taskId": 259,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 3375,
+   "name": "Circuit TapeOut #3375",
+   "processor": "TapeOut",
+   "taskId": 260,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 3688,
+   "name": "Circuit TapeOut #3688",
+   "processor": "TapeOut",
+   "taskId": 70,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 3936,
+   "name": "Circuit TapeOut #3936",
+   "processor": "TapeOut",
+   "taskId": 144,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 4487,
+   "name": "Circuit TapeOut #4487",
+   "processor": "TapeOut",
+   "taskId": 29,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 4709,
+   "name": "Circuit TapeOut #4709",
+   "processor": "TapeOut",
+   "taskId": 195,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 5436,
+   "name": "Circuit TapeOut #5436",
+   "processor": "TapeOut",
+   "taskId": 72,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 5798,
+   "name": "Circuit TapeOut #5798",
+   "processor": "TapeOut",
+   "taskId": 42,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 6429,
+   "name": "Circuit TapeOut #6429",
+   "processor": "TapeOut",
+   "taskId": 201,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 6469,
+   "name": "Circuit TapeOut #6469",
+   "processor": "TapeOut",
+   "taskId": 144,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 6517,
+   "name": "Circuit TapeOut #6517",
+   "processor": "TapeOut",
+   "taskId": 143,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 9187,
+   "name": "Circuit TapeOut #9187",
+   "processor": "TapeOut",
+   "taskId": 48,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 9415,
+   "name": "Circuit TapeOut #9415",
+   "processor": "TapeOut",
+   "taskId": 150,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 9445,
+   "name": "Circuit TapeOut #9445",
+   "processor": "TapeOut",
+   "taskId": 93,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 9694,
+   "name": "Circuit TapeOut #9694",
+   "processor": "TapeOut",
+   "taskId": 135,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 9791,
+   "name": "Circuit TapeOut #9791",
+   "processor": "TapeOut",
+   "taskId": 218,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 10092,
+   "name": "Circuit TapeOut #10092",
+   "processor": "TapeOut",
+   "taskId": 210,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 10116,
+   "name": "Circuit TapeOut #10116",
+   "processor": "TapeOut",
+   "taskId": 158,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 10216,
+   "name": "Circuit TapeOut #10216",
+   "processor": "TapeOut",
+   "taskId": 94,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 10218,
+   "name": "Circuit TapeOut #10218",
+   "processor": "TapeOut",
+   "taskId": 42,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 10267,
+   "name": "Circuit TapeOut #10267",
+   "processor": "TapeOut",
+   "taskId": 152,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 10501,
+   "name": "Circuit TapeOut #10501",
+   "processor": "TapeOut",
+   "taskId": 170,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 10580,
+   "name": "Circuit TapeOut #10580",
+   "processor": "TapeOut",
+   "taskId": 53,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 10728,
+   "name": "Circuit TapeOut #10728",
+   "processor": "TapeOut",
+   "taskId": 256,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 10835,
+   "name": "Circuit TapeOut #10835",
+   "processor": "TapeOut",
+   "taskId": 142,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 10905,
+   "name": "Circuit TapeOut #10905",
+   "processor": "TapeOut",
+   "taskId": 70,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 11059,
+   "name": "Circuit TapeOut #11059",
+   "processor": "TapeOut",
+   "taskId": 66,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 11101,
+   "name": "Circuit TapeOut #11101",
+   "processor": "TapeOut",
+   "taskId": 136,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 11109,
+   "name": "Circuit TapeOut #11109",
+   "processor": "TapeOut",
+   "taskId": 161,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 11334,
+   "name": "Circuit TapeOut #11334",
+   "processor": "TapeOut",
+   "taskId": 39,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 11393,
+   "name": "Circuit TapeOut #11393",
+   "processor": "TapeOut",
+   "taskId": 41,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 11420,
+   "name": "Circuit TapeOut #11420",
+   "processor": "TapeOut",
+   "taskId": 154,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 11878,
+   "name": "Circuit TapeOut #11878",
+   "processor": "TapeOut",
+   "taskId": 121,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 11924,
+   "name": "Circuit TapeOut #11924",
+   "processor": "TapeOut",
+   "taskId": 115,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 11938,
+   "name": "Circuit TapeOut #11938",
+   "processor": "TapeOut",
+   "taskId": 145,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 11942,
+   "name": "Circuit TapeOut #11942",
+   "processor": "TapeOut",
+   "taskId": 174,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 12032,
+   "name": "Circuit TapeOut #12032",
+   "processor": "TapeOut",
+   "taskId": 196,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 12035,
+   "name": "Circuit TapeOut #12035",
+   "processor": "TapeOut",
+   "taskId": 158,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 12036,
+   "name": "Circuit TapeOut #12036",
+   "processor": "TapeOut",
+   "taskId": 143,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 12047,
+   "name": "Circuit TapeOut #12047",
+   "processor": "TapeOut",
+   "taskId": 195,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 12052,
+   "name": "Circuit TapeOut #12052",
+   "processor": "TapeOut",
+   "taskId": 146,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 12139,
+   "name": "Circuit TapeOut #12139",
+   "processor": "TapeOut",
+   "taskId": 34,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 12154,
+   "name": "Circuit TapeOut #12154",
+   "processor": "TapeOut",
+   "taskId": 209,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 12227,
+   "name": "Circuit TapeOut #12227",
+   "processor": "TapeOut",
+   "taskId": 153,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 12235,
+   "name": "Circuit TapeOut #12235",
+   "processor": "TapeOut",
+   "taskId": 159,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 12248,
+   "name": "Circuit TapeOut #12248",
+   "processor": "TapeOut",
+   "taskId": 35,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 12330,
+   "name": "Circuit TapeOut #12330",
+   "processor": "TapeOut",
+   "taskId": 173,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 12351,
+   "name": "Circuit TapeOut #12351",
+   "processor": "TapeOut",
+   "taskId": 142,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 12440,
+   "name": "Circuit TapeOut #12440",
+   "processor": "TapeOut",
+   "taskId": 141,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 12446,
+   "name": "Circuit TapeOut #12446",
+   "processor": "TapeOut",
+   "taskId": 205,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 12448,
+   "name": "Circuit TapeOut #12448",
+   "processor": "TapeOut",
+   "taskId": 33,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 12452,
+   "name": "Circuit TapeOut #12452",
+   "processor": "TapeOut",
+   "taskId": 61,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 12474,
+   "name": "Circuit TapeOut #12474",
+   "processor": "TapeOut",
+   "taskId": 151,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 12654,
+   "name": "Circuit TapeOut #12654",
+   "processor": "TapeOut",
+   "taskId": 60,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 12797,
+   "name": "Circuit TapeOut #12797",
+   "processor": "TapeOut",
+   "taskId": 117,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  },
+  {
+   "circuitId": 17082,
+   "name": "Circuit TapeOut #17082",
+   "processor": "TapeOut",
+   "taskId": 146,
+   "gateCount": null,
+   "score": 75,
+   "grade": "B",
+   "status": "demoted",
+   "risk": [
+    "被夺最优（设计溢价被收回）"
+   ],
+   "debtBEM": null,
+   "registrant": null,
+   "tx": null
+  }
+ ]
+}
