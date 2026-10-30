@@ -71,6 +71,7 @@ deweb-search/
 ├── deploy/              X Layer DeWEB 部署包（index.html + subscribe.html + brand/ + 数据）
 ├── brand/               海豚珍珠品牌资产（logo / favicon / 头像）
 ├── DEMO.md / DEMO_VIDEO_BRIEF.md / DEMO_STORYBOARD.md   演示脚本 + 视频简报
+├── ROADMAP.md           长期路线图（定位：TapeOut 链上安全数据层）
 └── vendor/              本地化的 vis-network（离线/上链也能跑）
 ```
 
