@@ -75,10 +75,16 @@ async function deploy() {
       } else throw sw;
     }
 
+    // 确认确实切到了 X Layer
+    const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+    if (chainId !== '0xc4') {
+      throw new Error(`当前网络 chainId=${chainId}，不是 X Layer(0xc4)。请在钱包里手动切到 X Layer 后重点部署。`);
+    }
+
     status('请在弹出的钱包里确认「部署合约」…');
     const txHash = await window.ethereum.request({
       method: 'eth_sendTransaction',
-      params: [{ from, data: BYTECODE }],
+      params: [{ from, data: BYTECODE, gas: '0x2dc6c0' }],  // 显式 gas 300万（预估146万，留余量，绕过钱包预估失败）
     });
 
     status(`✅ 部署交易已发送！\n交易哈希：${txHash}\n\n等上链后（10~30秒），把交易哈希发我，我读回合约地址。`, 'ok');
