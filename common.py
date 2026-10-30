@@ -16,6 +16,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 SUBS_FILE = os.path.join(BASE, "subscriptions.json")
 
 TIER_EMOJI = {"high": "🔴", "mid": "🟡", "low": "⚪"}
+TIER_LABEL = {"high": "高危", "mid": "中等", "low": "低危"}
 TYPE_LABEL = {"revoked": "矿机被撤销", "counterexample": "新反例登记", "stopped": "矿机停挖"}
 
 # 处理器合约地址 → 显示名
@@ -86,7 +87,8 @@ def match(alert, filters):
 
 def send_telegram(token, chat_id, text):
     url = f"https://api.telegram.org/bot{token}/sendMessage"
-    body = json.dumps({"chat_id": chat_id, "text": text, "disable_web_page_preview": True}).encode()
+    body = json.dumps({"chat_id": chat_id, "text": text,
+                       "parse_mode": "HTML", "disable_web_page_preview": True}).encode()
     req = urllib.request.Request(url, data=body, headers={"Content-Type": "application/json"})
     with urllib.request.urlopen(req, timeout=20) as r:
         return json.loads(r.read().decode())
@@ -99,11 +101,46 @@ def send_webhook(url, payload):
         return r.status
 
 
+def _esc(s):
+    """HTML 转义，防止链上/用户内容里的 <>& 破坏排版"""
+    return (str(s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+
+
+def _short(a, head=6, tail=4):
+    """地址/哈希缩写：0x1234…5678"""
+    a = str(a or "")
+    return a if len(a) <= head + tail + 2 else f"{a[:head]}…{a[-tail:]}"
+
+
 def format_alert(alert):
-    return (f"{TIER_EMOJI.get(alert.get('tier'), '⚪')} {alert.get('title', '')}\n"
-            f"{alert.get('detail', '')}\n"
-            f"影响：{alert.get('impact', '')}\n"
-            f"交易：https://bscscan.com/tx/{alert.get('tx', '')}")
+    """生成 Telegram HTML 格式的告警消息（结构化排版）"""
+    tier = alert.get("tier", "low")
+    title = _esc(alert.get("title", ""))
+    detail = _esc(alert.get("detail", ""))
+    impact = _esc(alert.get("impact", ""))
+    tx = alert.get("tx", "")
+    block = alert.get("block")
+    owner = alert.get("owner")
+    challenger = alert.get("challenger")
+
+    L = [f"<b>{title}</b>"]
+    if detail:
+        L.append(f"<i>{detail}</i>")
+    L.append("")
+    L.append(f"📌 影响：{impact}")
+    if owner:
+        L.append(f"👤 矿主：<code>{_esc(_short(owner))}</code>")
+    if challenger:
+        L.append(f"⚔️ 举证：<code>{_esc(_short(challenger))}</code>")
+    if tx or block:
+        L.append("")
+        if tx:
+            L.append(f"🔗 <a href=\"https://bscscan.com/tx/{_esc(tx)}\">查看链上交易</a>")
+        if block:
+            L.append(f"▫️ 区块 #{block}")
+    L.append("")
+    L.append(f"🐬 海豚Radar · {TIER_EMOJI.get(tier, '⚪')} {TIER_LABEL.get(tier, '')}".strip())
+    return "\n".join(L)
 
 
 def push_alert(alert, subscribers, tg_token):
