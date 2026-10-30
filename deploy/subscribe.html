@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>订阅推送 · 海豚Radar</title>
+<meta name="description" content="海豚Radar 订阅推送：连接钱包，选择套餐，绑定 Telegram，矿机被撤销 / 新反例第一时间推送到你。">
+<meta name="theme-color" content="#0f0c17">
+<meta name="color-scheme" content="dark">
+<link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="brand/favicon-64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="brand/apple-touch-icon.png">
+<style>
+/* ===== 设计令牌（与 index.html 同一套品牌色） ===== */
+:root{
+  --bg:#0f0c17;
+  --panel:#16111f;--panel-2:#1b1527;--panel-3:#272139;
+  --line:rgba(206,194,240,.09);--line-2:rgba(206,194,240,.16);--line-3:rgba(206,194,240,.28);
+  --text:#F5F2FB;--text-2:#CEC7DF;--muted:#968EAE;--faint:#6D6686;
+  --pearl:#F7F5FB;--lavender:#A08CD3;--lav-hi:#C3B4F0;--pink:#F0BDD8;--ice:#C4E8F5;--champagne:#FBF2D3;--ink:#292338;
+  --danger:#FF7389;--danger-bg:rgba(255,115,137,.09);--danger-line:rgba(255,115,137,.32);
+  --warn:#F6C66F;--warn-bg:rgba(246,198,111,.09);--warn-line:rgba(246,198,111,.30);
+  --ok:#74E2BF;--ok-bg:rgba(116,226,191,.09);--ok-line:rgba(116,226,191,.28);
+  --holo:linear-gradient(110deg,#F6C8DE 0%,#D9C6F4 28%,#AE9DE8 52%,#C2E6F6 80%,#EEF9FC 100%);
+  --r-lg:20px;--r:14px;
+  --shadow:0 20px 50px -24px rgba(0,0,0,.7);
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);font:14px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+[hidden]{display:none!important}
+h1,h2,h3,p{margin:0}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+button:disabled{cursor:default;opacity:.55}
+.mono{font-family:var(--mono)}
+/* ===== 顶栏 ===== */
+.nav{position:sticky;top:0;z-index:40;background:rgba(15,12,23,.74);-webkit-backdrop-filter:saturate(150%) blur(16px);backdrop-filter:saturate(150%) blur(16px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 20px;height:60px;display:flex;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;margin-right:auto}
+.brand-mark{width:40px;height:auto}
+.brand-name{font-size:18px;font-weight:800;letter-spacing:.01em;white-space:nowrap}
+.brand-name b{background:var(--holo);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+/* ===== 按钮 ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 16px;border-radius:12px;border:1px solid transparent;font-weight:700;font-size:14px;white-space:nowrap;transition:transform .15s ease,box-shadow .2s ease,background-color .2s,border-color .2s}
+.btn-holo{background:var(--holo);background-size:170% 100%;background-position:0 0;color:#1B1527;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 8px 26px -10px rgba(174,157,232,.7)}
+.btn-holo:hover{transform:translateY(-1px)}
+.btn-ghost{background:rgba(255,255,255,.04);border-color:var(--line-2);color:var(--text)}
+.btn-ghost:hover{border-color:var(--line-3)}
+.btn-lg{height:48px;padding:0 22px;font-size:15px;border-radius:14px}
+.btn-sm{height:32px;padding:0 12px;font-size:12.5px;border-radius:9px;gap:6px}
+.btn-block{width:100%}
+/* ===== 主体 ===== */
+.main{max-width:1080px;margin:0 auto;padding:40px 20px 80px}
+.hero{text-align:center;margin:12px 0 32px}
+.hero h1{font-size:32px;font-weight:800;letter-spacing:-.01em;margin:8px 0}
+.hero p{color:var(--muted);font-size:15px;max-width:640px;margin:0 auto}
+.card{background:var(--panel-2);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;margin-bottom:16px}
+.card h2{font-size:15px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.step{font-size:11px;color:var(--lav-hi);border:1px solid var(--line-2);border-radius:999px;padding:2px 8px;font-weight:700;letter-spacing:.05em}
+/* ===== 钱包 ===== */
+.wallet-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.addr{background:var(--panel-3);border:1px solid var(--line-2);border-radius:var(--r);padding:10px 14px;font-family:var(--mono);font-size:13px;word-break:break-all;color:var(--text-2);margin-top:12px}
+/* ===== 套餐 ===== */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tier{position:relative;border:1px solid var(--line-2);border-radius:var(--r);padding:18px 16px;cursor:pointer;text-align:left;background:var(--panel-3);transition:border-color .2s,box-shadow .2s,transform .15s}
+.tier:hover{transform:translateY(-2px);border-color:var(--line-3)}
+.tier.on{border-color:var(--lavender);box-shadow:0 0 0 1px var(--lavender),0 12px 30px -16px rgba(160,140,211,.55)}
+.tier .t{font-size:16px;font-weight:800}
+.tier .p{font-size:13px;color:var(--lav-hi);margin-top:2px}
+.tier .d{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.55}
+.tier .badge{position:absolute;top:12px;right:12px;font-size:10px;color:var(--lav-hi);border:1px solid var(--line-2);border-radius:999px;padding:2px 8px}
+.tier.on .badge{background:var(--holo);color:#1B1527;border-color:transparent;font-weight:800}
+/* ===== 状态 / 步骤 ===== */
+#status{margin-top:14px;font-size:13px;line-height:1.7;color:var(--muted)}
+#status.ok{color:var(--ok)}
+#status.err{color:var(--danger)}
+.steps{font-size:13px;color:var(--muted);line-height:2}
+.steps b{color:var(--lav-hi);font-weight:600}
+/* ===== 页脚 ===== */
+footer{border-top:1px solid var(--line);padding:28px 20px;text-align:center}
+footer p{color:var(--faint);font-size:12px}
+/* ===== 响应式 ===== */
+@media(max-width:720px){
+  .tiers{grid-template-columns:1fr}
+  .hero h1{font-size:26px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="brand/logo-mark-tight-w256.webp" width="40" height="30" alt="">
+      <span class="brand-name">海豚<b>Radar</b></span>
+    </a>
+    <a class="btn btn-ghost btn-sm" href="index.html">← 返回雷达</a>
+  </div>
+</header>
+
+<main class="main">
+  <div class="hero">
+    <h1>订阅推送</h1>
+    <p>连接钱包 → 选套餐 → 绑定 Telegram。之后矿机被撤销 / 新反例，第一时间推到你的 Telegram。</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="step">1</span>连接钱包</h2>
+    <div class="wallet-row">
+      <button class="btn btn-holo" id="btnWallet" onclick="connectWallet()">连接钱包</button>
+      <span style="font-size:12px;color:var(--faint)">只读取地址，不请求签名、不发交易</span>
+    </div>
+    <div class="addr" id="addr" hidden></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="step">2</span>选择套餐</h2>
+    <div class="tiers" id="tiers">
+      <div class="tier on" data-tier="free" onclick="pickTier(this)">
+        <span class="badge" id="b-free">免费</span>
+        <div class="t">免费</div>
+        <div class="p">0 BEM</div>
+        <div class="d">全局告警<br>周报</div>
+      </div>
+      <div class="tier" data-tier="pro" onclick="pickTier(this)">
+        <span class="badge" id="b-pro">推荐</span>
+        <div class="t">Pro</div>
+        <div class="p">0.2 BEM/月</div>
+        <div class="d">实时推送<br>地址体检</div>
+      </div>
+      <div class="tier" data-tier="enterprise" onclick="pickTier(this)">
+        <span class="badge" id="b-enterprise">企业</span>
+        <div class="t">企业</div>
+        <div class="p">定制</div>
+        <div class="d">API 接入<br>批量告警</div>
+      </div>
+    </div>
+    <div id="status"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="step">3</span>绑定 Telegram</h2>
+    <div class="steps">
+      点下方按钮会打开 Telegram 的 <b>@DR_xiaoxi_bot</b>，点 <b>Start</b> 自动完成「钱包 ↔ Telegram」绑定。<br>
+      免费套餐只付 gas，Pro/企业 走 X Layer 桥接 BEM 付费（链上订阅记录 = 用户量凭证）。
+    </div>
+    <div style="margin-top:16px">
+      <button class="btn btn-holo btn-lg btn-block" id="btnBind" disabled onclick="openDeepLink()">生成 Telegram 绑定链接</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>海豚Radar · 双链安全雷达 · 运行于 X Layer DeWEB（tape://11.2.4.tape）</p>
+</footer>
+
+<script>
+let wallet = null, tier = 'free';
+const TIER_LABEL = { free:'免费', pro:'Pro', enterprise:'企业' };
+
+function pickTier(el) {
+  document.querySelectorAll('.tier').forEach(t => t.classList.remove('on'));
+  el.classList.add('on');
+  tier = el.dataset.tier;
+  updateBindBtn();
+}
+
+function updateBindBtn() {
+  document.getElementById('btnBind').disabled = !wallet;
+}
+
+function status(msg, cls) {
+  const s = document.getElementById('status');
+  s.textContent = msg;
+  s.className = cls || '';
+}
+
+function getProvider() {
+  // EIP-6963 简化版：优先 OKX / 注入式钱包，兼容旧式 window.ethereum
+  if (window.okxwallet) return window.okxwallet;
+  if (window.ethereum) return window.ethereum;
+  return null;
+}
+
+async function connectWallet() {
+  const btn = document.getElementById('btnWallet');
+  btn.disabled = true;
+  status('正在连接钱包…');
+  try {
+    const p = getProvider();
+    if (!p) throw new Error('没检测到钱包插件，请用装了 OKX Web3 钱包的浏览器打开');
+    const accounts = await p.request({ method: 'eth_requestAccounts' });
+    wallet = accounts[0];
+    const addr = document.getElementById('addr');
+    addr.hidden = false;
+    addr.textContent = '钱包地址：' + wallet;
+    btn.textContent = '已连接';
+    status('钱包已连接', 'ok');
+    updateBindBtn();
+  } catch (e) {
+    if (e && e.code === 4001) status('已取消。重新点「连接钱包」再试。', 'err');
+    else status('❌ ' + (e && e.message ? e.message : '连接失败'), 'err');
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+function openDeepLink() {
+  if (!wallet) { status('请先连接钱包', 'err'); return; }
+  const url = `https://t.me/DR_xiaoxi_bot?start=${wallet}_${tier}`;
+  window.open(url, '_blank');
+  status('✅ 已打开 Telegram，点 Start 完成绑定。\n之后有警报会推送到这里。', 'ok');
+}
+</script>
+</body>
+</html>
