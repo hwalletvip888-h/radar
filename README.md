@@ -50,6 +50,7 @@ TapeOut 上 2 万台矿机在挖 BEM，协议内建「反例审查」能永久�
 
 - **链上订阅记录 = 平台用户量凭证**（每个订阅者都有可验证的链上记录）
 - 合约 `contracts/AlertSubscription.sol`：订阅 / 续费 / 升级补差价 / 取消退款，X Layer 桥接 BEM 收款
+  - **已部署到 X Layer**：`0x7c57f97d593c4AFcFA2F7a7E7Cc61CDa1B3E7652`（部署者 `0xb7E3…4Fdf`，区块 #74,589,978）
 - 实时引擎 `engine.py`：WebSocket 订阅 BNB PodMining 的 Revoked / CounterexampleAdded，推送给有效订阅者
 - Telegram 绑定 bot `bot.py`：订阅页生成深链 → 用户点 Start → 自动绑定「钱包 ↔ Telegram」
 
