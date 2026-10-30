@@ -1,0 +1,17 @@
+# 凭据 / 隐私
+.bot_token
+subscriptions.json
+telegram_bindings.json
+watcher_state.json
+
+# 日志 / 缓存
+*.log
+__pycache__/
+*.pyc
+
+# 无关构建产物
+main_app.js
+
+# 系统
+.DS_Store
+Thumbs.db

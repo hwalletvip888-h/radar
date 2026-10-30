@@ -1,0 +1,2891 @@
+{
+ "nodes": [
+  {
+   "id": "processor:Behemoth",
+   "type": "processor",
+   "name": "Behemoth",
+   "num": "1",
+   "address": "0x1F5Cb4aeaE1807Bf60c3b9C0D8aDBCC14e91f12C",
+   "multiplier": 6
+  },
+  {
+   "id": "processor:TapeOut",
+   "type": "processor",
+   "name": "TapeOut",
+   "num": "30",
+   "address": "0xb1024b89886B9a34Aa4ff5F31C411D708b20a14C",
+   "multiplier": 1
+  },
+  {
+   "id": "processor:RefBench",
+   "type": "processor",
+   "name": "RefBench",
+   "num": "ref",
+   "address": "0xF4412C52ec3DDf7CAf5f518B6662F77B02Bde28E",
+   "multiplier": 1
+  },
+  {
+   "id": "processor:Genesis CPU",
+   "type": "processor",
+   "name": "Genesis CPU",
+   "num": "0",
+   "address": "0x50A994E71615474b55559fF4F500928fbc339DD9",
+   "multiplier": 0
+  },
+  {
+   "id": "token:BEM",
+   "type": "token",
+   "name": "BEM",
+   "symbol": "BEM",
+   "decimals": 8,
+   "cap": 21000000
+  },
+  {
+   "id": "circuit:Circuit TapeOut #9101",
+   "type": "circuit",
+   "name": "Circuit TapeOut #9101",
+   "num": 9101,
+   "processor": "TapeOut",
+   "processorAddr": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "taskId": 6,
+   "gateCount": 5,
+   "status": "revoked",
+   "verification": "compromised",
+   "state": "revoked",
+   "reason": "链上反例举证成立：第 4 号测试向量算出错，永久撤销",
+   "challenger": "0x847272a5a02bd63677e624b04f20c252e29f64d7",
+   "vectorIndex": 4,
+   "block": 118122256,
+   "tx": "0xcd117ef20a79516a07b170e7153109f1b7a174589e455feff5cfb522a2f42ac6",
+   "debt": 145381453,
+   "debtBEM": 1.4538,
+   "registrant": "0xef66404ff59e425a3ff153475af63322c2b81939",
+   "bstar": 5,
+   "verifWeight": 0,
+   "claimedBEM": 0.0031
+  },
+  {
+   "id": "person:0x847272a5a02bd63677e624b04f20c252e29f64d7",
+   "type": "person",
+   "name": "0x847272a5a02bd63677e624b04f20c252e29f64d7",
+   "address": "0x847272a5a02bd63677e624b04f20c252e29f64d7",
+   "role": "challenger"
+  },
+  {
+   "id": "person:0xef66404ff59e425a3ff153475af63322c2b81939",
+   "type": "person",
+   "name": "0xef66404ff59e425a3ff153475af63322c2b81939",
+   "address": "0xef66404ff59e425a3ff153475af63322c2b81939",
+   "role": "miner_owner"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #11931",
+   "type": "circuit",
+   "name": "Circuit TapeOut #11931",
+   "num": 11931,
+   "processor": "TapeOut",
+   "processorAddr": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "taskId": 260,
+   "gateCount": 79,
+   "status": "revoked",
+   "verification": "compromised",
+   "state": "revoked",
+   "reason": "链上反例举证成立：第 140 号测试向量算出错，永久撤销",
+   "challenger": "0x6688928b01768c92e5f6fafbcf381bee23727395",
+   "vectorIndex": 140,
+   "block": 118590677,
+   "tx": "0x8dd04405720e7c6c66d6f5ea473b4af034cc4f8a25f15f9ad08d846f082b1d87",
+   "debt": 56406587264,
+   "debtBEM": 564.0659,
+   "registrant": "0x98a5dc75815fa4e8f0979306fa2e16280f21de51",
+   "bstar": 79,
+   "verifWeight": 0,
+   "claimedBEM": 4.3465
+  },
+  {
+   "id": "person:0x6688928b01768c92e5f6fafbcf381bee23727395",
+   "type": "person",
+   "name": "0x6688928b01768c92e5f6fafbcf381bee23727395",
+   "address": "0x6688928b01768c92e5f6fafbcf381bee23727395",
+   "role": "challenger"
+  },
+  {
+   "id": "person:0x98a5dc75815fa4e8f0979306fa2e16280f21de51",
+   "type": "person",
+   "name": "0x98a5dc75815fa4e8f0979306fa2e16280f21de51",
+   "address": "0x98a5dc75815fa4e8f0979306fa2e16280f21de51",
+   "role": "miner_owner"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1965",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1965",
+   "num": 1965,
+   "processor": "Behemoth",
+   "processorAddr": "0x1f5cb4aeae1807bf60c3b9c0d8adbcc14e91f12c",
+   "taskId": 260,
+   "gateCount": 79,
+   "status": "revoked",
+   "verification": "compromised",
+   "state": "revoked",
+   "reason": "链上反例举证成立：第 140 号测试向量算出错，永久撤销",
+   "challenger": "0x6688928b01768c92e5f6fafbcf381bee23727395",
+   "vectorIndex": 140,
+   "block": 118590677,
+   "tx": "0x8e5d67c396127d2ccca09fa58eab3ae985ea1babf739ca1f29333b92dcba9c0d",
+   "debt": 338439523587,
+   "debtBEM": 3384.3952,
+   "registrant": "0xdad19177128fc63b9de5aac7c9afb08ede8830dd",
+   "bstar": 79,
+   "verifWeight": 0,
+   "claimedBEM": 16.0266
+  },
+  {
+   "id": "person:0xdad19177128fc63b9de5aac7c9afb08ede8830dd",
+   "type": "person",
+   "name": "0xdad19177128fc63b9de5aac7c9afb08ede8830dd",
+   "address": "0xdad19177128fc63b9de5aac7c9afb08ede8830dd",
+   "role": "miner_owner"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12008",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12008",
+   "num": 12008,
+   "processor": "TapeOut",
+   "processorAddr": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "taskId": 260,
+   "gateCount": 76,
+   "status": "revoked",
+   "verification": "compromised",
+   "state": "revoked",
+   "reason": "链上反例举证成立：第 2 号测试向量算出错，永久撤销",
+   "challenger": "0x6688928b01768c92e5f6fafbcf381bee23727395",
+   "vectorIndex": 2,
+   "block": 118606314,
+   "tx": "0x9221ec163a5faa1ac0cddc9da52c4b835a7cc631b331c8cc79306862c524d296",
+   "debt": 56550756738,
+   "debtBEM": 565.5076,
+   "registrant": "0xc96992e37a63ae73a082d998a364ec8925df6834",
+   "bstar": 76,
+   "verifWeight": 0,
+   "claimedBEM": 0.0932
+  },
+  {
+   "id": "person:0xc96992e37a63ae73a082d998a364ec8925df6834",
+   "type": "person",
+   "name": "0xc96992e37a63ae73a082d998a364ec8925df6834",
+   "address": "0xc96992e37a63ae73a082d998a364ec8925df6834",
+   "role": "miner_owner"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #11989",
+   "type": "circuit",
+   "name": "Circuit TapeOut #11989",
+   "num": 11989,
+   "processor": "TapeOut",
+   "processorAddr": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "taskId": 146,
+   "gateCount": 22,
+   "status": "revoked",
+   "verification": "compromised",
+   "state": "revoked",
+   "reason": "链上反例举证成立：第 159 号测试向量算出错，永久撤销",
+   "challenger": "0x6688928b01768c92e5f6fafbcf381bee23727395",
+   "vectorIndex": 159,
+   "block": 118606320,
+   "tx": "0xacaac1ccdba81f80e2804b41909039d91860abe239f40ed72db7746ec70a86eb",
+   "debt": 7120559925,
+   "debtBEM": 71.2056,
+   "registrant": "0xc96992e37a63ae73a082d998a364ec8925df6834",
+   "bstar": 22,
+   "verifWeight": 0,
+   "claimedBEM": 0.2261
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12270",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12270",
+   "num": 12270,
+   "processor": "TapeOut",
+   "processorAddr": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "taskId": 153,
+   "gateCount": 50,
+   "status": "revoked",
+   "verification": "compromised",
+   "state": "revoked",
+   "reason": "链上反例举证成立：第 23 号测试向量算出错，永久撤销",
+   "challenger": "0x8980a5a574641082815f17d3abf58c9f6f1182c6",
+   "vectorIndex": 23,
+   "block": 118914796,
+   "tx": "0x1b9d12006d02a36d2e0ef1078609487bbae5deedea06c40858ad7e327e696ee3",
+   "debt": 5945897578,
+   "debtBEM": 59.459,
+   "registrant": "0x7b6a52d504d18b39656a5508b7a0bc67526ea60c",
+   "bstar": 50,
+   "verifWeight": 0,
+   "claimedBEM": 0.0174
+  },
+  {
+   "id": "person:0x8980a5a574641082815f17d3abf58c9f6f1182c6",
+   "type": "person",
+   "name": "0x8980a5a574641082815f17d3abf58c9f6f1182c6",
+   "address": "0x8980a5a574641082815f17d3abf58c9f6f1182c6",
+   "role": "challenger"
+  },
+  {
+   "id": "person:0x7b6a52d504d18b39656a5508b7a0bc67526ea60c",
+   "type": "person",
+   "name": "0x7b6a52d504d18b39656a5508b7a0bc67526ea60c",
+   "address": "0x7b6a52d504d18b39656a5508b7a0bc67526ea60c",
+   "role": "miner_owner"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #2479",
+   "type": "circuit",
+   "name": "Circuit TapeOut #2479",
+   "num": 2479,
+   "processor": "TapeOut",
+   "processorAddr": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "taskId": 16,
+   "gateCount": 28,
+   "status": "revoked",
+   "verification": "compromised",
+   "state": "revoked",
+   "reason": "链上反例举证成立：第 4 号测试向量算出错，永久撤销",
+   "challenger": "0x98ce75463917e5fd1470675c6f133a38f7167712",
+   "vectorIndex": 4,
+   "block": 119589851,
+   "tx": "0xb5fe51f74c4780d54e54c8baa583637b1670bb245ae676dc426948b936b1c46c",
+   "debt": 497705978,
+   "debtBEM": 4.9771,
+   "registrant": "0x20afe109fdfedfbbe9b24e85c980b9083ae08a6a",
+   "bstar": 28,
+   "verifWeight": 0,
+   "claimedBEM": 2.2833
+  },
+  {
+   "id": "person:0x98ce75463917e5fd1470675c6f133a38f7167712",
+   "type": "person",
+   "name": "0x98ce75463917e5fd1470675c6f133a38f7167712",
+   "address": "0x98ce75463917e5fd1470675c6f133a38f7167712",
+   "role": "challenger"
+  },
+  {
+   "id": "person:0x20afe109fdfedfbbe9b24e85c980b9083ae08a6a",
+   "type": "person",
+   "name": "0x20afe109fdfedfbbe9b24e85c980b9083ae08a6a",
+   "address": "0x20afe109fdfedfbbe9b24e85c980b9083ae08a6a",
+   "role": "miner_owner"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #2483",
+   "type": "circuit",
+   "name": "Circuit TapeOut #2483",
+   "num": 2483,
+   "processor": "TapeOut",
+   "processorAddr": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "taskId": 16,
+   "gateCount": 28,
+   "status": "revoked",
+   "verification": "compromised",
+   "state": "revoked",
+   "reason": "链上反例举证成立：第 4 号测试向量算出错，永久撤销",
+   "challenger": "0x2295aa80bcbcacce626c0111e2853b9882e44a10",
+   "vectorIndex": 4,
+   "block": 119590512,
+   "tx": "0x03ef793f019369728e48f363ab197039c9d1599fcbfe0fe8292c75260018aac3",
+   "debt": 497765096,
+   "debtBEM": 4.9777,
+   "registrant": "0x20afe109fdfedfbbe9b24e85c980b9083ae08a6a",
+   "bstar": 28,
+   "verifWeight": 0,
+   "claimedBEM": 2.2846
+  },
+  {
+   "id": "person:0x2295aa80bcbcacce626c0111e2853b9882e44a10",
+   "type": "person",
+   "name": "0x2295aa80bcbcacce626c0111e2853b9882e44a10",
+   "address": "0x2295aa80bcbcacce626c0111e2853b9882e44a10",
+   "role": "challenger"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12220",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12220",
+   "num": 12220,
+   "processor": "TapeOut",
+   "processorAddr": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "taskId": 153,
+   "gateCount": 51,
+   "status": "revoked",
+   "verification": "compromised",
+   "state": "revoked",
+   "reason": "链上反例举证成立：第 23 号测试向量算出错，永久撤销",
+   "challenger": "0x2295aa80bcbcacce626c0111e2853b9882e44a10",
+   "vectorIndex": 23,
+   "block": 119590612,
+   "tx": "0xe31c8d5a01a9f922a379b542fda85c63c93a74363c9f7e6d79e97a89926a1aa9",
+   "debt": 906659884,
+   "debtBEM": 9.0666,
+   "registrant": "0x7b6a52d504d18b39656a5508b7a0bc67526ea60c",
+   "bstar": 51,
+   "verifWeight": 0,
+   "claimedBEM": 1.0835
+  },
+  {
+   "id": "circuit:Circuit TapeOut #7555",
+   "type": "circuit",
+   "name": "Circuit TapeOut #7555",
+   "num": 7555,
+   "processor": "TapeOut",
+   "processorAddr": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "taskId": 18,
+   "gateCount": 10,
+   "status": "revoked",
+   "verification": "compromised",
+   "state": "revoked",
+   "reason": "链上反例举证成立：第 1 号测试向量算出错，永久撤销",
+   "challenger": "0x2295aa80bcbcacce626c0111e2853b9882e44a10",
+   "vectorIndex": 1,
+   "block": 119590644,
+   "tx": "0xaf7b1a233be1ebf4a7fa89957bd875676d4288299ee7f6e4571eb3a79cb29f9e",
+   "debt": 177777514,
+   "debtBEM": 1.7778,
+   "registrant": "0xef66404ff59e425a3ff153475af63322c2b81939",
+   "bstar": 10,
+   "verifWeight": 0,
+   "claimedBEM": 0.4985
+  },
+  {
+   "id": "circuit:Circuit TapeOut #2247",
+   "type": "circuit",
+   "name": "Circuit TapeOut #2247",
+   "num": 2247,
+   "processor": "TapeOut",
+   "processorAddr": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "taskId": 228,
+   "gateCount": 12,
+   "status": "revoked",
+   "verification": "compromised",
+   "state": "revoked",
+   "reason": "链上反例举证成立：第 109 号测试向量算出错，永久撤销",
+   "challenger": "0x98ce75463917e5fd1470675c6f133a38f7167712",
+   "vectorIndex": 109,
+   "block": 119597281,
+   "tx": "0x2234e26942caae8b6b4f1c6ea9592459e7dba043ccf2589cdeb63e4e82b9bb14",
+   "debt": 213588191,
+   "debtBEM": 2.1359,
+   "registrant": "0x216566d25be326cb7ae09ba37b485e644e89a36c",
+   "bstar": 12,
+   "verifWeight": 0,
+   "claimedBEM": 0.7697
+  },
+  {
+   "id": "person:0x216566d25be326cb7ae09ba37b485e644e89a36c",
+   "type": "person",
+   "name": "0x216566d25be326cb7ae09ba37b485e644e89a36c",
+   "address": "0x216566d25be326cb7ae09ba37b485e644e89a36c",
+   "role": "miner_owner"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #13945",
+   "type": "circuit",
+   "name": "Circuit TapeOut #13945",
+   "num": 13945,
+   "processor": "TapeOut",
+   "processorAddr": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "taskId": 146,
+   "gateCount": 24,
+   "status": "revoked",
+   "verification": "compromised",
+   "state": "revoked",
+   "reason": "链上反例举证成立：第 159 号测试向量算出错，永久撤销",
+   "challenger": "0x2295aa80bcbcacce626c0111e2853b9882e44a10",
+   "vectorIndex": 159,
+   "block": 124688916,
+   "tx": "0x390b9b7383cc3ebe3af42b22d1efe1b5e52cc1cd1473f3b979596f49ba4bd67a",
+   "debt": 757019966,
+   "debtBEM": 7.5702,
+   "registrant": "0x5f0976aa502ed6b41c79065103ec85325c7b1f07",
+   "bstar": 24,
+   "verifWeight": 0,
+   "claimedBEM": 1.6073
+  },
+  {
+   "id": "person:0x5f0976aa502ed6b41c79065103ec85325c7b1f07",
+   "type": "person",
+   "name": "0x5f0976aa502ed6b41c79065103ec85325c7b1f07",
+   "address": "0x5f0976aa502ed6b41c79065103ec85325c7b1f07",
+   "role": "miner_owner"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #5436",
+   "type": "circuit",
+   "name": "Circuit TapeOut #5436",
+   "num": 5436,
+   "processor": "TapeOut",
+   "taskId": 72,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "person:0x98f8e69aa6d0968ea3f53a305efe459a7afaff0b",
+   "type": "person",
+   "name": "0x98f8e69aa6d0968ea3f53a305efe459a7afaff0b",
+   "address": "0x98f8e69aa6d0968ea3f53a305efe459a7afaff0b",
+   "role": "challenger"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #9187",
+   "type": "circuit",
+   "name": "Circuit TapeOut #9187",
+   "num": 9187,
+   "processor": "TapeOut",
+   "taskId": 48,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #3375",
+   "type": "circuit",
+   "name": "Circuit TapeOut #3375",
+   "num": 3375,
+   "processor": "TapeOut",
+   "taskId": 260,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #4487",
+   "type": "circuit",
+   "name": "Circuit TapeOut #4487",
+   "num": 4487,
+   "processor": "TapeOut",
+   "taskId": 29,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "type": "person",
+   "name": "0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "address": "0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "role": "challenger"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12139",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12139",
+   "num": 12139,
+   "processor": "TapeOut",
+   "taskId": 34,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1920",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1920",
+   "num": 1920,
+   "processor": "Behemoth",
+   "taskId": 35,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12248",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12248",
+   "num": 12248,
+   "processor": "TapeOut",
+   "taskId": 35,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1229",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1229",
+   "num": 1229,
+   "processor": "Behemoth",
+   "taskId": 39,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #11334",
+   "type": "circuit",
+   "name": "Circuit TapeOut #11334",
+   "num": 11334,
+   "processor": "TapeOut",
+   "taskId": 39,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #2020",
+   "type": "circuit",
+   "name": "Circuit Behemoth #2020",
+   "num": 2020,
+   "processor": "Behemoth",
+   "taskId": 48,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #10580",
+   "type": "circuit",
+   "name": "Circuit TapeOut #10580",
+   "num": 10580,
+   "processor": "TapeOut",
+   "taskId": 53,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1852",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1852",
+   "num": 1852,
+   "processor": "Behemoth",
+   "taskId": 61,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12452",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12452",
+   "num": 12452,
+   "processor": "TapeOut",
+   "taskId": 61,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1461",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1461",
+   "num": 1461,
+   "processor": "Behemoth",
+   "taskId": 72,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1506",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1506",
+   "num": 1506,
+   "processor": "Behemoth",
+   "taskId": 93,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #9445",
+   "type": "circuit",
+   "name": "Circuit TapeOut #9445",
+   "num": 9445,
+   "processor": "TapeOut",
+   "taskId": 93,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1630",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1630",
+   "num": 1630,
+   "processor": "Behemoth",
+   "taskId": 94,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #10216",
+   "type": "circuit",
+   "name": "Circuit TapeOut #10216",
+   "num": 10216,
+   "processor": "TapeOut",
+   "taskId": 94,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #2009",
+   "type": "circuit",
+   "name": "Circuit Behemoth #2009",
+   "num": 2009,
+   "processor": "Behemoth",
+   "taskId": 159,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #11109",
+   "type": "circuit",
+   "name": "Circuit TapeOut #11109",
+   "num": 11109,
+   "processor": "TapeOut",
+   "taskId": 161,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #10501",
+   "type": "circuit",
+   "name": "Circuit TapeOut #10501",
+   "num": 10501,
+   "processor": "TapeOut",
+   "taskId": 170,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1970",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1970",
+   "num": 1970,
+   "processor": "Behemoth",
+   "taskId": 173,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1887",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1887",
+   "num": 1887,
+   "processor": "Behemoth",
+   "taskId": 174,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #11942",
+   "type": "circuit",
+   "name": "Circuit TapeOut #11942",
+   "num": 11942,
+   "processor": "TapeOut",
+   "taskId": 174,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12047",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12047",
+   "num": 12047,
+   "processor": "TapeOut",
+   "taskId": 195,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #10092",
+   "type": "circuit",
+   "name": "Circuit TapeOut #10092",
+   "num": 10092,
+   "processor": "TapeOut",
+   "taskId": 210,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #2022",
+   "type": "circuit",
+   "name": "Circuit Behemoth #2022",
+   "num": 2022,
+   "processor": "Behemoth",
+   "taskId": 136,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "person:0x8eaec3eec7fe61a7a6ced11aa68ef1fa79220653",
+   "type": "person",
+   "name": "0x8eaec3eec7fe61a7a6ced11aa68ef1fa79220653",
+   "address": "0x8eaec3eec7fe61a7a6ced11aa68ef1fa79220653",
+   "role": "challenger"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #3314",
+   "type": "circuit",
+   "name": "Circuit TapeOut #3314",
+   "num": 3314,
+   "processor": "TapeOut",
+   "taskId": 259,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1997",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1997",
+   "num": 1997,
+   "processor": "Behemoth",
+   "taskId": 34,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12448",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12448",
+   "num": 12448,
+   "processor": "TapeOut",
+   "taskId": 33,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "type": "person",
+   "name": "0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "address": "0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "role": "challenger"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #11393",
+   "type": "circuit",
+   "name": "Circuit TapeOut #11393",
+   "num": 11393,
+   "processor": "TapeOut",
+   "taskId": 41,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #10218",
+   "type": "circuit",
+   "name": "Circuit TapeOut #10218",
+   "num": 10218,
+   "processor": "TapeOut",
+   "taskId": 42,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1788",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1788",
+   "num": 1788,
+   "processor": "Behemoth",
+   "taskId": 42,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12052",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12052",
+   "num": 12052,
+   "processor": "TapeOut",
+   "taskId": 146,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1978",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1978",
+   "num": 1978,
+   "processor": "Behemoth",
+   "taskId": 146,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1211",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1211",
+   "num": 1211,
+   "processor": "Behemoth",
+   "taskId": 154,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1727",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1727",
+   "num": 1727,
+   "processor": "Behemoth",
+   "taskId": 205,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #2001",
+   "type": "circuit",
+   "name": "Circuit Behemoth #2001",
+   "num": 2001,
+   "processor": "Behemoth",
+   "taskId": 209,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1728",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1728",
+   "num": 1728,
+   "processor": "Behemoth",
+   "taskId": 152,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12351",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12351",
+   "num": 12351,
+   "processor": "TapeOut",
+   "taskId": 142,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #2019",
+   "type": "circuit",
+   "name": "Circuit Behemoth #2019",
+   "num": 2019,
+   "processor": "Behemoth",
+   "taskId": 142,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #9415",
+   "type": "circuit",
+   "name": "Circuit TapeOut #9415",
+   "num": 9415,
+   "processor": "TapeOut",
+   "taskId": 150,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #11420",
+   "type": "circuit",
+   "name": "Circuit TapeOut #11420",
+   "num": 11420,
+   "processor": "TapeOut",
+   "taskId": 154,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #6469",
+   "type": "circuit",
+   "name": "Circuit TapeOut #6469",
+   "num": 6469,
+   "processor": "TapeOut",
+   "taskId": 144,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1497",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1497",
+   "num": 1497,
+   "processor": "Behemoth",
+   "taskId": 144,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12474",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12474",
+   "num": 12474,
+   "processor": "TapeOut",
+   "taskId": 151,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12227",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12227",
+   "num": 12227,
+   "processor": "TapeOut",
+   "taskId": 153,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12035",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12035",
+   "num": 12035,
+   "processor": "TapeOut",
+   "taskId": 158,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12032",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12032",
+   "num": 12032,
+   "processor": "TapeOut",
+   "taskId": 196,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #11924",
+   "type": "circuit",
+   "name": "Circuit TapeOut #11924",
+   "num": 11924,
+   "processor": "TapeOut",
+   "taskId": 115,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #9694",
+   "type": "circuit",
+   "name": "Circuit TapeOut #9694",
+   "num": 9694,
+   "processor": "TapeOut",
+   "taskId": 135,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1708",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1708",
+   "num": 1708,
+   "processor": "Behemoth",
+   "taskId": 150,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #6429",
+   "type": "circuit",
+   "name": "Circuit TapeOut #6429",
+   "num": 6429,
+   "processor": "TapeOut",
+   "taskId": 201,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #10728",
+   "type": "circuit",
+   "name": "Circuit TapeOut #10728",
+   "num": 10728,
+   "processor": "TapeOut",
+   "taskId": 256,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #11938",
+   "type": "circuit",
+   "name": "Circuit TapeOut #11938",
+   "num": 11938,
+   "processor": "TapeOut",
+   "taskId": 145,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #10905",
+   "type": "circuit",
+   "name": "Circuit TapeOut #10905",
+   "num": 10905,
+   "processor": "TapeOut",
+   "taskId": 70,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #11878",
+   "type": "circuit",
+   "name": "Circuit TapeOut #11878",
+   "num": 11878,
+   "processor": "TapeOut",
+   "taskId": 121,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1904",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1904",
+   "num": 1904,
+   "processor": "Behemoth",
+   "taskId": 256,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "person:0x4367d06f5cc485a76f083676d6b4cd87269e4f95",
+   "type": "person",
+   "name": "0x4367d06f5cc485a76f083676d6b4cd87269e4f95",
+   "address": "0x4367d06f5cc485a76f083676d6b4cd87269e4f95",
+   "role": "challenger"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1898",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1898",
+   "num": 1898,
+   "processor": "Behemoth",
+   "taskId": 70,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #11059",
+   "type": "circuit",
+   "name": "Circuit TapeOut #11059",
+   "num": 11059,
+   "processor": "TapeOut",
+   "taskId": 66,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1714",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1714",
+   "num": 1714,
+   "processor": "Behemoth",
+   "taskId": 135,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12440",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12440",
+   "num": 12440,
+   "processor": "TapeOut",
+   "taskId": 141,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #10267",
+   "type": "circuit",
+   "name": "Circuit TapeOut #10267",
+   "num": 10267,
+   "processor": "TapeOut",
+   "taskId": 152,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1792",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1792",
+   "num": 1792,
+   "processor": "Behemoth",
+   "taskId": 66,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1566",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1566",
+   "num": 1566,
+   "processor": "Behemoth",
+   "taskId": 120,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12036",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12036",
+   "num": 12036,
+   "processor": "TapeOut",
+   "taskId": 143,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12446",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12446",
+   "num": 12446,
+   "processor": "TapeOut",
+   "taskId": 205,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12154",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12154",
+   "num": 12154,
+   "processor": "TapeOut",
+   "taskId": 209,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12330",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12330",
+   "num": 12330,
+   "processor": "TapeOut",
+   "taskId": 173,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #2029",
+   "type": "circuit",
+   "name": "Circuit Behemoth #2029",
+   "num": 2029,
+   "processor": "Behemoth",
+   "taskId": 153,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #11101",
+   "type": "circuit",
+   "name": "Circuit TapeOut #11101",
+   "num": 11101,
+   "processor": "TapeOut",
+   "taskId": 136,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12235",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12235",
+   "num": 12235,
+   "processor": "TapeOut",
+   "taskId": 159,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1934",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1934",
+   "num": 1934,
+   "processor": "Behemoth",
+   "taskId": 161,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1977",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1977",
+   "num": 1977,
+   "processor": "Behemoth",
+   "taskId": 195,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1060",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1060",
+   "num": 1060,
+   "processor": "Behemoth",
+   "taskId": 259,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1083",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1083",
+   "num": 1083,
+   "processor": "Behemoth",
+   "taskId": 260,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12654",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12654",
+   "num": 12654,
+   "processor": "TapeOut",
+   "taskId": 60,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1966",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1966",
+   "num": 1966,
+   "processor": "Behemoth",
+   "taskId": 145,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #5798",
+   "type": "circuit",
+   "name": "Circuit TapeOut #5798",
+   "num": 5798,
+   "processor": "TapeOut",
+   "taskId": 42,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1250",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1250",
+   "num": 1250,
+   "processor": "Behemoth",
+   "taskId": 42,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #3688",
+   "type": "circuit",
+   "name": "Circuit TapeOut #3688",
+   "num": 3688,
+   "processor": "TapeOut",
+   "taskId": 70,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #4709",
+   "type": "circuit",
+   "name": "Circuit TapeOut #4709",
+   "num": 4709,
+   "processor": "TapeOut",
+   "taskId": 195,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #9791",
+   "type": "circuit",
+   "name": "Circuit TapeOut #9791",
+   "num": 9791,
+   "processor": "TapeOut",
+   "taskId": 218,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #3217",
+   "type": "circuit",
+   "name": "Circuit TapeOut #3217",
+   "num": 3217,
+   "processor": "TapeOut",
+   "taskId": 260,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #2039",
+   "type": "circuit",
+   "name": "Circuit Behemoth #2039",
+   "num": 2039,
+   "processor": "Behemoth",
+   "taskId": 143,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "person:0x571d447f4f24688ec35ccf07f1d6993655f6af15",
+   "type": "person",
+   "name": "0x571d447f4f24688ec35ccf07f1d6993655f6af15",
+   "address": "0x571d447f4f24688ec35ccf07f1d6993655f6af15",
+   "role": "challenger"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #6517",
+   "type": "circuit",
+   "name": "Circuit TapeOut #6517",
+   "num": 6517,
+   "processor": "TapeOut",
+   "taskId": 143,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #3112",
+   "type": "circuit",
+   "name": "Circuit TapeOut #3112",
+   "num": 3112,
+   "processor": "TapeOut",
+   "taskId": 72,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #3936",
+   "type": "circuit",
+   "name": "Circuit TapeOut #3936",
+   "num": 3936,
+   "processor": "TapeOut",
+   "taskId": 144,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1486",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1486",
+   "num": 1486,
+   "processor": "Behemoth",
+   "taskId": 145,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1885",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1885",
+   "num": 1885,
+   "processor": "Behemoth",
+   "taskId": 142,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #10116",
+   "type": "circuit",
+   "name": "Circuit TapeOut #10116",
+   "num": 10116,
+   "processor": "TapeOut",
+   "taskId": 158,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #12797",
+   "type": "circuit",
+   "name": "Circuit TapeOut #12797",
+   "num": 12797,
+   "processor": "TapeOut",
+   "taskId": 117,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #3162",
+   "type": "circuit",
+   "name": "Circuit TapeOut #3162",
+   "num": 3162,
+   "processor": "TapeOut",
+   "taskId": 145,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #10835",
+   "type": "circuit",
+   "name": "Circuit TapeOut #10835",
+   "num": 10835,
+   "processor": "TapeOut",
+   "taskId": 142,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit TapeOut #17082",
+   "type": "circuit",
+   "name": "Circuit TapeOut #17082",
+   "num": 17082,
+   "processor": "TapeOut",
+   "taskId": 146,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1154",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1154",
+   "num": 1154,
+   "processor": "Behemoth",
+   "taskId": 145,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "person:0x893925b56f0cdc3fd2fa9425e206adf7862bb05a",
+   "type": "person",
+   "name": "0x893925b56f0cdc3fd2fa9425e206adf7862bb05a",
+   "address": "0x893925b56f0cdc3fd2fa9425e206adf7862bb05a",
+   "role": "challenger"
+  },
+  {
+   "id": "circuit:Circuit Behemoth #1081",
+   "type": "circuit",
+   "name": "Circuit Behemoth #1081",
+   "num": 1081,
+   "processor": "Behemoth",
+   "taskId": 142,
+   "status": "counterexample",
+   "verification": "verified"
+  },
+  {
+   "id": "person:0xbdf0534ae5e6107ba2c9aba56512de37104d0a2a",
+   "type": "person",
+   "name": "0xbdf0534ae5e6107ba2c9aba56512de37104d0a2a",
+   "address": "0xbdf0534ae5e6107ba2c9aba56512de37104d0a2a",
+   "role": "bem_holder"
+  },
+  {
+   "id": "site:PancakeSwap BEM/USDT 池",
+   "type": "site",
+   "name": "PancakeSwap BEM/USDT 池",
+   "address": "0x2f5ec19ab0583d3fcd9bcbcd9ab416d2858eea38",
+   "category": "dex",
+   "receivedBEM": 728.83
+  }
+ ],
+ "edges": [
+  {
+   "from": "circuit:Circuit TapeOut #9101",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #9101",
+   "to": "token:BEM",
+   "type": "mines"
+  },
+  {
+   "from": "person:0x847272a5a02bd63677e624b04f20c252e29f64d7",
+   "to": "circuit:Circuit TapeOut #9101",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #9101",
+   "to": "person:0xef66404ff59e425a3ff153475af63322c2b81939",
+   "type": "operated_by"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #11931",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #11931",
+   "to": "token:BEM",
+   "type": "mines"
+  },
+  {
+   "from": "person:0x6688928b01768c92e5f6fafbcf381bee23727395",
+   "to": "circuit:Circuit TapeOut #11931",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #11931",
+   "to": "person:0x98a5dc75815fa4e8f0979306fa2e16280f21de51",
+   "type": "operated_by"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1965",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1965",
+   "to": "token:BEM",
+   "type": "mines"
+  },
+  {
+   "from": "person:0x6688928b01768c92e5f6fafbcf381bee23727395",
+   "to": "circuit:Circuit Behemoth #1965",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1965",
+   "to": "person:0xdad19177128fc63b9de5aac7c9afb08ede8830dd",
+   "type": "operated_by"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12008",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12008",
+   "to": "token:BEM",
+   "type": "mines"
+  },
+  {
+   "from": "person:0x6688928b01768c92e5f6fafbcf381bee23727395",
+   "to": "circuit:Circuit TapeOut #12008",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12008",
+   "to": "person:0xc96992e37a63ae73a082d998a364ec8925df6834",
+   "type": "operated_by"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #11989",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #11989",
+   "to": "token:BEM",
+   "type": "mines"
+  },
+  {
+   "from": "person:0x6688928b01768c92e5f6fafbcf381bee23727395",
+   "to": "circuit:Circuit TapeOut #11989",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #11989",
+   "to": "person:0xc96992e37a63ae73a082d998a364ec8925df6834",
+   "type": "operated_by"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12270",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12270",
+   "to": "token:BEM",
+   "type": "mines"
+  },
+  {
+   "from": "person:0x8980a5a574641082815f17d3abf58c9f6f1182c6",
+   "to": "circuit:Circuit TapeOut #12270",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12270",
+   "to": "person:0x7b6a52d504d18b39656a5508b7a0bc67526ea60c",
+   "type": "operated_by"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #2479",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #2479",
+   "to": "token:BEM",
+   "type": "mines"
+  },
+  {
+   "from": "person:0x98ce75463917e5fd1470675c6f133a38f7167712",
+   "to": "circuit:Circuit TapeOut #2479",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #2479",
+   "to": "person:0x20afe109fdfedfbbe9b24e85c980b9083ae08a6a",
+   "type": "operated_by"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #2483",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #2483",
+   "to": "token:BEM",
+   "type": "mines"
+  },
+  {
+   "from": "person:0x2295aa80bcbcacce626c0111e2853b9882e44a10",
+   "to": "circuit:Circuit TapeOut #2483",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #2483",
+   "to": "person:0x20afe109fdfedfbbe9b24e85c980b9083ae08a6a",
+   "type": "operated_by"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12220",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12220",
+   "to": "token:BEM",
+   "type": "mines"
+  },
+  {
+   "from": "person:0x2295aa80bcbcacce626c0111e2853b9882e44a10",
+   "to": "circuit:Circuit TapeOut #12220",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12220",
+   "to": "person:0x7b6a52d504d18b39656a5508b7a0bc67526ea60c",
+   "type": "operated_by"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #7555",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #7555",
+   "to": "token:BEM",
+   "type": "mines"
+  },
+  {
+   "from": "person:0x2295aa80bcbcacce626c0111e2853b9882e44a10",
+   "to": "circuit:Circuit TapeOut #7555",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #7555",
+   "to": "person:0xef66404ff59e425a3ff153475af63322c2b81939",
+   "type": "operated_by"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #2247",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #2247",
+   "to": "token:BEM",
+   "type": "mines"
+  },
+  {
+   "from": "person:0x98ce75463917e5fd1470675c6f133a38f7167712",
+   "to": "circuit:Circuit TapeOut #2247",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #2247",
+   "to": "person:0x216566d25be326cb7ae09ba37b485e644e89a36c",
+   "type": "operated_by"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #13945",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #13945",
+   "to": "token:BEM",
+   "type": "mines"
+  },
+  {
+   "from": "person:0x2295aa80bcbcacce626c0111e2853b9882e44a10",
+   "to": "circuit:Circuit TapeOut #13945",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #13945",
+   "to": "person:0x5f0976aa502ed6b41c79065103ec85325c7b1f07",
+   "type": "operated_by"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #5436",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x98f8e69aa6d0968ea3f53a305efe459a7afaff0b",
+   "to": "circuit:Circuit TapeOut #5436",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #9187",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x8980a5a574641082815f17d3abf58c9f6f1182c6",
+   "to": "circuit:Circuit TapeOut #9187",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #3375",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x98f8e69aa6d0968ea3f53a305efe459a7afaff0b",
+   "to": "circuit:Circuit TapeOut #3375",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #4487",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit TapeOut #4487",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12139",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit TapeOut #12139",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1920",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit Behemoth #1920",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12248",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit TapeOut #12248",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1229",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit Behemoth #1229",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #11334",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit TapeOut #11334",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #2020",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit Behemoth #2020",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #10580",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit TapeOut #10580",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1852",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit Behemoth #1852",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12452",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit TapeOut #12452",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1461",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit Behemoth #1461",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1506",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit Behemoth #1506",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #9445",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit TapeOut #9445",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1630",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit Behemoth #1630",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #10216",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit TapeOut #10216",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #2009",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit Behemoth #2009",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #11109",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit TapeOut #11109",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #10501",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit TapeOut #10501",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1970",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit Behemoth #1970",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1887",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit Behemoth #1887",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #11942",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit TapeOut #11942",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12047",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit TapeOut #12047",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #10092",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit TapeOut #10092",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #2022",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x8eaec3eec7fe61a7a6ced11aa68ef1fa79220653",
+   "to": "circuit:Circuit Behemoth #2022",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #3314",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit TapeOut #3314",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1997",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit Behemoth #1997",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12448",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #12448",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #11393",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit TapeOut #11393",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #10218",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #10218",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1788",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit Behemoth #1788",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12052",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #12052",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1978",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit Behemoth #1978",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1211",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit Behemoth #1211",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1727",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit Behemoth #1727",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #2001",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit Behemoth #2001",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1728",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit Behemoth #1728",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12351",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #12351",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #2019",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit Behemoth #2019",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #9415",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #9415",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #11420",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #11420",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #6469",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #6469",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1497",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit Behemoth #1497",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12474",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #12474",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12227",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #12227",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12035",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #12035",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12032",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #12032",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #11924",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #11924",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #9694",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #9694",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1708",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit Behemoth #1708",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #6429",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #6429",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #10728",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #10728",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #11938",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #11938",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #10905",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #10905",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #11878",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #11878",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1904",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x4367d06f5cc485a76f083676d6b4cd87269e4f95",
+   "to": "circuit:Circuit Behemoth #1904",
+   "type": "revealed"
+  },
+  {
+   "from": "person:0x4367d06f5cc485a76f083676d6b4cd87269e4f95",
+   "to": "circuit:Circuit TapeOut #10728",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1898",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit Behemoth #1898",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #11059",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #11059",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1714",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit Behemoth #1714",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12440",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #12440",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #10267",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #10267",
+   "type": "revealed"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit Behemoth #1904",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1792",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit Behemoth #1792",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1566",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit Behemoth #1566",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12036",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #12036",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12446",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #12446",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12154",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #12154",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12330",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit TapeOut #12330",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #2029",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x8eaec3eec7fe61a7a6ced11aa68ef1fa79220653",
+   "to": "circuit:Circuit Behemoth #2029",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #11101",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #11101",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12235",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #12235",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1934",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit Behemoth #1934",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1977",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit Behemoth #1977",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1060",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit Behemoth #1060",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1083",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit Behemoth #1083",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12654",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #12654",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1966",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit Behemoth #1966",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #5798",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #5798",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1250",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit Behemoth #1250",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #3688",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #3688",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #4709",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #4709",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #9791",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit TapeOut #9791",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #3217",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #3217",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #2039",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x571d447f4f24688ec35ccf07f1d6993655f6af15",
+   "to": "circuit:Circuit Behemoth #2039",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #6517",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #6517",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #3112",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #3112",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #3936",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #3936",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1486",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x04ef8bec00dc8c9b5a58f5d35e784145d72ae1c2",
+   "to": "circuit:Circuit Behemoth #1486",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1885",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit Behemoth #1885",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #10116",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #10116",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12797",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #12797",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #3162",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #3162",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #10835",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #10835",
+   "type": "revealed"
+  },
+  {
+   "from": "person:0x98ce75463917e5fd1470675c6f133a38f7167712",
+   "to": "circuit:Circuit TapeOut #10835",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #17082",
+   "to": "processor:TapeOut",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0xbce4c5a2ce2543b72c24cf85d47b9c5f64edd036",
+   "to": "circuit:Circuit TapeOut #17082",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1154",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x893925b56f0cdc3fd2fa9425e206adf7862bb05a",
+   "to": "circuit:Circuit Behemoth #1154",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1081",
+   "to": "processor:Behemoth",
+   "type": "taped_on"
+  },
+  {
+   "from": "person:0x893925b56f0cdc3fd2fa9425e206adf7862bb05a",
+   "to": "circuit:Circuit Behemoth #1081",
+   "type": "revealed"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #9101",
+   "to": "person:0xef66404ff59e425a3ff153475af63322c2b81939",
+   "type": "paid_bem_to"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #11931",
+   "to": "person:0x98a5dc75815fa4e8f0979306fa2e16280f21de51",
+   "type": "paid_bem_to"
+  },
+  {
+   "from": "circuit:Circuit Behemoth #1965",
+   "to": "person:0xdad19177128fc63b9de5aac7c9afb08ede8830dd",
+   "type": "paid_bem_to"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12008",
+   "to": "person:0xc96992e37a63ae73a082d998a364ec8925df6834",
+   "type": "paid_bem_to"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #11989",
+   "to": "person:0xc96992e37a63ae73a082d998a364ec8925df6834",
+   "type": "paid_bem_to"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #11989",
+   "to": "person:0xbdf0534ae5e6107ba2c9aba56512de37104d0a2a",
+   "type": "paid_bem_to"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12270",
+   "to": "person:0x7b6a52d504d18b39656a5508b7a0bc67526ea60c",
+   "type": "paid_bem_to"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #2479",
+   "to": "person:0x20afe109fdfedfbbe9b24e85c980b9083ae08a6a",
+   "type": "paid_bem_to"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #2483",
+   "to": "person:0x20afe109fdfedfbbe9b24e85c980b9083ae08a6a",
+   "type": "paid_bem_to"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #12220",
+   "to": "person:0x7b6a52d504d18b39656a5508b7a0bc67526ea60c",
+   "type": "paid_bem_to"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #7555",
+   "to": "person:0xef66404ff59e425a3ff153475af63322c2b81939",
+   "type": "paid_bem_to"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #2247",
+   "to": "person:0x216566d25be326cb7ae09ba37b485e644e89a36c",
+   "type": "paid_bem_to"
+  },
+  {
+   "from": "circuit:Circuit TapeOut #13945",
+   "to": "person:0x5f0976aa502ed6b41c79065103ec85325c7b1f07",
+   "type": "paid_bem_to"
+  },
+  {
+   "from": "token:BEM",
+   "to": "site:PancakeSwap BEM/USDT 池",
+   "type": "pooled_into"
+  }
+ ],
+ "meta": {
+  "latestBlock": 130610384,
+  "eventCounts": {
+   "Demoted": 1978,
+   "Stopped": 2871,
+   "Revoked": 12,
+   "CounterexampleAdded": 136
+  },
+  "revoked_circuits": 12,
+  "demoted_count": 1978,
+  "total_frozen_bem": 4676.59,
+  "bem_flow": {
+   "total_traced_bem": 4333.71,
+   "pool_bem": 728.83,
+   "recipient_count": 32
+  },
+  "revoked_details": [
+   {
+    "circuit": "Circuit TapeOut #9101",
+    "processor": "TapeOut",
+    "taskId": 6,
+    "gateCount": 5,
+    "vectorIndex": 4,
+    "challenger": "0x847272a5a02bd63677e624b04f20c252e29f64d7",
+    "tx": "0xcd117ef20a79516a07b170e7153109f1b7a174589e455feff5cfb522a2f42ac6"
+   },
+   {
+    "circuit": "Circuit TapeOut #11931",
+    "processor": "TapeOut",
+    "taskId": 260,
+    "gateCount": 79,
+    "vectorIndex": 140,
+    "challenger": "0x6688928b01768c92e5f6fafbcf381bee23727395",
+    "tx": "0x8dd04405720e7c6c66d6f5ea473b4af034cc4f8a25f15f9ad08d846f082b1d87"
+   },
+   {
+    "circuit": "Circuit Behemoth #1965",
+    "processor": "Behemoth",
+    "taskId": 260,
+    "gateCount": 79,
+    "vectorIndex": 140,
+    "challenger": "0x6688928b01768c92e5f6fafbcf381bee23727395",
+    "tx": "0x8e5d67c396127d2ccca09fa58eab3ae985ea1babf739ca1f29333b92dcba9c0d"
+   },
+   {
+    "circuit": "Circuit TapeOut #12008",
+    "processor": "TapeOut",
+    "taskId": 260,
+    "gateCount": 76,
+    "vectorIndex": 2,
+    "challenger": "0x6688928b01768c92e5f6fafbcf381bee23727395",
+    "tx": "0x9221ec163a5faa1ac0cddc9da52c4b835a7cc631b331c8cc79306862c524d296"
+   },
+   {
+    "circuit": "Circuit TapeOut #11989",
+    "processor": "TapeOut",
+    "taskId": 146,
+    "gateCount": 22,
+    "vectorIndex": 159,
+    "challenger": "0x6688928b01768c92e5f6fafbcf381bee23727395",
+    "tx": "0xacaac1ccdba81f80e2804b41909039d91860abe239f40ed72db7746ec70a86eb"
+   },
+   {
+    "circuit": "Circuit TapeOut #12270",
+    "processor": "TapeOut",
+    "taskId": 153,
+    "gateCount": 50,
+    "vectorIndex": 23,
+    "challenger": "0x8980a5a574641082815f17d3abf58c9f6f1182c6",
+    "tx": "0x1b9d12006d02a36d2e0ef1078609487bbae5deedea06c40858ad7e327e696ee3"
+   },
+   {
+    "circuit": "Circuit TapeOut #2479",
+    "processor": "TapeOut",
+    "taskId": 16,
+    "gateCount": 28,
+    "vectorIndex": 4,
+    "challenger": "0x98ce75463917e5fd1470675c6f133a38f7167712",
+    "tx": "0xb5fe51f74c4780d54e54c8baa583637b1670bb245ae676dc426948b936b1c46c"
+   },
+   {
+    "circuit": "Circuit TapeOut #2483",
+    "processor": "TapeOut",
+    "taskId": 16,
+    "gateCount": 28,
+    "vectorIndex": 4,
+    "challenger": "0x2295aa80bcbcacce626c0111e2853b9882e44a10",
+    "tx": "0x03ef793f019369728e48f363ab197039c9d1599fcbfe0fe8292c75260018aac3"
+   },
+   {
+    "circuit": "Circuit TapeOut #12220",
+    "processor": "TapeOut",
+    "taskId": 153,
+    "gateCount": 51,
+    "vectorIndex": 23,
+    "challenger": "0x2295aa80bcbcacce626c0111e2853b9882e44a10",
+    "tx": "0xe31c8d5a01a9f922a379b542fda85c63c93a74363c9f7e6d79e97a89926a1aa9"
+   },
+   {
+    "circuit": "Circuit TapeOut #7555",
+    "processor": "TapeOut",
+    "taskId": 18,
+    "gateCount": 10,
+    "vectorIndex": 1,
+    "challenger": "0x2295aa80bcbcacce626c0111e2853b9882e44a10",
+    "tx": "0xaf7b1a233be1ebf4a7fa89957bd875676d4288299ee7f6e4571eb3a79cb29f9e"
+   },
+   {
+    "circuit": "Circuit TapeOut #2247",
+    "processor": "TapeOut",
+    "taskId": 228,
+    "gateCount": 12,
+    "vectorIndex": 109,
+    "challenger": "0x98ce75463917e5fd1470675c6f133a38f7167712",
+    "tx": "0x2234e26942caae8b6b4f1c6ea9592459e7dba043ccf2589cdeb63e4e82b9bb14"
+   },
+   {
+    "circuit": "Circuit TapeOut #13945",
+    "processor": "TapeOut",
+    "taskId": 146,
+    "gateCount": 24,
+    "vectorIndex": 159,
+    "challenger": "0x2295aa80bcbcacce626c0111e2853b9882e44a10",
+    "tx": "0x390b9b7383cc3ebe3af42b22d1efe1b5e52cc1cd1473f3b979596f49ba4bd67a"
+   }
+  ]
+ },
+ "stats": {
+  "processor": 4,
+  "circuit": 109,
+  "token": 1,
+  "person": 21,
+  "miner": 0,
+  "site": 1,
+  "edges": 259,
+  "revoked_circuits": 12
+ }
+}

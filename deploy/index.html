@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海豚Radar · DolphinRadar</title>
+<meta name="description" content="海豚Radar（DolphinRadar）· TapeOut 双链安全警报系统，运行于 X Layer DeWEB，实时监测 BNB 挖矿层与 X Layer DeWEB 层的电路供应链安全。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 20 5v6c0 5.2-3.4 8.8-8 10-4.6-1.2-8-4.8-8-10V5l8-3z' fill='%232f6bff'/%3E%3Cpath d='M12 7v5' stroke='%23fff' stroke-width='2.2' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='16' r='1.3' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="vendor/vis-network.min.css">
+<script src="vendor/vis-network.min.js"></script>
+<style>
+  :root { --bg:#0b0d12; --card:#131824; --line:#232b3a; --txt:#e8ecf3; --muted:#8b95a7; --acc:#2f6bff; --warn:#ff6b6b; --ok:#3ddc84; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--txt); font-family:ui-monospace,Menlo,Consolas,monospace; padding:24px; }
+  .wrap { max-width:960px; margin:0 auto; }
+  h1 { font-size:22px; letter-spacing:1px; }
+  .sub { color:var(--muted); font-size:12px; margin:4px 0 16px; }
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:16px; }
+  .stat { background:var(--card); border:1px solid var(--line); border-radius:9px; padding:10px 12px; }
+  .stat .v { font-size:20px; font-weight:800; letter-spacing:.5px; }
+  .stat .k { font-size:10px; color:var(--muted); margin-top:2px; letter-spacing:1px; }
+  .stat .v.red { color:var(--warn); } .stat .v.ok { color:var(--ok); } .stat .v.acc { color:#9fb4ff; }
+  .chain-toggle { display:inline-flex; border:1px solid var(--line); border-radius:9px; overflow:hidden; margin-bottom:14px; }
+  .chain-toggle .ct { padding:8px 18px; font-size:13px; cursor:pointer; color:var(--muted); background:transparent; border:0; font-family:inherit; }
+  .chain-toggle .ct.on { background:var(--acc); color:#fff; }
+  .finding { border-left:3px solid var(--warn); padding:8px 12px; margin-bottom:8px; background:#0e131c; border-radius:0 8px 8px 0; font-size:12px; line-height:1.6; }
+  table.cmp { width:100%; border-collapse:collapse; font-size:12px; margin-top:8px; }
+  table.cmp th, table.cmp td { padding:8px 10px; border:1px solid var(--line); text-align:left; }
+  table.cmp th { color:var(--muted); font-weight:600; background:#0e131c; }
+  .ok { color:var(--ok); } .bad { color:var(--warn); }
+  .bar { display:flex; gap:10px; margin-bottom:8px; }
+  input, select { flex:1; background:#0e131c; border:1px solid var(--line); color:var(--txt); border-radius:8px; padding:12px 14px; font-size:14px; font-family:inherit; }
+  button { background:var(--acc); color:#fff; border:0; border-radius:8px; padding:12px 18px; font-size:14px; font-weight:600; cursor:pointer; font-family:inherit; }
+  .intent { color:var(--muted); font-size:12px; margin-bottom:12px; }
+  .intent b { color:#9fb4ff; }
+  .tabs { display:flex; gap:8px; margin-bottom:14px; }
+  .tab { padding:7px 16px; border-radius:8px; border:1px solid var(--line); color:var(--muted); cursor:pointer; font-size:13px; }
+  .tab.on { background:var(--acc); color:#fff; border-color:var(--acc); }
+  .group { margin-bottom:18px; }
+  .gh { font-size:12px; color:var(--muted); letter-spacing:1px; margin-bottom:8px; text-transform:uppercase; }
+  .grid { display:grid; gap:8px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:9px; padding:11px 13px; }
+  .nm { font-weight:700; font-size:14px; }
+  .chips { display:flex; gap:6px; margin-top:5px; flex-wrap:wrap; }
+  .chip { font-size:10px; padding:2px 7px; border-radius:999px; border:1px solid var(--line); color:var(--muted); }
+  .chip.ty { color:#3ddc84; border-color:#1e3a2b; }
+  .chip.warn { color:var(--warn); border-color:#3a1e1e; }
+  .desc { color:var(--muted); font-size:11px; margin-top:5px; line-height:1.5; }
+  .rel { margin-top:8px; padding-top:8px; border-top:1px dashed var(--line); font-size:11px; color:var(--muted); }
+  .rel b { color:#f0b34d; font-weight:600; }
+  .empty { color:var(--muted); text-align:center; padding:30px; }
+  #graph { height:520px; border:1px solid var(--line); border-radius:12px; background:#0e131c; }
+  .trace-summary { background:rgba(255,107,107,.08); border:1px solid #3a1e1e; border-radius:10px; padding:14px 16px; margin-bottom:16px; font-size:13px; line-height:1.7; }
+  .trace-summary b { color:var(--warn); }
+  .level { margin-bottom:10px; }
+  .level .lv { font-size:11px; color:var(--muted); margin-bottom:6px; }
+  .level .litems { display:flex; flex-wrap:wrap; gap:6px; }
+  .pill { font-size:12px; padding:4px 10px; border-radius:999px; border:1px solid var(--line); background:#0e131c; }
+  .arrow { color:var(--muted); margin:0 6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>海豚Radar <span style="font-size:13px;color:var(--muted)">DolphinRadar</span></h1>
+  <div class="sub">TapeOut 双链安全警报 · 图谱是底层结构，广播是产品形态</div>
+  <div class="chain-toggle" id="chainToggle">
+    <div class="ct on" id="ctXl" onclick="setChain('xlayer')">X Layer · DeWEB 层</div>
+    <div class="ct" id="ctBnb" onclick="setChain('bnb')">BNB Chain · 挖矿层</div>
+  </div>
+  <div class="stats" id="stats"></div>
+  <div class="bar">
+    <input id="q" placeholder="搜索：被撤销的 / Behemoth / 题 260 / BEM / 举证者…" onkeydown="if(event.key==='Enter')go()" />
+    <button onclick="go()">搜索</button>
+  </div>
+  <div class="intent" id="intent"></div>
+  <div class="tabs">
+    <div class="tab on" id="tabCard" onclick="setView('card')">对象搜索</div>
+    <div class="tab" id="tabGraph" onclick="setView('graph')">关系图</div>
+    <div class="tab" id="tabTrace" onclick="setView('trace')">影响追溯</div>
+    <div class="tab" id="tabBroadcast" onclick="setView('broadcast')">告警广播</div>
+    <div class="tab" id="tabLive" onclick="setView('live')">实时告警</div>
+  </div>
+  <div id="cardView"></div>
+  <div id="graphView" style="display:none"><div id="graph"></div></div>
+  <div id="traceView" style="display:none"></div>
+  <div id="broadcastView" style="display:none"></div>
+  <div id="liveView" style="display:none"></div>
+  <div id="xlayerView" style="display:none"></div>
+</div>
+
+<script>
+let G = null, lastHits = [], network = null;
+const TYPE_LABEL = { site:'网站', token:'代币', circuit:'电路', agent:'Agent', processor:'处理器', container:'容器', person:'人', miner:'矿机' };
+const TYPE_COLOR = { site:'#2f6bff', token:'#3ddc84', circuit:'#b06bff', agent:'#4dd6e6', processor:'#e06bd0', container:'#8b95a7', person:'#ff6b6b', miner:'#f0b34d' };
+const REL_LABEL = { mines:'挖出', taped_on:'流片于', revealed:'反例举证', operated_by:'矿主', paid_bem_to:'已领走', pooled_into:'流入', depends_on:'依赖', on_chain:'链', challenged:'挑战' };
+const STATE_LABEL = { revoked:'已被反例撤销 · 永久', mining:'挖矿中', stopped:'已停挖', demoted:'被夺最优首创', counterexample:'发现反例', verified:'已验证' };
+// 影响清单：对象类型 → 建议动作（Layer 1）
+const ACTION = { circuit:'停止挖矿 / 核查网表', token:'标记来源电路已撤销', processor:'核查同处理器其它电路', person:'归档举证记录' };
+(async function(){ try {
+  const r = await fetch('graph_onchain.json'); G = await r.json();
+  const m = G.meta || {};
+  document.querySelector('.sub').textContent = `海豚Radar · 运行于 X Layer DeWEB · 监控 BNB 挖矿层（${m.revoked_circuits||0} 台被撤销 / ${m.total_frozen_bem||0} BEM 冻结）`;
+  let minerCount = '—';
+  try { const ps = await (await fetch('pod-stats.json')).json(); minerCount = (ps.minerCount||0).toLocaleString(); } catch(e){}
+  document.getElementById('stats').innerHTML = `
+    <div class="stat"><div class="v red">${m.revoked_circuits||0}</div><div class="k">被撤销电路（链上终局）</div></div>
+    <div class="stat"><div class="v red">${m.total_frozen_bem||0}</div><div class="k">冻结未领 BEM</div></div>
+    <div class="stat"><div class="v acc">${(m.eventCounts||{}).CounterexampleAdded||0}</div><div class="k">反例举证（验证的验证）</div></div>
+    <div class="stat"><div class="v ok">${minerCount}</div><div class="k">全网在挖矿机</div></div>`;
+} catch(e){ document.getElementById('cardView').innerHTML='<div class="empty">请先运行 graph_onchain.py 生成真实数据，再用 python -m http.server 起服务</div>'; } })();
+
+let XL = null, curChain = 'xlayer';
+(async function(){ try { XL = await (await fetch('xlayer_data.json')).json(); setChain('xlayer'); } catch(e){} })();
+
+function setChain(c) {
+  curChain = c;
+  document.getElementById('ctBnb').classList.toggle('on', c==='bnb');
+  document.getElementById('ctXl').classList.toggle('on', c==='xlayer');
+  const bnbEls = ['stats','q','tabCard','tabGraph','tabTrace','tabBroadcast','cardView','graphView','traceView','broadcastView'];
+  bnbEls.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = c==='bnb' ? '' : 'none'; });
+  document.getElementById('xlayerView').style.display = c==='xlayer' ? '' : 'none';
+  if (c==='xlayer') renderXlayer();
+  else setView('card');
+}
+
+function renderXlayer() {
+  if (!XL) { document.getElementById('xlayerView').innerHTML = '<div class="empty">X Layer 数据未加载</div>'; return; }
+  const c = XL.comparison || {};
+  const b = c.bnb || {}, x = c.xlayer || {};
+  const row = (k, bv, xv) => `<tr><td>${k}</td><td>${bv}</td><td>${xv}</td></tr>`;
+  document.getElementById('xlayerView').innerHTML = `
+    <div class="trace-summary">🛡️ <b>TapeOut 双链安全警报系统</b> · 本产品就运行在 X Layer DeWEB 上（<b>tape://11.2.4.tape</b>）<br>它监控两条链：BNB 挖矿层（存量安全）+ X Layer DeWEB 层（增量基建）。X Layer 目前几乎空白，正是卡位期。</div>
+    <div class="group"><div class="gh">双链安全态势对比</div>
+      <table class="cmp">
+        <tr><th>维度</th><th>${b.label||'BNB'}</th><th>${x.label||'X Layer'}</th></tr>
+        ${row('挖矿合约是否封印', b.sealed?'<span class="ok">已封印 owner=0x0</span>':'<span class="bad">未封印</span>', x.sealed?'<span class="ok">已封印</span>':'<span class="bad">未封印（3/5 多签可升级）</span>')}
+        ${row('PoD 挖矿', b.mining?'✅ 有':'❌ 无', x.mining?'✅ 有':'❌ 无')}
+        ${row('反例审查（challenge/Revoked）', b.challenge?'✅ 有':'❌ 无', x.challenge?'✅ 有':'❌ 无')}
+        ${row('被撤销矿机', b.revoked||0, x.revoked||0)}
+        ${row('冻结未领 BEM', b.frozenBem||0, x.frozenBem||0)}
+      </table>
+    </div>
+    <div class="group"><div class="gh">X Layer 安全发现（链上实测）</div>
+      ${(XL.security?.findings||[]).map(f => `<div class="finding">${esc(f)}</div>`).join('')}
+    </div>
+    <div class="group"><div class="gh">X Layer 关键合约</div>
+      ${Object.entries(XL.contracts||{}).map(([k,v]) => `<div class="card"><div class="nm">${esc(k)}</div><div class="desc">${esc(v.address)}${v.owner?` · owner ${esc(v.owner.slice(0,12)+'…')}`:''}${v.circulating?` · 流通 ${v.circulating} BEM`:''}</div></div>`).join('')}
+    </div>`;
+}
+
+function setView(v) {
+  ['tabCard','tabGraph','tabTrace','tabBroadcast','tabLive'].forEach(id => document.getElementById(id).classList.toggle('on', id==='tab'+v[0].toUpperCase()+v.slice(1)));
+  document.getElementById('cardView').style.display = v==='card' ? '' : 'none';
+  document.getElementById('graphView').style.display = v==='graph' ? '' : 'none';
+  document.getElementById('traceView').style.display = v==='trace' ? '' : 'none';
+  document.getElementById('broadcastView').style.display = v==='broadcast' ? '' : 'none';
+  document.getElementById('liveView').style.display = v==='live' ? '' : 'none';
+  if (v==='graph') drawGraph();
+  if (v==='trace') renderTrace();
+  if (v==='broadcast') renderBroadcast();
+  if (v==='live') renderLive();
+}
+
+function go() {
+  if (!G) return;
+  const raw = document.getElementById('q').value.trim();
+  if (!raw) return;
+  const nodes = G.nodes, edges = G.edges;
+  const q = raw.toLowerCase();
+  const chainHit = /x\s*layer/.test(q) ? 'X Layer' : /\bbnb\b|\bbsc\b/.test(q) ? 'BNB' : /\bbase\b/.test(q) ? 'Base' : null;
+  const wantToken = /bem|tap\b|代币|币/.test(q);
+  const wantCircuit = /电路|nand|网表/.test(q);
+  const wantMiner = /矿机|挖|矿工|算力|流片|pod/.test(q);
+  const wantGame = /玩|游戏|五子棋|坦克|射击|扑克|闯关/.test(q);
+  const wantContainer = /容器|托管/.test(q);
+  const wantWho = /谁|作者|创建|做的|哪个/.test(q);
+  const kw = q.replace(/能|的|什么|有|想|找|搜|看|一下|帮我|给我|哪些|哪个|谁|做|挖|玩|在|上|矿机|容器|代币|电路/g, '').trim();
+
+  const hits = [];
+  for (const n of nodes) {
+    const hay = (n.name + ' ' + (n.desc||'') + ' ' + (n.symbol||'') + ' ' + (n.id||'') + ' ' + (n.address||'') + ' ' + (n.processor||'') + ' ' + (n.status||'') + ' ' + (n.taskId||'') + ' ' + (n.challenger||'')).toLowerCase();
+    let score = 0;
+    if (kw && hay.includes(kw)) score += 3;
+    if (wantToken && n.type==='token') score += 2;
+    if (wantCircuit && n.type==='circuit') score += 2;
+    if (wantMiner && (n.type==='miner' || n.category==='mining')) score += 2;
+    if (wantGame && n.category==='game') score += 2;
+    if (wantContainer && n.type==='container') score += 2;
+    if (wantWho && (n.type==='person' || n.type==='container')) score += 2;
+    if (chainHit && n.chain===chainHit) score += 1;
+    if (score > 0) hits.push({ n, score });
+  }
+  if (!kw && !wantToken && !wantCircuit && !wantMiner && !wantGame && !wantContainer && !wantWho && !chainHit) {
+    hits.length = 0; nodes.forEach(n => hits.push({ n, score: 1 }));
+  }
+  lastHits = hits;
+
+  const parts = [];
+  if (kw) parts.push(`关键词 <b>${kw}</b>`);
+  if (wantToken) parts.push('找 <b>代币</b>'); if (wantCircuit) parts.push('找 <b>电路</b>');
+  if (wantMiner) parts.push('找 <b>矿机</b>'); if (wantGame) parts.push('找 <b>游戏</b>');
+  if (wantContainer) parts.push('找 <b>容器</b>'); if (wantWho) parts.push('问 <b>关系</b>');
+  if (chainHit) parts.push(`在 <b>${chainHit}</b>`);
+  document.getElementById('intent').innerHTML = parts.length ? '理解成：' + parts.join(' + ') : '理解成：<b>探索全部对象</b>';
+
+  hits.sort((a,b)=>b.score-a.score);
+  const byType = {};
+  for (const h of hits) (byType[h.n.type] = byType[h.n.type]||[]).push(h.n);
+  if (!hits.length) { document.getElementById('cardView').innerHTML = '<div class="empty">没找到</div>'; return; }
+
+  let html = '';
+  const order = ['token','circuit','miner','agent','processor','container','person','site'];
+  for (const t of order) {
+    if (!byType[t]) continue;
+    html += `<div class="group"><div class="gh">${TYPE_LABEL[t]} (${byType[t].length})</div><div class="grid">`;
+    for (const n of byType[t].slice(0,10)) {
+      const rels = edges.filter(e=>e.from===n.id || e.to===n.id).slice(0,4);
+      const relHtml = rels.length ? `<div class="rel">关系：${rels.map(e=>{
+        const dir = e.from===n.id, other = dir ? e.to : e.from, oName = other.split(':').slice(1).join(':') || other;
+        return `<b>${REL_LABEL[e.type]||e.type}</b> ${dir?'→ '+oName:'← '+oName}`; }).join(' · ')}</div>` : '';
+      html += `<div class="card"><div class="nm">${esc(n.name)}</div>
+        <div class="chips"><span class="chip ty">${TYPE_LABEL[n.type]}</span>${n.processor?`<span class="chip">${esc(n.processor)}</span>`:''}${n.status?`<span class="chip ${n.status==='revoked'?'warn':''}">${STATE_LABEL[n.status]||n.status}</span>`:''}</div>
+        ${n.desc||n.bio?`<div class="desc">${esc((n.desc||n.bio)).slice(0,80)}…</div>`:''}${relHtml}</div>`;
+    }
+    html += '</div></div>';
+  }
+  document.getElementById('cardView').innerHTML = html;
+  if (document.getElementById('tabGraph').classList.contains('on')) drawGraph();
+}
+
+function drawGraph() {
+  if (!G) return;
+  // 默认视图：无搜索结果时，聚焦 12 台被撤销电路 + 其一跳邻居（处理器/BEM/举证者/矿主）
+  let ids;
+  if (lastHits.length) {
+    ids = new Set(lastHits.slice(0, 40).map(h => h.n.id));
+  } else {
+    ids = new Set(G.nodes.filter(n => n.status === 'revoked').map(n => n.id));
+    for (const e of G.edges) {
+      if (ids.has(e.from)) ids.add(e.to);
+      if (ids.has(e.to)) ids.add(e.from);
+    }
+  }
+  const nodes = [...ids].map(id => {
+    const n = G.nodes.find(x=>x.id===id);
+    const isRevoked = n.status === 'revoked';
+    return { id, label: n.name, color: { background: isRevoked ? '#ff6b6b33' : (TYPE_COLOR[n.type]||'#888')+'22', border: isRevoked ? '#ff6b6b' : (TYPE_COLOR[n.type]||'#888') }, font: { color:'#e8ecf3', size: isRevoked ? 15 : 12 } };
+  });
+  const edges = G.edges.filter(e => ids.has(e.from) && ids.has(e.to)).map(e => ({
+    from: e.from, to: e.to, label: REL_LABEL[e.type]||e.type, color: { color:'#3a4a66', highlight:'#9fb4ff' }, font: { color:'#8b95a7', size: 10, strokeWidth: 0 }
+  }));
+  if (network) network.destroy();
+  network = new vis.Network(document.getElementById('graph'), { nodes: new vis.DataSet(nodes), edges: new vis.DataSet(edges) },
+    { physics: { stabilization:{iterations:200}, barnesHut:{gravitationalConstant:-6000, springLength:120} }, interaction:{hover:true} });
+}
+
+// ── 影响追溯：Circuit → 矿机 → BEM → 应用 ──
+function renderTrace() {
+  if (!G) return;
+  const circuits = G.nodes.filter(n => n.type === 'circuit');
+  const tv = document.getElementById('traceView');
+  if (!circuits.length) { tv.innerHTML = '<div class="empty">图里还没有电路节点</div>'; return; }
+  const opts = circuits.map(c => `<option value="${c.id}">${esc(c.name)} (${STATE_LABEL[c.status]||'已验证'})</option>`).join('');
+  tv.innerHTML = `
+    <div class="bar">
+      <select id="circuitSel" onchange="traceImpact()">${opts}</select>
+      <button onclick="traceImpact()">追溯影响</button>
+    </div>
+    <div id="traceOut"></div>`;
+  traceImpact();
+}
+
+function traceImpact() {
+  const sel = document.getElementById('circuitSel');
+  if (!sel) return;
+  const cid = sel.value;
+  const edges = G.edges, nodes = G.nodes;
+  const nodeById = Object.fromEntries(nodes.map(n => [n.id, n]));
+
+  // 真实依赖链：电路（=矿机）→ 挖出 → BEM → 下游
+  const c = nodeById[cid];
+  const isBad = c.status === 'revoked';
+  const state = STATE_LABEL[c.status] || STATE_LABEL.verified;
+
+  const minesBEM = edges.some(e => e.from === cid && e.type === 'mines' && e.to.includes('BEM'));
+  const bemTarget = edges.filter(e => e.from === cid && e.type === 'mines' && e.to.includes('BEM')).map(e => e.to);
+  const processor = edges.filter(e => e.from === cid && e.type === 'taped_on').map(e => e.to);
+  const challenger = edges.filter(e => e.to === cid && e.type === 'revealed').map(e => e.from);
+  const bemApps = minesBEM ? edges.filter(e => e.type === 'depends_on' && e.to.includes('BEM')).map(e => e.from) : [];
+
+  const row = (n, action) => `<div class="pill" style="display:inline-flex;align-items:center;gap:6px">${esc(n.name)} <span style="color:var(--warn)">→ ${action}</span></div>`;
+
+  const o = document.getElementById('traceOut');
+  o.innerHTML = `
+    <div class="trace-summary">
+      <b>${isBad ? '⚠️ ' : ''}${esc(c.name)}</b> · 状态：<b>${state}</b>${c.reason ? `<br>${esc(c.reason)}` : ''}${isBad ? `<br>冻结未领奖励：<b style="color:var(--warn)">${c.debtBEM ?? '?'} BEM</b>` : ''}${c.challenger ? `<br>举证者：<b>${esc(c.challenger.slice(0,12)+'…')}</b> · 向量 #${c.vectorIndex} · <a href="https://bscscan.com/tx/${c.tx}" target="_blank" style="color:var(--acc)">交易</a>` : ''}
+    </div>
+    <div class="group"><div class="gh">🔴 高优先级 · 本电路矿机（${minesBEM ? '在挖 BEM' : '未挖矿'}）</div>
+      <div class="litems" style="display:flex;flex-wrap:wrap;gap:8px">${bemTarget.map(u => row(nodeById[u], '停止计入算力 / 冻结未领 BEM')).join('') || '<span class="pill">无</span>'}</div></div>
+    <div class="group"><div class="gh">🟡 中优先级 · 同处理器（${processor.length}）</div>
+      <div class="litems" style="display:flex;flex-wrap:wrap;gap:8px">${processor.map(u => row(nodeById[u], '核查同处理器其它电路')).join('') || '<span class="pill">无</span>'}</div></div>
+    <div class="group"><div class="gh">⚪ 低优先级 · 举证者与审计（${challenger.length}）· 仅归档</div>
+      <div class="litems" style="display:flex;flex-wrap:wrap;gap:8px">${challenger.map(u => `<span class="pill">${esc(nodeById[u]?.name || u)}</span>`).join('') || '<span class="pill">无</span>'}</div></div>`;
+}
+
+// ── 告警广播：分级推送 + 状态生命周期 ──
+function renderBroadcast() {
+  if (!G) return;
+  const edges = G.edges, nodes = G.nodes;
+  const nodeById = Object.fromEntries(nodes.map(n => [n.id, n]));
+  const bad = nodes.filter(n => n.type === 'circuit' && n.status === 'revoked');
+  const bv = document.getElementById('broadcastView');
+  if (!bad.length) { bv.innerHTML = '<div class="empty">暂无被反例撤销的电路</div>'; return; }
+  const flow = G.meta?.bem_flow || {};
+  let html = `<div class="trace-summary" style="margin-bottom:14px">🔔 <b>定向告警（分级）</b>：这些电路已被链上反例审查永久撤销，广播给受影响方，状态收敛才是终点。${flow.pool_bem ? `<br>💧 坏币二级流转：矿主已流出 <b>${flow.total_traced_bem} BEM</b> 到 ${flow.recipient_count} 个地址，其中 <b style="color:var(--warn)">${flow.pool_bem} BEM</b> 进了 PancakeSwap BEM/USDT 池，混入全网流动性。` : ''}</div>`;
+  for (const c of bad) {
+    const minesBEM = edges.some(e => e.from === c.id && e.type === 'mines' && e.to.includes('BEM'));
+    const holders = edges.filter(e => e.from === c.id && e.type === 'paid_bem_to').map(e => e.to);
+    const state = STATE_LABEL[c.status] || STATE_LABEL.revoked;
+    const challenger = c.challenger ? esc(c.challenger.slice(0,12)+'…') : '未知';
+    const holderNames = holders.map(h => esc(nodeById[h]?.name || h));
+    html += `<div class="card" style="border-color:#3a1e1e; margin-bottom:10px">
+      <div class="nm">🚨 ${esc(c.name)} <span class="chip warn">${state}</span></div>
+      <div class="desc">${esc(c.reason || '')}</div>
+      <div class="desc">处理器 <b>${esc(c.processor||'?')}</b> · 题 #${c.taskId??'?'} · ${c.gateCount??'?'} 门 · 向量 #${c.vectorIndex} · 举证 ${challenger}</div>
+      <div class="desc">冻结未领奖励：<b style="color:var(--warn)">${c.debtBEM ?? '?'} BEM</b> · 已领走 <b>${c.claimedBEM ?? '?'} BEM</b>${c.registrant ? ` · 矿主 ${esc(c.registrant.slice(0,12)+'…')}` : ''}</div>
+      <div class="rel">🔴 高优先级（本电路矿机）：${minesBEM ? '在挖 BEM，已停止计入算力' : '未挖矿'}</div>
+      <div class="rel">🟡 中优先级（已领走该矿机 BEM 的地址）：<b>${holders.length}</b> 个${holderNames.length ? ` · ${holderNames.slice(0,3).join('、')}${holderNames.length>3?'…':''}` : ''}</div>
+      <div class="rel">⚪ 低优先级（举证者与审计记录）：仅归档，不推送</div>
+    </div>`;
+  }
+  bv.innerHTML = html;
+}
+
+function renderLive() {
+  const lv = document.getElementById('liveView');
+  lv.innerHTML = `<div class="trace-summary">📡 <b>实时告警</b>：链上监听器盯 PodMining 合约，一旦有新的 <b>Revoked</b>（矿机被撤销）或 <b>CounterexampleAdded</b>（新反例），立即算爆炸半径并分级推送。<br>监听器：<code>python watcher.py --loop 60</code>（常驻每 60 秒轮询）</div>
+    <div class="group"><div class="gh">告警流 · 最新在前</div><div id="alertFeed"><div class="empty">加载中…</div></div></div>`;
+  fetch('alerts.json').then(r => r.json()).then(alerts => {
+    if (!alerts.length) { document.getElementById('alertFeed').innerHTML = '<div class="empty">暂无告警（监听器尚未检测到新事件）</div>'; return; }
+    const tier = { high: '🔴 高', mid: '🟡 中', low: '⚪ 低' };
+    document.getElementById('alertFeed').innerHTML = alerts.slice(0, 20).map(a => `
+      <div class="card" style="margin-bottom:10px; ${a.tier==='high'?'border-color:#3a1e1e':''}">
+        <div class="nm">${esc(a.title)} <span class="chip ${a.tier==='high'?'warn':''}">${tier[a.tier]||a.tier}</span>${a.replay?' <span class="chip">重放</span>':''}</div>
+        <div class="desc">${esc(a.detail||'')}</div>
+        <div class="desc">${esc(a.impact||'')}${a.owner?` · 矿主 ${esc(a.owner.slice(0,12)+'…')}`:''}${a.challenger?` · 举证 ${esc(a.challenger.slice(0,12)+'…')}`:''}</div>
+        <div class="desc">${a.tx?`<a href="https://bscscan.com/tx/${a.tx}" target="_blank" style="color:var(--acc)">交易</a>`:''}${a.block?` · 块 ${a.block}`:''} · ${new Date(a.ts).toLocaleString('zh-CN')}</div>
+      </div>`).join('');
+  }).catch(() => { document.getElementById('alertFeed').innerHTML = '<div class="empty">告警数据未加载（运行 watcher.py 生成 alerts.json）</div>'; });
+}
+
+function esc(s){ return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+</script>
+</body>
+</html>

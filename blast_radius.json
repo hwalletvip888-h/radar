@@ -1,0 +1,150 @@
+{
+ "total_frozen_bem": 4676.59223174,
+ "circuits": [
+  {
+   "circuits": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "circuitId": 11989,
+   "taskId": 146,
+   "gateCount": 22,
+   "debt_bem": 71.20559925,
+   "registrant": "0xc96992e37a63ae73a082d998a364ec8925df6834",
+   "claimed_bem": {
+    "0xc96992e37a63ae73a082d998a364ec8925df6834": 0.04990381,
+    "0xbdf0534ae5e6107ba2c9aba56512de37104d0a2a": 0.17614925
+   },
+   "total_claimed_bem": 0.2261
+  },
+  {
+   "circuits": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "circuitId": 12220,
+   "taskId": 153,
+   "gateCount": 51,
+   "debt_bem": 9.06659884,
+   "registrant": "0x7b6a52d504d18b39656a5508b7a0bc67526ea60c",
+   "claimed_bem": {
+    "0x7b6a52d504d18b39656a5508b7a0bc67526ea60c": 1.08351313
+   },
+   "total_claimed_bem": 1.0835
+  },
+  {
+   "circuits": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "circuitId": 7555,
+   "taskId": 18,
+   "gateCount": 10,
+   "debt_bem": 1.77777514,
+   "registrant": "0xef66404ff59e425a3ff153475af63322c2b81939",
+   "claimed_bem": {
+    "0xef66404ff59e425a3ff153475af63322c2b81939": 0.49852181
+   },
+   "total_claimed_bem": 0.4985
+  },
+  {
+   "circuits": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "circuitId": 2483,
+   "taskId": 16,
+   "gateCount": 28,
+   "debt_bem": 4.97765096,
+   "registrant": "0x20afe109fdfedfbbe9b24e85c980b9083ae08a6a",
+   "claimed_bem": {
+    "0x20afe109fdfedfbbe9b24e85c980b9083ae08a6a": 2.28458135
+   },
+   "total_claimed_bem": 2.2846
+  },
+  {
+   "circuits": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "circuitId": 2479,
+   "taskId": 16,
+   "gateCount": 28,
+   "debt_bem": 4.97705978,
+   "registrant": "0x20afe109fdfedfbbe9b24e85c980b9083ae08a6a",
+   "claimed_bem": {
+    "0x20afe109fdfedfbbe9b24e85c980b9083ae08a6a": 2.28325875
+   },
+   "total_claimed_bem": 2.2833
+  },
+  {
+   "circuits": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "circuitId": 11931,
+   "taskId": 260,
+   "gateCount": 79,
+   "debt_bem": 564.06587264,
+   "registrant": "0x98a5dc75815fa4e8f0979306fa2e16280f21de51",
+   "claimed_bem": {
+    "0x98a5dc75815fa4e8f0979306fa2e16280f21de51": 4.34649195
+   },
+   "total_claimed_bem": 4.3465
+  },
+  {
+   "circuits": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "circuitId": 2247,
+   "taskId": 228,
+   "gateCount": 12,
+   "debt_bem": 2.13588191,
+   "registrant": "0x216566d25be326cb7ae09ba37b485e644e89a36c",
+   "claimed_bem": {
+    "0x216566d25be326cb7ae09ba37b485e644e89a36c": 0.7696921
+   },
+   "total_claimed_bem": 0.7697
+  },
+  {
+   "circuits": "0x1f5cb4aeae1807bf60c3b9c0d8adbcc14e91f12c",
+   "circuitId": 1965,
+   "taskId": 260,
+   "gateCount": 79,
+   "debt_bem": 3384.39523587,
+   "registrant": "0xdad19177128fc63b9de5aac7c9afb08ede8830dd",
+   "claimed_bem": {
+    "0xdad19177128fc63b9de5aac7c9afb08ede8830dd": 16.0266037
+   },
+   "total_claimed_bem": 16.0266
+  },
+  {
+   "circuits": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "circuitId": 9101,
+   "taskId": 6,
+   "gateCount": 5,
+   "debt_bem": 1.45381453,
+   "registrant": "0xef66404ff59e425a3ff153475af63322c2b81939",
+   "claimed_bem": {
+    "0xef66404ff59e425a3ff153475af63322c2b81939": 0.00306882
+   },
+   "total_claimed_bem": 0.0031
+  },
+  {
+   "circuits": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "circuitId": 13945,
+   "taskId": 146,
+   "gateCount": 24,
+   "debt_bem": 7.57019966,
+   "registrant": "0x5f0976aa502ed6b41c79065103ec85325c7b1f07",
+   "claimed_bem": {
+    "0x5f0976aa502ed6b41c79065103ec85325c7b1f07": 1.60731304
+   },
+   "total_claimed_bem": 1.6073
+  },
+  {
+   "circuits": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "circuitId": 12270,
+   "taskId": 153,
+   "gateCount": 50,
+   "debt_bem": 59.45897578,
+   "registrant": "0x7b6a52d504d18b39656a5508b7a0bc67526ea60c",
+   "claimed_bem": {
+    "0x7b6a52d504d18b39656a5508b7a0bc67526ea60c": 0.01735835
+   },
+   "total_claimed_bem": 0.0174
+  },
+  {
+   "circuits": "0xb1024b89886b9a34aa4ff5f31c411d708b20a14c",
+   "circuitId": 12008,
+   "taskId": 260,
+   "gateCount": 76,
+   "debt_bem": 565.50756738,
+   "registrant": "0xc96992e37a63ae73a082d998a364ec8925df6834",
+   "claimed_bem": {
+    "0xc96992e37a63ae73a082d998a364ec8925df6834": 0.09318116
+   },
+   "total_claimed_bem": 0.0932
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+[
+ {
+  "ts": 1793344724638,
+  "replay": true,
+  "type": "revoked",
+  "tier": "mid",
+  "title": "🚨 矿机被撤销：TapeOut #13945",
+  "detail": "题 #146 · 24 门 · 向量 #159",
+  "impact": "冻结未领 7.5702 BEM",
+  "challenger": "0x2295aa80bcbcacce626c0111e2853b9882e44a10",
+  "owner": "0x5f0976aa502ed6b41c79065103ec85325c7b1f07",
+  "tx": "0x390b9b7383cc3ebe3af42b22d1efe1b5e52cc1cd1473f3b979596f49ba4bd67a",
+  "block": 124688916
+ }
+]

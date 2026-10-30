@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>激活 11.2.4.tape</title>
+<link rel="icon" href="brand/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png">
+<meta name="theme-color" content="#A08CD3">
+<style>
+  body { background:#0b0d12; color:#e8ecf3; font-family:ui-monospace,Menlo,Consolas,monospace; display:flex; justify-content:center; padding:40px 16px; }
+  .card { max-width:520px; width:100%; background:#131824; border:1px solid #232b3a; border-radius:12px; padding:24px; }
+  h1 { font-size:20px; margin:0 0 6px; }
+  .sub { color:#8b95a7; font-size:12px; margin-bottom:18px; line-height:1.6; }
+  button { width:100%; background:#2f6bff; color:#fff; border:0; border-radius:8px; padding:14px; font-size:15px; font-weight:700; cursor:pointer; font-family:inherit; }
+  button:disabled { background:#232b3a; color:#8b95a7; cursor:not-allowed; }
+  .row { font-size:12px; color:#8b95a7; margin-bottom:8px; line-height:1.6; }
+  .row b { color:#e8ecf3; }
+  #status { margin-top:16px; font-size:13px; line-height:1.7; word-break:break-all; }
+  #status.ok { color:#3ddc84; } #status.err { color:#ff6b6b; }
+  a { color:#9fb4ff; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>激活 11.2.4.tape</h1>
+  <div class="sub">一键调用 X Layer 上的 DomainBinding.bind，让官方网关显示你的网站。<br>费用：monthlyFee() = 0，免费（X Layer gas 也免费）。</div>
+
+  <div class="row">合约：<b>0x68809fd2fb343aa57d0aeb7f33defe477c9666f9</b></div>
+  <div class="row">容器：<b>0xd09abd74ca548c7a0de26e20125f35605ff35517</b></div>
+  <div class="row">名字：<b>11.2.4.tape</b>（绑 120 个月 = 10 年）</div>
+
+  <button id="btn" onclick="activate()">连接钱包并激活</button>
+  <div id="status"></div>
+</div>
+
+<script>
+const BINDING = '0x68809fd2fb343aa57d0aeb7f33defe477c9666f9';
+const CALLDATA = '0x69e292ce0000000000000000000000000000000000000000000000000000000000000060000000000000000000000000d09abd74ca548c7a0de26e20125f35605ff355170000000000000000000000000000000000000000000000000000000000000078000000000000000000000000000000000000000000000000000000000000000b31312e322e342e74617065000000000000000000000000000000000000000000';
+
+function status(msg, cls) {
+  const s = document.getElementById('status');
+  s.textContent = msg;
+  s.className = cls || '';
+}
+
+async function activate() {
+  const btn = document.getElementById('btn');
+  btn.disabled = true;
+  status('正在连接钱包…');
+  try {
+    if (!window.ethereum) throw new Error('没检测到钱包插件。请用安装了 OKX Web3 钱包的浏览器打开本页。');
+
+    // 1. 连接钱包
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    const from = accounts[0];
+    status(`钱包已连接 ${from}，正在切到 X Layer…`);
+
+    // 2. 切到 X Layer（chainId 196 = 0xc4）
+    try {
+      await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: '0xc4' }] });
+    } catch (sw) {
+      if (sw.code === 4902) { // 未添加该链
+        await window.ethereum.request({
+          method: 'wallet_addEthereumChain',
+          params: [{
+            chainId: '0xc4',
+            chainName: 'X Layer',
+            rpcUrls: ['https://rpc.xlayer.tech'],
+            nativeCurrency: { name: 'OKB', symbol: 'OKB', decimals: 18 },
+            blockExplorerUrls: ['https://www.oklink.com/xlayer'],
+          }],
+        });
+      } else throw sw;
+    }
+    status('请在弹出的钱包里确认签名…');
+
+    // 3. 发送 bind 交易
+    const txHash = await window.ethereum.request({
+      method: 'eth_sendTransaction',
+      params: [{ from, to: BINDING, data: CALLDATA }],
+    });
+
+    status(`✅ 激活交易已发送！\n交易哈希：\n${txHash}\n\n等 10~30 秒上链后，打开 https://11-2-4.tapekit.org/ 就能看到你的网站了。`, 'ok');
+  } catch (e) {
+    if (e && e.code === 4001) status('已取消（你在钱包里点了拒绝）。重新点上面的按钮再试。', 'err');
+    else status('❌ 失败：' + (e && e.message ? e.message : JSON.stringify(e)), 'err');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '再次激活';
+  }
+}
+</script>
+</body>
+</html>

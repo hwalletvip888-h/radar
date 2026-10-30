@@ -1,0 +1,240 @@
+{
+ "sources": [
+  "0x00000000000000000000000020afe109fdfedfbbe9b24e85c980b9083ae08a6a",
+  "0x000000000000000000000000216566d25be326cb7ae09ba37b485e644e89a36c",
+  "0x0000000000000000000000005f0976aa502ed6b41c79065103ec85325c7b1f07",
+  "0x0000000000000000000000007b6a52d504d18b39656a5508b7a0bc67526ea60c",
+  "0x00000000000000000000000098a5dc75815fa4e8f0979306fa2e16280f21de51",
+  "0x000000000000000000000000bdf0534ae5e6107ba2c9aba56512de37104d0a2a",
+  "0x000000000000000000000000c96992e37a63ae73a082d998a364ec8925df6834",
+  "0x000000000000000000000000dad19177128fc63b9de5aac7c9afb08ede8830dd",
+  "0x000000000000000000000000ef66404ff59e425a3ff153475af63322c2b81939"
+ ],
+ "total_traced_bem": 4333.71067563,
+ "recipients": [
+  {
+   "address": "0x46422dfb6ea053324bb2caea03a714ea01739ee5",
+   "bem": 1946.84167552,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x2f5ec19ab0583d3fcd9bcbcd9ab416d2858eea38",
+   "bem": 728.83303284,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x388d4b0adb3412ebb3a712c39995f173ba70f19b",
+   "bem": 367.92400725,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x7a7ad9aa93cd0a2d0255326e5fb145cec14997ff",
+   "bem": 311.13754555,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x3098d7a051045000d68ec0360753a40c8cabea31",
+   "bem": 177.31336201,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x40c632a91901d606a13276367da713c14e16de62",
+   "bem": 169.06767254,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x28e2ea090877bf75740558f6bfb36a5ffee9e9df",
+   "bem": 120.17182112,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x28b12792f9d81bd529bc5572434e861c9edbbbc2",
+   "bem": 117.24751692,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x337685fdab40d39bd02028545a4ffa7d287cc3e2",
+   "bem": 94.0,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x28c8ff83d0d540f369d44ec707c27b2f19320b0c",
+   "bem": 50.0,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x94335bc7bcf3b63c4deffa6dd4bb5e09689384fe",
+   "bem": 46.4,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x25ed72c3f671b626810a6db597dcfd50f215a423",
+   "bem": 40.15974327,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x52f9eea36f57d86a0f051419fd11e4a256359c8f",
+   "bem": 35.65105365,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x62d27aee19b32fa63b6d6c18fbbdcbe870b083e3",
+   "bem": 25.40252726,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x71429825c5375d4d232703e04b968f7938e7754e",
+   "bem": 20.84273775,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x238a358808379702088667322f80ac48bad5e6c4",
+   "bem": 13.12049727,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x17516b91bfcce77ede028e875cde37a8a4b113cd",
+   "bem": 11.19601373,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x30c18593fade94859d03776ae9a00c5b16a6f27c",
+   "bem": 11.12608362,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x6015126d7d23648c2e4466693b8deab005ffaba8",
+   "bem": 9.15726225,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0xc62bf75402e9b4dfb68c024236f7e5985409dbd0",
+   "bem": 8.61329836,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x608147437d01775b30e2ea35a710c889384dc164",
+   "bem": 8.02177743,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0xb92fe925dc43a0ecde6c8b1a2709c170ec4fff4f",
+   "bem": 6.2,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x69a52a0570636ca391175ce619bbb9d348040bbc",
+   "bem": 4.90719503,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x8ea28720df30fbdf16301db72bf4dbcf0e98062e",
+   "bem": 4.23053087,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0xf38ba1e4d6ebfce997b4eb952217d38d87424cda",
+   "bem": 2.0,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x2f0dcadab44cff2e95df2aef4348a952a6f2f22c",
+   "bem": 2.0,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0xc590175e458b83680867afd273527ff58f74c02b",
+   "bem": 1.32429211,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x5b0e4bed1c0a7aed5edcf4fa8cbd1aa095a830e9",
+   "bem": 0.45827395,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0xbdab786db65166226fb2928939b7f76c8db8ee1a",
+   "bem": 0.32075533,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0xb116c0964d833ab6d9cd7d7aa6d0fa57e821a254",
+   "bem": 0.042,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x28c872b4ce7976dc72bcd0ed8e813832c1220b0c",
+   "bem": 0.0,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  },
+  {
+   "address": "0x40c6b272f45d32bdd26b5e8a14277e15147fde62",
+   "bem": 0.0,
+   "label": "",
+   "is_dead": false,
+   "is_pool": false
+  }
+ ]
+}

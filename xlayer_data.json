@@ -1,0 +1,31 @@
+{
+  "chain": "X Layer",
+  "chainId": 196,
+  "area": 2,
+  "updatedAt": "2026-10-30",
+  "rpc": "https://rpc.xlayer.tech",
+  "contracts": {
+    "factory": {"address": "0x1f09daefa827f02cbb40967cc91b259763760761", "impl": "0xb41c1e7602eb5734be2430b72178ccb814a5293d", "owner": "0xB3D85b42A045c1A88D800CAD0F55d2566a4D3138", "sealed": false},
+    "opener": {"address": "0x536add8f30f03b69f6fbf29d425a816a0dc50106"},
+    "accountImpl": {"address": "0xac4f791353ee9f06e2c50ae4c34680d28ea52a57"},
+    "bem": {"address": "0x60e62Efa9405d6873C5deaBD4E6CC91c25363952", "circulating": 13446.9},
+    "bnbLock": {"address": "0xa84B8D3893De6e9922f2B29bE1e1b115845F5E72", "locked": 13446.9}
+  },
+  "security": {
+    "factorySealed": false,
+    "factoryOwner": "0xB3D85b42A045c1A88D800CAD0F55d2566a4D3138",
+    "mining": false,
+    "challengeMechanism": false,
+    "dewebActive": false,
+    "findings": [
+      "工厂未封印：owner = 3/5 多签（官网法律声明明写「工厂合约目前保持可升级」），规则仍可被管理员改",
+      "BEM 桥：13,446.9 BEM 从 BNB Chain 1:1 锁仓跨链（LayerZero，2 验证者 + 至少 1 额外验证者）",
+      "无 PoD 挖矿、无反例审查（challenge/Revoked）机制——DeWEB 层没有「矿机被撤销」这类安全信号",
+      "DeWEB 层空白：factory 地址在 OKLink 显示「暂无交易」，电路/容器/网站尚未铺开"
+    ]
+  },
+  "comparison": {
+    "bnb": {"label": "BNB Chain · 挖矿层", "sealed": true, "mining": true, "challenge": true, "revoked": 12, "frozenBem": 4676.59, "minerCount": 20567},
+    "xlayer": {"label": "X Layer · DeWEB 层", "sealed": false, "mining": false, "challenge": false, "revoked": 0, "frozenBem": 0, "minerCount": 0}
+  }
+}

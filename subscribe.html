@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海豚Radar · 订阅</title>
+<link rel="icon" href="brand/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="brand/apple-touch-icon.png">
+<meta name="theme-color" content="#A08CD3">
+<style>
+  :root { --bg:#0b0d12; --card:#131824; --line:#232b3a; --txt:#e8ecf3; --muted:#8b95a7; --acc:#2f6bff; --warn:#ff6b6b; --ok:#3ddc84; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--txt); font-family:ui-monospace,Menlo,Consolas,monospace; display:flex; justify-content:center; padding:32px 16px; }
+  .wrap { max-width:560px; width:100%; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:24px; margin-bottom:16px; }
+  h1 { font-size:22px; margin-bottom:4px; }
+  .sub { color:var(--muted); font-size:12px; margin-bottom:20px; line-height:1.6; }
+  .label { font-size:12px; color:var(--muted); margin:14px 0 8px; letter-spacing:1px; }
+  button { width:100%; background:var(--acc); color:#fff; border:0; border-radius:8px; padding:14px; font-size:15px; font-weight:700; cursor:pointer; font-family:inherit; }
+  button:disabled { background:#232b3a; color:#8b95a7; cursor:not-allowed; }
+  button.ghost { background:transparent; border:1px solid var(--line); color:var(--txt); }
+  .tiers { display:flex; gap:8px; }
+  .tier { flex:1; border:1px solid var(--line); border-radius:8px; padding:14px; cursor:pointer; text-align:center; }
+  .tier.on { border-color:var(--acc); background:rgba(47,107,255,.08); }
+  .tier .t { font-size:14px; font-weight:700; }
+  .tier .p { font-size:11px; color:var(--muted); margin-top:4px; }
+  .addr { background:#0e131c; border:1px solid var(--line); border-radius:8px; padding:12px; font-size:13px; word-break:break-all; }
+  .steps { font-size:12px; color:var(--muted); line-height:1.8; }
+  .steps b { color:#9fb4ff; }
+  #status { margin-top:12px; font-size:13px; line-height:1.7; }
+  #status.ok { color:var(--ok); } #status.err { color:var(--warn); }
+  a { color:#9fb4ff; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <h1><img src="brand/logo-mark-tight-w512.png" alt="海豚Radar" style="height:26px;vertical-align:-5px;margin-right:8px">海豚Radar <span style="font-size:12px;color:var(--muted)">DolphinRadar</span></h1>
+    <div class="sub">订阅 TapeOut 安全警报。矿机被撤销/新反例，第一时间推到你的 Telegram。</div>
+
+    <div class="label">1 · 连接钱包</div>
+    <button id="btnWallet" onclick="connectWallet()">连接钱包</button>
+    <div class="addr" id="addr" style="display:none;margin-top:10px"></div>
+
+    <div class="label">2 · 选套餐</div>
+    <div class="tiers" id="tiers">
+      <div class="tier on" data-tier="free" onclick="pickTier(this)">
+        <div class="t">免费</div><div class="p">全局告警 + 周报</div>
+      </div>
+      <div class="tier" data-tier="pro" onclick="pickTier(this)">
+        <div class="t">Pro</div><div class="p">实时推送 + 体检 · 0.2 BEM/月</div>
+      </div>
+      <div class="tier" data-tier="enterprise" onclick="pickTier(this)">
+        <div class="t">企业</div><div class="p">API + 批量 · 定制</div>
+      </div>
+    </div>
+
+    <div class="label">3 · 绑定 Telegram</div>
+    <button id="btnBind" class="ghost" disabled onclick="openDeepLink()">生成 Telegram 绑定链接</button>
+
+    <div id="status"></div>
+  </div>
+
+  <div class="card">
+    <div class="label">操作步骤</div>
+    <div class="steps">
+      1. 点<b>连接钱包</b>，确认签名<br>
+      2. 选一个套餐<br>
+      3. 点<b>生成 Telegram 绑定链接</b>，会打开 Telegram 的 <b>@DR_xiaoxi_bot</b><br>
+      4. 在 Telegram 里点 <b>Start</b> → 自动完成「钱包 ↔ Telegram」绑定<br>
+      5. 之后有矿机被撤销/新反例，第一时间推送到你的 Telegram
+    </div>
+  </div>
+</div>
+
+<script>
+let wallet = null, tier = 'free';
+
+function pickTier(el) {
+  document.querySelectorAll('.tier').forEach(t => t.classList.remove('on'));
+  el.classList.add('on');
+  tier = el.dataset.tier;
+  updateBindBtn();
+}
+
+function updateBindBtn() {
+  const btn = document.getElementById('btnBind');
+  btn.disabled = !wallet;
+}
+
+function status(msg, cls) {
+  const s = document.getElementById('status');
+  s.textContent = msg;
+  s.className = cls || '';
+}
+
+async function connectWallet() {
+  const btn = document.getElementById('btnWallet');
+  btn.disabled = true;
+  status('正在连接钱包…');
+  try {
+    if (!window.ethereum) throw new Error('没检测到钱包插件，请用装了 OKX Web3 钱包的浏览器打开');
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    wallet = accounts[0];
+    document.getElementById('addr').style.display = 'block';
+    document.getElementById('addr').textContent = '钱包地址：' + wallet;
+    btn.textContent = '已连接';
+    status('钱包已连接', 'ok');
+    updateBindBtn();
+  } catch (e) {
+    status('❌ ' + (e && e.message ? e.message : '连接失败'), 'err');
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+function openDeepLink() {
+  if (!wallet) { status('请先连接钱包', 'err'); return; }
+  const url = `https://t.me/DR_xiaoxi_bot?start=${wallet}_${tier}`;
+  window.open(url, '_blank');
+  status('✅ 已打开 Telegram，点 Start 完成绑定。\n绑定后 bot 会回复确认，之后有警报就推到这里。', 'ok');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,650 @@
+{
+ "count": 92,
+ "generated": "2026-10-30",
+ "sites": [
+  {
+   "name": "零号",
+   "desc": "Zero · 链上 AI agent 替你在币圈干活的 AI agent：先查清哪个是正版，拦下仿盘，再把下单卡片交到你手上由你决定，每一步都可在链上复算。接 BSC 与 X Layer。",
+   "category": "ai",
+   "chain": "X Layer",
+   "tape": null
+  },
+  {
+   "name": "🔥",
+   "desc": "余烬世界 EMBERWORLD 正在构建中的 2.5D 冒险世界：以电路协作为核心玩法，配合 EmberWorld Pass 推进探索进度。",
+   "category": "other",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "🔮",
+   "desc": "玄机 XuanJi · 链上占卜 链上占卜推演平台：以太极为引，推演出此刻的方位与时机，另有玄机问答；每一卦都记录在链上，可验证、可回溯。同一容器里还挂着 BEM 音乐子页。",
+   "category": "music",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "🤖",
+   "desc": "TapeAI · 电路检察官 把 Agent 的授权边界做成电路并流片为资产：每个「检察官」电路承载身份、决策逻辑与授权范围，用于 Agent 之间的请求判定与协作。首批 8,888 个，单价 0.0341 BNB，另有机理说明与个人持有页。",
+   "category": "ai",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "TAP-7007",
+   "desc": "演示细节：651 拍游戏与 92 拍推理",
+   "category": "game",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "X",
+   "desc": "Layer TapeOut 活动奖池 10 万 USDT",
+   "category": "other",
+   "chain": "X Layer",
+   "tape": null
+  },
+  {
+   "name": "TapeCode",
+   "desc": "新增支持 Web2 与混合应用",
+   "category": "other",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "果蝇大脑上链为",
+   "desc": "Circuit #1：50 个 NAND 门",
+   "category": "other",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "社区解读",
+   "desc": "TAP-7007：让电路运行复杂程序",
+   "category": "social",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "T",
+   "desc": "TapeOut 官方 链上流片协议官方入口：mint NAND / LATCH 元件，在画布上连线设计电路，确认后流片为电路 NFT。",
+   "category": "mining",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "X",
+   "desc": "Blonskr · X 官方 TapeOut 发起人的账号。协议公告、功能上线与重要决定基本由这里首发——从宣布链上 CPU、开源协议，到放弃交易市场与挖矿合约的管理权。",
+   "category": "defi",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "TapeHub.ai",
+   "desc": "HOT 官方 TapeOut 生态的发射平台：任何人都能创建矿币项目（底池币可选 BEM / BNB / USD1），用底池币 Mint 晶体管，满额或创建满 6 小时且过半即毕业；毕业后 99% 底池币与 5000 万枚项目代币配对，自动上 PancakeSwap 并永久锁定流动池，代币 95% 靠挖矿产出。",
+   "category": "defi",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "🌐",
+   "desc": "TapeKit 官方 tape:// 的公共网关：网站存进 TapeOut 电路容器后，用它就能在普通浏览器里打开。首页输入链上地址（电路编号 + 处理器编号，写法如 4246.0、#4246@0 或 tape://4246.0.tape/）即跳到对应子域名，也可把 web+tape:// 注册给浏览器，点链接直接交给网关。页面由 Service Worker 从 BNB Chain 直接读出，不经服务器、无 DNS 解析，浏览器端会核对内容哈希。",
+   "category": "tool",
+   "chain": "BNB",
+   "tape": "tape://4246.0.tape"
+  },
+  {
+   "name": "TapeCode.ai",
+   "desc": "官方 NEW TapeOut 官方的 AI 应用生成器：用一句自然语言（例如「发一个代币，任何人都能领 1 枚」）生成合约与前端，10 分钟一键发布到线上运营。生成的合约由你的 TapeOut 电路容器持有——容器地址是构造函数第一个参数，owner 不是部署钱包；前端也能上传进链上容器，凭链上名称直接读链打开，不经 DNS 与网关。官方 AI 需钱包登录并充值 BEM（转官方收款地址，余额用于 AI 与安全审计），项目默认存在浏览器。",
+   "category": "defi",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "📊",
+   "desc": "TapeOut Protocol 数据 TapeOut 协议数据面板（TapeOut Labs）：处理器与电路数量、铸造进度、BEM 成交、空投领取、活动热力图与时间序列，并直接读链上 Linux 的机器状态。与官网注册表独立更新，11 种语言，含公开 API。",
+   "category": "other",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "TapeOut",
+   "desc": "VIP 全网矿机实时看板：矿工数与已验证 / 未验证权重、BEM 已挖出量与每日 7,200 BEM 产出、BEM 价格，中英韩三语。另含榜单、流片与开矿辅助（收编自某生态盘点：此前部分服务曾不可用）。",
+   "category": "mining",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "📋",
+   "desc": "TapeWeb · DeWEB 查看器 HOT 全网DeWEB网站扫描看板：每条记录都能直接打开对应站点，",
+   "category": "tool",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "TapeOutScan",
+   "desc": "HOT NEW TapeOut 公开数据浏览器：把承诺、流片、启动、榜首、转移与地址算力等记录逐条索引，每条都对应 BNB Smart Chain 上的公开链上证据，可点回原始交易核对。页面注明与项目方无关。",
+   "category": "defi",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "TapeOut",
+   "desc": "Market TapeOut 生态的市场与服务平台：元件与电路实时行情、BEM 订单簿、矿机与容器、AI 顾问与工具集，另有一整套上手指南（NAND 与 LATCH 的区别、Behemoth 与 TAPEOUT 的供给差异等）。",
+   "category": "defi",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "Firsto",
+   "desc": "TapeOut TapeOut 的专业交易终端（v2.1）：晶体管与电路实时行情、订单簿与成交明细，支持批量买卖与限价/市价挂单；带市值、24h 成交额、持仓地址、流通/燃烧/铸造量等指标，并可一键流片与领取 $BEM。",
+   "category": "defi",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "SILICON",
+   "desc": "X · 晶链交易所 SILICON X 一站式服务 TapeOut 生态，覆盖 BEM 交易、晶体管交易、矿机交易、矿机组装、挖矿管理、产出领取等功能。",
+   "category": "defi",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "TapeOut",
+   "desc": "Club TapeOut 的非托管多市场交易所：交易晶体管与电路 NFT，订单聚合官方市场与自有盘口；另附全网算力总览——链上矿工数、已验证与未验证权重、BEM 发行量与每日产出分配。数据取自协议同步快照与链上成交，同步异常时保留上一份有效值，不填充假数据。",
+   "category": "defi",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "PancakeSwap",
+   "desc": "· BEM 交易对 BSC 上体量最大的 AMM，也是 BEM 的主要流动性池所在：链接已预填 BEM 为兑换目标，连上钱包即可按池价兑换（主池 BEM / USDT，另有 BEM / WBNB）。适合不想走订单簿、直接吃池子深度的人。",
+   "category": "defi",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "B",
+   "desc": "BEM OTC BNB Smart Chain 上的 BEM / USDT 去中心化挂单市场，用于场外挂单与撮合。",
+   "category": "defi",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "BEM",
+   "desc": "行情终端 NEW BEM 行情与即时兑换一体的链上终端：价格、流动性、24h 成交额、买卖笔数、1m–1d K 线与逐笔成交明细，由本站从 PancakeSwap V3 池合约采集计算；内置兑换同样走 PancakeSwap V3，支持市价/限价与滑点设置，平台不另收手续费。非官方站点，未接入可靠来源的聪明钱、内幕地址等分类不做推断。",
+   "category": "defi",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "💧",
+   "desc": "TAPELIQUID 链上 NEW TapeOut 生态的交易台，整个前端装在一个链上容器里：现货 BEM 在你签名时从钱包成交，永续与晶体管、电路现货各自一本。永续用 BEM 池的几分钟均价做标记价，没有资金费与保险基金，亏到保证金约一半就会被任何人强平；撮合与撤单各收保证金的千分之二，平仓不再另收，已撮合的永续成交每周可领回一半。另带工房（铸造与流片晶体管）、晶圆与电路锁仓（五档期限、合约无管理员）、每月按手续费收入回购销毁 BEM，以及只留在本机浏览器、不进合约的练习模式。页面自称是产品规则而非审计报告。 tape://11636.0.tape",
+   "category": "defi",
+   "chain": "BNB",
+   "tape": "tape://11636.0.tape"
+  },
+  {
+   "name": "💹",
+   "desc": "TapeOut Pro NEW CPU 资产多品种交易台 + 电路租赁：现货买卖 NAND / LATCH 等晶体管（1% taker，由官方市场合约收取），电路市场聚合成交全网已流片电路挂单（1% 平台费，购买前链上复核），另可按台出租电路收 BNB 租金（含 GatePilot 托管金库）、收益排行、挖矿产出与「我的资产」批量领取。内置四币种（BNB / USDT / BEM / SPXCB）泵式发射：创建费 0.005 BNB，实收达标即毕业、配对上 PancakeSwap 并全额烧毁 LP。行情与挂单均读 BNB Chain 官方合约与链上真实数据。",
+   "category": "defi",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "TapeUP",
+   "desc": "NEW TAP20 交易市场，同时是基于 TapeOut DeWEB 协议的全链账本客户端。交易页带 PoB 交易引擎：把即时买入、买盘蓄水池与 Builder 协作激励拼成一套买方入场机制，行情给出代币价格、24h 涨跌幅与成交量、流动性、买盘蓄水池、市值与持有人数，另有市值排行、最新创建与 Builder 奖励榜。账本部分读取身份、页面、消息三类源链记录，本地核对内容指纹与确认深度后合成统一视图，阅读页不按次收费。",
+   "category": "chat",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "OwlGate",
+   "desc": "NEW BEM 矿机交易市场：实时价格、一键买入与扫地板价，也能对任意矿机发 WBNB 报价（走 Seaport 1.6 结算，成交前 BNB 一直留在自己钱包）。每笔成交在页面标价之外另加 0.75% 平台费，每个钱包前 5 笔报价免收；另有组合估值、未领 BEM、24h 收益与 Telegram 日报。",
+   "category": "defi",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "GatePilot",
+   "desc": "TapeOut PoD 挖矿与租赁的一站式平台：生成官方题目的参考电路、在本站流片、管理主网矿机，还能把矿机挂到租赁市场按小时收租。",
+   "category": "defi",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "🎨",
+   "desc": "TapeOut Build 流片前先算一遍：拖拽搭电路、跑仿真，预估能拿多少算力分、用掉多少门，并支持导出 BLIF。",
+   "category": "mining",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "🔍",
+   "desc": "Circuit Verifier 把已流片的电路与它的链上参考实现在全部可能输入上逐一对拍，而不是只抽样协议那 256 组固定向量；一旦不一致，直接给出能复现差异的那个输入。",
+   "category": "mining",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "⚙️",
+   "desc": "TapeLens NEW 配机工作台：从预算反推矿机配置——在 TapeOut 与 Behemoth 处理器之间比较成本、组合与产出，生成预算内可执行的配置，给出基础权重与榜首加成的估算，材料参考含市场费与 NAND；链上部分只读扫描题目、榜位与材料订单，实际状态以执行时为准。",
+   "category": "defi",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "TapeFoundry",
+   "desc": "NEW TapeFoundry 的 TF 电路矿机：同一钱包装满 3 张原创电路卡才能启动，算力按 sqrt(门数) 计，装机期间按秒累计，随时可退出。首季 15 天共 270,000 TF，90% 用于挖矿、10% 进生态基金；另有卡牌市场、拼图与 GateCrash 小游戏。",
+   "category": "game",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "HashPort",
+   "desc": "把 dapp 与 DeFi 的前端也搬上 BNB Chain：钱包逐字节校验页面，被替换过的页面拿不到签名；前端与合约处于同一层，站点归属于一个电路容器 NFT，持有该 NFT 即为站点管理员，挂单出售期间站点冻结；上传像 FTP 一样拖拽即可。",
+   "category": "defi",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "🧭",
+   "desc": "链上网站浏览器（TapeKit 内核） 本站自带的 DeWeb 浏览器：输入链上地址（4246.0.tape、#4246@0、tape://… 或容器地址），内核就从 BNB Chain 直接读出整个网站并在沙盒里跑起来——钉住一个区块、至少两家独立节点给出完全一致的结果、逐文件核对 SHA-256，不经过域名与 DNS；网站运行在隔离沙盒中，链外请求一律拦截并列出。",
+   "category": "tool",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "🗺️",
+   "desc": "小孩哥 Fab · 链上电路图 社区自建的 TapeOut 站点地图，自称非官方服务：把 BNB 链上的每个站点当成焊在原理图上的一个模块，可拖动、可点开，按处理器与分类筛选，索引每几分钟刷新一次。还能画一张 16×16 的图、生成 fab.json 放进自己站点根目录，地图上对应的模块就会变成那张图。",
+   "category": "social",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "📦",
+   "desc": "容器工厂 One-Click Container NEW 一键生成链上TradOut容器，用最低的成本铸造，流片，开通容器。",
+   "category": "mining",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "🏷️",
+   "desc": "8.888 · DeWeb 靓号商城 链上 NEW 把 TapeOut 官网市场的在售号码归集整理成可挑选的商城：发现页可按编号或标签搜索，按价格与分类（华人吉利、稀缺形态、技术币圈、亚文化字典、纯 7 系列等）排序，卡片标出能否挖矿与算力；我的页用商品地址加编号核对号码归属，随即出售、改价或下架。商品信息全部从链上读取，浏览器钱包或手机钱包扫码连接，购买、出售、下架均由用户钱包直接调用官网合约，本站不经手资产与资金。 tape://8.888.tape",
+   "category": "defi",
+   "chain": "multi",
+   "tape": "tape://8.888.tape"
+  },
+  {
+   "name": "🧩",
+   "desc": "Tape DeWEB 浏览器插件 NEW 让浏览器像开普通网页一样打开链上网站：页面文件写在区块链上，名字就是网址，输入 1.8、1.8.tape、1.2.344（X Layer）或 1.3.5（Base）即可；内容从多个节点读取并按 SHA-256 交叉校验，任一字节被改都会暴露。经网关打开时站点运行在自己的域名下，所以能存数据、能用钱包；地址栏输 tape 按 Tab 直接进站，另有收藏夹、最近访问与自动抓取的站点名和图标。仅申请 storage 与 activeTab 两项权限，无后台统计。Chromium 内核（Chrome / Edge / Brave），下载解压后在开发者模式加载即可，约 75 KB。",
+   "category": "tool",
+   "chain": "X Layer",
+   "tape": null
+  },
+  {
+   "name": "⭐",
+   "desc": "TapeStar · 非托管挖矿配置层 链上 NEW TapeOut 生态的非托管挖矿配置与执行层，自称「独立产品提案」而非官方产品：输入预算与可接受滑点（可选把钱包里已有的 NAND / LATCH 纳入方案），沿订单簿逐档算出真实成交额、手续费、流片费与 gas，给出三个可行组合，再按「实时重报价 → 采购 → 承诺 → 生成电路 → 准备验证 → 开始挖矿」六步执行，每笔交易都要钱包确认，越界即停下。另有 DIY 市场（晶体管与已组装电路的挂单、官方买方报价簿买卖）、矿机领取、$BEM 流动性与协议数据页，以及一份说明定位与可信边界的白皮书。强调不保管私钥与资产、不承诺收益，价格与库存以链上订单簿和合约为准；报价与索引部分走站外接口。 tape://12566.30.tape",
+   "category": "defi",
+   "chain": "BNB",
+   "tape": "tape://12566.30.tape"
+  },
+  {
+   "name": "📈",
+   "desc": "2.894 · 预测盘 链上 NEW 装进链上容器的预测市场，6 个文件、主入口就一个网页：像刷信息流一样往下刷盘，每张盘分上下两半 YES 与 NO，按住哪边就押哪边，松开成交，底部切换 BNB / BEM 与单次押注额。押注从余额里扣，钱包只用连一次——充值并开启存在浏览器里的免签钥匙，只能用余额下注、动不了钱包资产，7 天后失效。价格盘可选 BEM / BNB / BTC / ETH，按揭晓前 1 小时的链上均价判定（BEM 读 PancakeSwap 的 BEM/USDT、BEM/WBNB 池，BNB、BTC、ETH 读 Chainlink 喂价加 PancakeSwap 池）；文字盘停押后由判官按公开信息裁决，说不清就判无效全额退款，涉及具体个人人身安全的盘不展示。人人都能开盘，但开盘必须先押一口表明立场，之后这个盘每笔押注 0.5% 归开盘人。合约在 BNB Chain（另配 X Layer 与 BSC 测试网），另有「全部的盘」列表、实时下注流与结果晒单入口。 tape://2.894.tape",
+   "category": "defi",
+   "chain": "X Layer",
+   "tape": "tape://2.894.tape"
+  },
+  {
+   "name": "Halve",
+   "desc": "· PT / YT 流动性层 NEW Halve 是 TapeOut 的流动性层：把已验证矿机按到期日拆成 PT（用 BNB 报价，到期销毁换回一台同算力矿机）与 YT（用 $BEM 报价，到期领走这段算力挖出的 $BEM），每个到期日各有独立的代币与订单簿，目前运行在 BSC 测试网。",
+   "category": "defi",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "🪙",
+   "desc": "TapeID · 电路发币 链上 NEW 在 TapeOut 上做过电路，就能在 Base 主网一键给它发个币：先扫出你在三条链上的电路（可按电路号、名字、门数搜），选一个填好名字、代码（1–6 个英文字母）与图片，经 Clanker v4 发到 Base；发币前检查网络与 gas，并做一次不花钱的模拟试发。每笔买卖收 1% 手续费：0.64% 归作者（谁持有电路归谁）、0.16% 回购 $BEM、0.2% 归 Clanker，作者收款与回购地址各是一个只有本人能动的 Safe，发币前核验。发完给出合约地址与分享到 X 的入口，页面本身没有自有合约，每笔交易都由你的钱包签名。 tape://282.732.tape/tapeid/",
+   "category": "defi",
+   "chain": "BNB",
+   "tape": "tape://282.732.tape"
+  },
+  {
+   "name": "🔐",
+   "desc": "288.732 · 身份验证器 链上 NEW 装进链上容器的两步验证码（TOTP）生成器，二维码与转移格式和 Google Authenticator 互通：验证码用本机密钥和时间离线生成，帐号存在浏览器里，可开通行密钥或口令的应用锁（闲置 5 分钟自动锁定）。链上备份用通行密钥（WebAuthn PRF）派生的 AES-256 密钥加密，作为 .authenticator/backup.bin 写进自己持有的电路容器，30 个帐号约 750 字节，首次约 0.00002 BNB、之后每次约 0.00001 BNB；换设备只凭通行密钥在 BNB Chain、X Layer、Base 上只读找回容器解密并合并，不需要钱包也不发交易，多设备写入前先合并、删除留记录。页面无服务器、无统计、无第三方脚本，联网只有读三条链公共节点与你在钱包里确认的交易。 tape://288.732.tape",
+   "category": "defi",
+   "chain": "X Layer",
+   "tape": "tape://288.732.tape"
+  },
+  {
+   "name": "拼矿",
+   "desc": "BEMine NEW 矿机共持（拼矿）平台：每台矿机拆成 100 份，单地址可从 1 份起认购甚至全包；产出先归集到池子，个人按份领取，已入账收益永久保留。新矿池等重大事项由共同持有人投票，份额与地址均须严格过半，低于市场参考价须平台审核。另有资产总览、收益中心、矿机转让与公开记录，行情读 PancakeSwap V3 的 BEM 池；BNB Chain 接入标注「即将开放」。",
+   "category": "defi",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "TapeNow",
+   "desc": "NEW 把做好的网站发布到链上：上传 ZIP 或构建目录，也能从 GitHub、Vercel 导入，固定文件与目标后写入 BSC、X Layer 或 Base，再逐文件读回核验，并挂到普通 HTTPS 网址——访客不需要钱包，可绑自有域名。工作台同时开放给浏览器里的 Agent：注册 16 个原生 WebMCP 工具，Agent 负责导入、预览与准备发布，每个有后果的动作都等你批准（批准 10 分钟内有效，文件、目标、钱包或金额一变立刻失效）；角色分 Owner 16 / Publisher 14 / Viewer 9 三档权限。每个版本可导出文件、SHA-256 清单与 Ed25519 签名回执，在本地离线核验；另有带密码和有效期的私有预览、先核对数据库兼容性的候选版本恢复。公测免费，每账号 3 个项目、9 个版本、100 MiB 归档，限量每天 50 个名额；gas 与流片、开通容器、激活地址的费用由钱包按上游合约定价直付，平台不代收不加价。需支持原生 WebMCP 的浏览器（Chromium 152 实测），不支持时普通界面照常使用。",
+   "category": "mining",
+   "chain": "X Layer",
+   "tape": null
+  },
+  {
+   "name": "声刻",
+   "desc": "SonicMint · 链上音乐 NEW 基于 TapeOut 协议、跑在 X Layer 上的链上音乐发行平台，无服务器：音频存进 TapeOut 链上容器，免费曲目人人可听，付费曲目加密上链、用 OKB 一次买断后永久可听，版税由智能合约即时结算。发行时可填曲目名、艺人、唱片容器与 10 类曲风，音频支持 MP3 / WAV / FLAC / AAC，另有封面、LRC 歌词（与音频同一内容密钥加密，仅购买者可见）与多方版税分成；广场按曲目或艺人搜索，个人页列出已购曲目，底部是迷你播放器、我的曲库与歌词抽屉，创作者面板显示已发行数与累计版税。中英双语，需连接钱包。",
+   "category": "music",
+   "chain": "X Layer",
+   "tape": null
+  },
+  {
+   "name": "tapeXO",
+   "desc": "HOT NEW 无需钱包的 X 抽奖工具，基于 TapeOut 协议、开奖在 X Layer：报名用 X 登录，截止后名单冻结并把哈希写入合约，再用 commit-reveal 算出随机数与完整排名，关注/转发条件在开奖时核对；entries.json 与 results.json 公开下载并封存进 TapeOut 容器，任何人都能用脚本对照链上哈希复算。免费支持 300 人参与。",
+   "category": "other",
+   "chain": "X Layer",
+   "tape": null
+  },
+  {
+   "name": "IGNIX",
+   "desc": "NEW X Layer 上的公平发射平台：建池、发币与锁仓走同一条流程，页面数据读自链上而非项目自报；另带金库、农场与矿机碎片玩法。",
+   "category": "defi",
+   "chain": "X Layer",
+   "tape": null
+  },
+  {
+   "name": "TapeLaunch",
+   "desc": "NEW 把「网站 + 代币」一起发布的平台：用 AI 生成项目、预览后一次性发布，网站可直接调用项目代币合约（window.TAPELAUNCH_CONTRACTS 读别名地址与 ABI）。交易税 1%，进入项目 Vault 时被抽取其中 10%（即交易额的 0.1%）；回购份额暂存金库，启用后自动买入并销毁 TAPE。TapeOut 社区专场的 Credits 也在此领取。",
+   "category": "social",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "SnapVault",
+   "desc": "NEW X Layer 上的社交相册，主打付费解锁的限时图片：创作者设定解锁价格与查看时长，图片默认不公开预览，付款后 24 小时内可打开、按首次打开计时，阅后即焚（限时展示无法阻止截图）。可发到创作者广场，也可只发给某个人或某个会话；支持用 UID 或钱包地址加好友。",
+   "category": "chat",
+   "chain": "X Layer",
+   "tape": null
+  },
+  {
+   "name": "🤖",
+   "desc": "TapeAI · 电路检察官 NEW 把 Agent 的授权边界做成电路并流片为资产：每个「检察官」电路承载身份、决策逻辑与授权范围，用于 Agent 之间的请求判定与协作。首批 8,888 个，单价 0.0341 BNB，另有机理说明与个人持有页。",
+   "category": "ai",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "🔮",
+   "desc": "玄机 XuanJi · 链上占卜 链上 NEW 链上占卜推演平台：以太极为引，推演出此刻的方位与时机，另有玄机问答；每一卦都记录在链上，可验证、可回溯。同一容器里还挂着 BEM 音乐子页。 tape://117.3.tape",
+   "category": "music",
+   "chain": "BNB",
+   "tape": "tape://117.3.tape"
+  },
+  {
+   "name": "✈️",
+   "desc": "官方Telegram · TapeOut Protocol TapeOut 的 Telegram 社群：公告、进展与日常讨论都聚在这里。",
+   "category": "other",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "📚",
+   "desc": "Telegram · TapeOut 学习群 偏学习交流的 Telegram 讨论群，适合新手提问、交流流片与挖矿的实操细节。",
+   "category": "mining",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "🌐",
+   "desc": "Telegram 社群英语区 TapeOut 的英语区 Telegram 社群，面向英文用户交流协议进展与生态动态。",
+   "category": "other",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "⛏️",
+   "desc": "BEM Community 独立社区门户（Mine. Build. Compute.）：围绕 BEM、Proof of Design 挖矿、电路、矿机与新生的 TapeOut 算力经济，页面自称与项目方无关。",
+   "category": "social",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "📖",
+   "desc": "Silicon Bất Tử 越南语社区的交互式科普：用可点、可拖的页面解释 TapeOut Protocol 到底在做什么，可切英语与中文。",
+   "category": "social",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "🏆",
+   "desc": "TapeOut 社区名人榜 NEW 把贡献变成荣誉的社区榜单（自标非官方评选）：提交作品、教程、活动记录或协作交付，评审通过后按「社区贡献 60% + 社区认可 25% + 持续参与 15%」算出社区指数，按近 30 / 90 天两档排名；可提名建设者、为他人认可，X 登录后有自己的贡献档案与荣誉卡，粉丝数与资产不计分。",
+   "category": "social",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "炉边论坛",
+   "desc": "Lubian Forum NEW TapeOut 流片协议的中文社区论坛（自称社区原型、非官方、测试用途）：按版块发帖，支持精华/推广筛选、全文搜索、图片视频与引用回复；钱包登录后可用 BEM 打赏与红包，另有链上托管 BEM 的悬赏任务和交易闲置与服务的炉边市场。",
+   "category": "social",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "💬",
+   "desc": "TapeChat TapeChat（Beta）：在 TapeOut 电路容器之间传端到端加密消息，每条消息写进发送者自己的链上容器，并对照链上内容校验。需要桌面浏览器加钱包插件。",
+   "category": "chat",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "🐧",
+   "desc": "TAPQQ 链上 TAPQQ：经典窗体风格（仿 QQ）的 TapeSend 链上消息应用，整个前端装在链上容器 1.888.tape 里，含 manifest 与 Service Worker，可当应用装到桌面。 tape://1.888.tape",
+   "category": "chat",
+   "chain": "multi",
+   "tape": "tape://1.888.tape"
+  },
+  {
+   "name": "📨",
+   "desc": "DeQQ DeQQ V0.1.0：独立的 TapeSend 客户端，用容器地址互加好友、收发即时消息——钱包确认身份，容器接收消息。支持 BNB、X Layer 与 Base 三条链，消息本地加密、密文与通信元数据公开存在链上；首次启用与发信要付 Gas，关闭页面后不再推送。",
+   "category": "chat",
+   "chain": "X Layer",
+   "tape": null
+  },
+  {
+   "name": "🐒",
+   "desc": "黑神话巨兽 动作游戏，Boss 的决策大脑由 7 片 TapeOut 电路组成——电路负责「出什么招」，动画与伤害由浏览器执行，战斗中能实时看到网表求值。游客可直接游玩。",
+   "category": "game",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "弈",
+   "desc": "弈芯 · 电路五子棋 15×15 五子棋，对手是真实的 Behemoth #2121（56 NAND · 6 位比较）。落子后信号会穿过网表，每个节点对应真实引脚或 NAND 门。",
+   "category": "game",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "🐟",
+   "desc": "摸鱼达人：太炮 把「摸鱼」做成模拟盘的链上小游戏：选四档底薪（0.1 / 0.4 / 1.6 / 6.4 BEM）挑一间办公室躲起来，黄仁勋会推开一扇有人的门——没被抓的人分奖金，被抓的去矿场加班、按天领加班费。分配为 84% 奖金 / 12% 厂库 / 1% 抽水 / 1% 销毁 BEM / 1% 推荐 / 1% 抽奖罐，余额零头全部销毁；目前是模拟盘，链上模式未开放。",
+   "category": "game",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "芯火夺宝",
+   "desc": "用 $BEM 参与的链上号码竞猜：5 / 10 / 50 BEM 三档场次各 10,000 份，自选或随机挑号，售出 9,500 份即封盘；开奖先验签 drand 随机数，再交给 2075 处理器在链上计算。实收金额 3% 转入销毁地址、1% 进容器，其余为中奖奖金，中奖钱包 24 小时内领取，另有公开的销毁记录页。",
+   "category": "other",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "👾",
+   "desc": "TAPE STRIKE · 清除芯片里的 Bug 链上 在晶圆上打 Bug 的第一人称射击：Bug 从晶圆里爬出来，清掉它们、撑过尽可能多的波次。整个游戏连 3D 引擎与字体都装在同一个链上容器里（6 个文件），单人游玩，结束后可把战绩存成图或复制成文字。 tape://1.894.tape",
+   "category": "game",
+   "chain": "multi",
+   "tape": "tape://1.894.tape"
+  },
+  {
+   "name": "🕹️",
+   "desc": "BURNBEM · DeWeb 游戏厅 链上 把跑在链上的小游戏收进一个门厅：顶部实时读链，显示 BEM 的累计与当日销毁量；下面四款即点即玩——摸鱼达人、TAPE STRIKE、NIBBLE、RAIDEN 雷电，另附一个把网页写进 TapeOut 容器的上传器。没有传统服务器与 CDN，游戏文件由链上容器保存。页面自标为效果稿。 tape://1688.0.tape",
+   "category": "game",
+   "chain": "BNB",
+   "tape": "tape://1688.0.tape"
+  },
+  {
+   "name": "✈️",
+   "desc": "RAIDEN 雷电 链上 整款游戏装在一个链上文件里的竖版弹幕射击：闯关（新手 / 老兵 / 地狱，各 12 关）、无尽、纯 Boss 三种模式；37 架战机、10 种武器、15 种僚机、24 个 Boss、7 种可升级符文，商城、图鉴与本地存档齐全。画面与音效全部由代码生成，没有外部资源，桌面键盘与手机触控都能玩。 tape://5182.30.tape",
+   "category": "game",
+   "chain": "multi",
+   "tape": "tape://5182.30.tape"
+  },
+  {
+   "name": "🃏",
+   "desc": "1.1031 · 无庄德州扑克 链上 NEW 无庄家的链上德州扑克：全桌一起洗牌，底牌只有你自己能解，合约按全桌签名的收据用 BEM 结算。牌桌连界面在内 44 个文件都放在链上容器里，没有服务器。 tape://1.1031.tape",
+   "category": "game",
+   "chain": "BNB",
+   "tape": "tape://1.1031.tape"
+  },
+  {
+   "name": "🌃",
+   "desc": "NEON CITADEL · 最后的光 链上 NEW 离线的原生 WebGL 2 战术生存游戏：整款游戏只有 1 个链上文件（index.html），打开即玩，断网也能运行，不需要服务器。 tape://40.865.tape",
+   "category": "game",
+   "chain": "multi",
+   "tape": "tape://40.865.tape"
+  },
+  {
+   "name": "🎯",
+   "desc": "BEM ROYALE · 链上大逃杀 链上 NEW 一个容器装三款独立游戏：俯视射击大逃杀（12 人、毒圈收缩，前 6 名瓜分奖池、冠军 195%）、PvE 搜刮撤离（无圈，9 个战利品箱，撤离点每 18 秒开一次只存在 12 秒，杀掉对手抢走其三成战利金）、地牢迷宫竞速（每局随机生成、迷雾视野，破墙锤砸墙抄近路）。全部以 gate 计价（1 BEM = 100,000,000 gate），BEM 经 Ledger 合约链上充提并绑定钱包地址；每局抽水 5% 按 40% 销毁 / 10% 签到池 / 20% 公益 / 20% 平台 / 10% 邀请分配，另有战令、皮肤与邀请榜。整个前端就是 1 个链上文件（index.html），无服务器。 tape://14031.30.tape",
+   "category": "game",
+   "chain": "BNB",
+   "tape": "tape://14031.30.tape"
+  },
+  {
+   "name": "🎮",
+   "desc": "小孩哥 · 电路远征 TAPEQUEST 99 链上 NEW TapeOut 生态主题的原创像素横版闯关，纯 canvas、免费、不消耗代币：9 个主题各含 8 个普通关、1 个 Boss 关与 2 个挑战关，共 99 关；每关 3 条命、每条 3 格血，通关、集齐七成晶片、不掉命各得 1 星。NAND 门在两路输入同为 1 时关闭，按 E 切换输入开路；LATCH 灯塔记录复活点；BEM 能量弹自动回复，金币挡一次伤害、ETH 晶体 12 秒双倍弹伤、SOL 电池 10 秒加速。第 3 小关起终点前有电路维修台，需按 E 把反相器、半加器、地址译码器、奇偶校验、双级 NAND 等真实逻辑电路的输出接对，出口与 Boss 护盾才解除。另有电路护照可读取真实 TapeOut 电路身份，无需签名；存档存本机浏览器，可导出。 tape://16.68.tape",
+   "category": "game",
+   "chain": "BNB",
+   "tape": "tape://16.68.tape"
+  },
+  {
+   "name": "🔥",
+   "desc": "余烬世界 EMBERWORLD NEW 正在构建中的 2.5D 冒险世界：以电路协作为核心玩法，配合 EmberWorld Pass 推进探索进度。",
+   "category": "other",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "🐧",
+   "desc": "Linux on BNB Chain 第一次在 L1 主网上跑 Linux：kernel.org 主线 6.5.12 的每条 RISC-V 指令都由 BNB Chain 交易真实执行，32 个寄存器、全部 CSR 与 16 MB 内存（16,384 个页合约，写时复制）都在链上。打开就能像真实终端一样敲命令。",
+   "category": "defi",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "🏎️",
+   "desc": "21 NAND Driver 一辆只靠 21 个 NAND 门开车的车：网络链下训练后降级成 21 个 NAND，流片为链上电路 #279，赛道每辆车都由各自的链上网表驾驶。可单步看门信号，也能花 BEM 在链上替它开一步。",
+   "category": "mining",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "🏎️",
+   "desc": "21 NAND Driver · DeWeb HOT 链上 21 NAND Driver 的链上站群，一个容器装四样东西：Arena v1 竞赛规则（24 个固定起点、满分 34,560、门数少者优先）、把 Agents API 控制回路烧成电路 #283 的接口与实时模拟器、TapeOut Gas 账本，以及改名后的 impossible LLM 入口。 tape://282.732.tape",
+   "category": "other",
+   "chain": "multi",
+   "tape": "tape://282.732.tape"
+  },
+  {
+   "name": "🔗",
+   "desc": "ncd2net · 弦图网表台 链上 把 pyncd 弦图（Vincent Abbott 的 Weaves / Wires / Morphisms）编译成 2 输入 NAND 网表：弦图 → 定点 IR → Verilog → yosys/abc → 网表，再在浏览器里逐门求值、与浮点模型实时对拍。5 张图对定点参考穷举零错，对 torch 平均误差 ≤ 0.024。 tape://282.732.tape/ncd2net",
+   "category": "tool",
+   "chain": "multi",
+   "tape": "tape://282.732.tape"
+  },
+  {
+   "name": "🦆",
+   "desc": "Microduck · 逻辑门大脑 一只有逻辑门大脑的鸭子：电路 #281 用 39 个 NAND 门负责转向，可组合 #282 记住转向。能把专家策略和电路大脑放在同一场地对比跑，并逐帧查看 39 个门的通断。",
+   "category": "other",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "🪰",
+   "desc": "LoomEscape · 果蝇反射电路 把果蝇的逃逸反射编译成 173 个 NAND 门加 6 个锁存器，逃逸核心的固件编译成 WebAssembly 在浏览器里跑：可像掌机一样按菜单操作、逐门看信号通断，也能切到「在 BNB 智能链上算」，让公共节点做一次只读复算。",
+   "category": "tool",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "🧬",
+   "desc": "Perpetua 把康威生命游戏 16×16 环形网格编成电路 #2：14,592 个与非门（合约 0x4a93…e512），每一代演化都在链上网表上求值，页面直接推到浏览器里看。",
+   "category": "game",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "🕰️",
+   "desc": "BEM Clock 门级实现的七段数码管数字时钟：2,165 个门、2 路输入、42 路输出、24 个状态位，在浏览器里逐门仿真走时。",
+   "category": "tool",
+   "chain": "BNB",
+   "tape": null
+  },
+  {
+   "name": "⚔️",
+   "desc": "TapeOutTank 链上存芯片、链外跑坦克的技术实验：同一辆坦克换上不同的电路大脑——Atlas（1,836 个 NAND 门）、Swift（1,319 个）与保留果蝇连接结构的 Fly · 11（64 个节点）。可观战、可挑战，并逐步查看每一次决策；不需要钱包，也不产生链上费用。",
+   "category": "game",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "零号",
+   "desc": "Zero · 链上 AI agent NEW 替你在币圈干活的 AI agent：先查清哪个是正版，拦下仿盘，再把下单卡片交到你手上由你决定，每一步都可在链上复算。接 BSC 与 X Layer。",
+   "category": "ai",
+   "chain": "X Layer",
+   "tape": null
+  },
+  {
+   "name": "·新手指南",
+   "desc": "",
+   "category": "other",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "·数据看板",
+   "desc": "",
+   "category": "tool",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "·精选文章",
+   "desc": "",
+   "category": "other",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "·里程碑",
+   "desc": "",
+   "category": "other",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "·研发计划",
+   "desc": "",
+   "category": "other",
+   "chain": "multi",
+   "tape": null
+  },
+  {
+   "name": "·联系我们",
+   "desc": "",
+   "category": "other",
+   "chain": "multi",
+   "tape": null
+  }
+ ]
+}

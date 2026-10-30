@@ -1,0 +1,11 @@
+:root {
+  --dolphin-pearl-white: #F7F5FB;
+  --dolphin-lavender: #A08CD3;
+  --dolphin-petal-pink: #F0BDD8;
+  --dolphin-ice-blue: #C4E8F5;
+  --dolphin-champagne-highlight: #FBF2D3;
+  --dolphin-deep-ink: #292338;
+}
+.dolphin-mark { display:block; object-fit:contain; aspect-ratio:1 / 1; }
+.dolphin-avatar { display:block; border-radius:50%; object-fit:cover; }
+/* Use Square_Safe for avatar uploads. Never stretch individual mark components. */
