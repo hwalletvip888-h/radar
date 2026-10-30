@@ -17,8 +17,9 @@ import json, time, sys, urllib.request, os
 POD = "0x7E2E0DC66a3bD9103E69b766afA62d9f7b697b46"
 RPCS = ["https://tapeout.net/rpc", "https://bsc-dataseed.bnbchain.org/", "https://bsc-dataseed.binance.org/"]
 CHUNK = 50000
-STATE_FILE = r"C:\Users\CF\Desktop\okx-sentinel\deweb-search\watcher_state.json"
-ALERTS_FILE = r"C:\Users\CF\Desktop\okx-sentinel\deweb-search\alerts.json"
+BASE = os.path.dirname(os.path.abspath(__file__))
+STATE_FILE = os.path.join(BASE, "watcher_state.json")
+ALERTS_FILE = os.path.join(BASE, "alerts.json")
 GETMINER_SEL = "0x0527edc2"
 
 EVENTS = {
@@ -177,7 +178,7 @@ def main():
         # replay：demo 用，用已扫出的历史 Revoked 事件（real_chain_data.json）演示「检测+告警」
         if replay and not new_alerts:
             try:
-                rc = json.load(open(r"C:\Users\CF\Desktop\okx-sentinel\deweb-search\real_chain_data.json", encoding="utf-8"))
+                rc = json.load(open(os.path.join(BASE, "real_chain_data.json"), encoding="utf-8"))
                 revs = [e for e in rc.get("events", []) if e["event"] == "Revoked"]
                 miners = rc.get("miners", {})
                 if revs:

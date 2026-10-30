@@ -26,13 +26,27 @@ Telegram bot token 通过环境变量 TELEGRAM_BOT_TOKEN 提供。
 """
 import json, os, time, sys, urllib.request
 
-BASE = r"C:\Users\CF\Desktop\okx-sentinel\deweb-search"
+BASE = os.path.dirname(os.path.abspath(__file__))
 SUBS_FILE = os.path.join(BASE, "subscriptions.json")
 ALERTS_FILE = os.path.join(BASE, "alerts.json")
 STATE_FILE = os.path.join(BASE, "notifier_state.json")
 
 TIER_EMOJI = {"high": "🔴", "mid": "🟡", "low": "⚪"}
 TYPE_LABEL = {"revoked": "矿机被撤销", "counterexample": "新反例登记"}
+
+
+def load_token():
+    """优先取环境变量 TELEGRAM_BOT_TOKEN，否则读 .bot_token 文件"""
+    tok = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+    if tok:
+        return tok
+    f = os.path.join(BASE, ".bot_token")
+    if os.path.exists(f):
+        try:
+            return open(f, encoding="utf-8").read().strip()
+        except Exception:
+            pass
+    return ""
 
 
 def load_json(path, default):
@@ -88,7 +102,7 @@ def format_alert(alert):
 
 def main():
     loop = int(sys.argv[sys.argv.index("--loop") + 1]) if "--loop" in sys.argv else None
-    tg_token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+    tg_token = load_token()
 
     while True:
         cfg = load_json(SUBS_FILE, {"subscribers": []})

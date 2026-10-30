@@ -15,7 +15,7 @@ import sys
 import time
 import urllib.request
 
-BASE = r"C:\Users\CF\Desktop\okx-sentinel\deweb-search"
+BASE = os.path.dirname(os.path.abspath(__file__))
 TOKEN_FILE = os.path.join(BASE, ".bot_token")
 SUBS_FILE = os.path.join(BASE, "subscriptions.json")
 BIND_FILE = os.path.join(BASE, "telegram_bindings.json")

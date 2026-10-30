@@ -24,7 +24,7 @@ import urllib.request
 from web3 import AsyncWeb3
 from web3.providers import WebSocketProvider
 
-BASE = r"C:\Users\CF\Desktop\okx-sentinel\deweb-search"
+BASE = os.path.dirname(os.path.abspath(__file__))
 SUBS_FILE = os.path.join(BASE, "subscriptions.json")
 STATE_FILE = os.path.join(BASE, "engine_state.json")
 
@@ -43,6 +43,27 @@ PROCESSORS = {
 }
 
 TIER_EMOJI = {"high": "🔴", "mid": "🟡", "low": "⚪"}
+
+
+def load_token():
+    """优先取环境变量 TELEGRAM_BOT_TOKEN，否则读 .bot_token 文件"""
+    tok = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+    if tok:
+        return tok
+    f = os.path.join(BASE, ".bot_token")
+    if os.path.exists(f):
+        try:
+            return open(f, encoding="utf-8").read().strip()
+        except Exception:
+            pass
+    return ""
+
+
+def load_subs():
+    try:
+        return json.load(open(SUBS_FILE, encoding="utf-8"))
+    except Exception:
+        return {"subscribers": []}
 
 
 def http_rpc(method, params):
@@ -238,7 +259,7 @@ async def listen_real_time(tg_token):
             print(f"[engine] 解码失败: {e}")
             continue
         print(f"\n[engine] 🔔 检测到新事件：{alert['title']}")
-        subs = active_subscribers(json.load(open(SUBS_FILE, encoding="utf-8")))
+        subs = active_subscribers(load_subs())
         n = push_alert(alert, subs, tg_token)
         print(f"[engine] 已推给 {n} 个订阅者")
         # 追加到 alerts.json
@@ -250,8 +271,8 @@ async def listen_real_time(tg_token):
 
 
 async def main():
-    tg_token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-    subs = json.load(open(SUBS_FILE, encoding="utf-8"))
+    tg_token = load_token()
+    subs = load_subs()
     active = active_subscribers(subs)
     print(f"[engine] 活跃订阅者 {len(active)} 个（免费/Pro/企业 到期时间已在 subscriptions.json）")
 

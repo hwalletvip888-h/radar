@@ -107,6 +107,8 @@ contract AlertSubscription is Ownable, ReentrancyGuard {
     error NotActive();
     error ContractPaused();
     error InvalidTier();
+    error PriceNotSet(Tier tier);
+    error PriceNotHigher();
 
     constructor(address bem_) {
         bem = IERC20(bem_);
@@ -120,6 +122,11 @@ contract AlertSubscription is Ownable, ReentrancyGuard {
         _;
     }
 
+    /// @notice 校验套餐枚举值在合法范围内（FREE/PRO/ENTERPRISE）
+    function _requireValidTier(Tier t) internal pure {
+        if (uint8(t) > uint8(Tier.ENTERPRISE)) revert InvalidTier();
+    }
+
     /// @notice 订阅（或续费）。先 approve 本合约扣 BEM（免费套餐不需要，只付 gas）。
     /// @param months 订阅月数（1..120）
     /// @param tier 套餐等级
@@ -130,10 +137,12 @@ contract AlertSubscription is Ownable, ReentrancyGuard {
         nonReentrant
         whenNotPaused
     {
+        _requireValidTier(tier);
         if (months < 1 || months > MAX_MONTHS) revert InvalidMonths(months);
         if (channels == bytes32(0)) revert NoChannel();
 
         uint256 price = monthlyPrice[tier] * months;
+        if (tier != Tier.FREE && price == 0) revert PriceNotSet(tier);
         if (price > 0) {
             if (!bem.transferFrom(msg.sender, address(this), price)) revert ZeroAmount();
             totalRevenue += price;
@@ -154,12 +163,14 @@ contract AlertSubscription is Ownable, ReentrancyGuard {
     /// @notice 升级套餐（补差价）。只升不降，按剩余时间比例补差价。
     function upgrade(Tier newTier) external nonReentrant whenNotPaused {
         Subscription storage s = subscriptions[msg.sender];
+        _requireValidTier(newTier);
         if (s.expiry <= block.timestamp) revert NotActive();
         if (uint8(newTier) <= uint8(s.tier)) revert InvalidTier();
 
         uint256 remainingMonths = (s.expiry - block.timestamp + 30 days - 1) / 30 days;
         uint256 oldPrice = monthlyPrice[s.tier];
         uint256 newPrice = monthlyPrice[newTier];
+        if (newPrice <= oldPrice) revert PriceNotHigher();
         uint256 extra = (newPrice - oldPrice) * remainingMonths;
         if (extra > 0) {
             if (!bem.transferFrom(msg.sender, address(this), extra)) revert ZeroAmount();
@@ -190,6 +201,7 @@ contract AlertSubscription is Ownable, ReentrancyGuard {
         if (refund > s.paid) refund = s.paid;   // 退款不超过已付
 
         s.expiry = 0;
+        s.tier = Tier.FREE;
         s.paid = 0;
         if (refund > 0) {
             bem.transfer(msg.sender, refund);
@@ -227,6 +239,7 @@ contract AlertSubscription is Ownable, ReentrancyGuard {
 
     /// @notice 设置套餐月价（BEM，8 位小数）
     function setPrice(Tier tier, uint256 price) external onlyOwner {
+        _requireValidTier(tier);
         monthlyPrice[tier] = price;
         emit PriceSet(tier, price);
     }
