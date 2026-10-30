@@ -1,26 +1,54 @@
 {
- "generated_at": 1793375617,
+ "generated_at": 1793375854,
  "model": {
-  "version": "v2",
+  "version": "v3",
   "score_range": "0-100（越高越安全）",
   "weights": {
-   "revoked": -100,
-   "demoted": -25
-  }
+   "revoked": 0,
+   "demoted": 75,
+   "stopped": 60,
+   "counterexample": 70,
+   "healthy": 100
+  },
+  "grades": [
+   [
+    90,
+    "A"
+   ],
+   [
+    75,
+    "B"
+   ],
+   [
+    60,
+    "C"
+   ],
+   [
+    40,
+    "D"
+   ],
+   [
+    0,
+    "F"
+   ]
+  ]
  },
  "rated_circuits": 1799,
  "total_miners": 20567,
  "summary": {
   "revoked": 12,
   "demoted": 1787,
-  "stopped_events": 1859,
-  "healthy_estimate": 18768,
+  "stopped_rated": 0,
+  "stopped_unmapped": 1761,
+  "counterexample": 0,
+  "healthy_estimate": 17007,
+  "by_status": {
+   "revoked": 12,
+   "demoted": 1787
+  },
   "by_grade": {
-   "A": 18768,
-   "B": 1787,
    "F": 12,
-   "C": 0,
-   "D": 0
+   "B": 1787
   }
  },
  "ratings": [
