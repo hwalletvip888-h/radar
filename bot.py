@@ -15,12 +15,15 @@ import sys
 import time
 import urllib.request
 
+from common import _esc, _short, BRAND
+
 BASE = os.path.dirname(os.path.abspath(__file__))
 TOKEN_FILE = os.path.join(BASE, ".bot_token")
 SUBS_FILE = os.path.join(BASE, "subscriptions.json")
 BIND_FILE = os.path.join(BASE, "telegram_bindings.json")
 
 TIER_LABEL = {"free": "免费", "pro": "Pro", "enterprise": "企业"}
+TIER_PRICE = {"free": "0 BEM", "pro": "0.2 BEM/月", "enterprise": "定制"}
 
 
 def tg(method, **params):
@@ -88,15 +91,25 @@ def main():
                         if tier not in TIER_LABEL:
                             tier = "free"
                         bind(address.lower(), tier, chat_id)
-                        tg("sendMessage", chat_id=chat_id,
-                           text=f"✅ 已绑定海豚Radar订阅\n钱包：{address[:10]}…{address[-6:]}\n套餐：{TIER_LABEL[tier]}\n有效期：30 天\n\n之后有矿机被撤销/新反例，会第一时间推送到这里。")
+                        tg("sendMessage", chat_id=chat_id, parse_mode="HTML",
+                           text=(f"✅ <b>订阅绑定成功</b>\n\n"
+                                 f"钱包：<code>{_esc(_short(address))}</code>\n"
+                                 f"套餐：{TIER_LABEL[tier]}（{TIER_PRICE.get(tier, '')}）\n"
+                                 f"有效期：30 天\n\n"
+                                 f"之后有矿机被撤销 / 新反例，会第一时间推送到这里。\n\n"
+                                 f"{BRAND}"))
                         print(f"[bot] 绑定 {address[:10]}… → chat {chat_id} ({TIER_LABEL[tier]})")
                     else:
-                        tg("sendMessage", chat_id=chat_id,
-                           text="👋 欢迎使用海豚Radar（DolphinRadar）\n\n请从我们的订阅页面点「绑定 Telegram」，会自动带上你的钱包地址完成绑定。\n直接发 /start 不带地址是没法绑定的哦。")
+                        tg("sendMessage", chat_id=chat_id, parse_mode="HTML",
+                           text=(f"👋 <b>欢迎使用海豚Radar</b>\n\n"
+                                 f"请在订阅页点「绑定 Telegram」，会自动带上钱包地址完成绑定。\n"
+                                 f"直接发 <code>/start</code> 不带地址无法完成绑定。\n\n"
+                                 f"{BRAND}"))
                 else:
-                    tg("sendMessage", chat_id=chat_id,
-                       text="👋 我是海豚Radar的安全警报 bot。\n请从订阅页面点「绑定 Telegram」完成订阅绑定。")
+                    tg("sendMessage", chat_id=chat_id, parse_mode="HTML",
+                       text=(f"👋 我是海豚Radar的安全警报机器人\n\n"
+                             f"请从订阅页点「绑定 Telegram」完成订阅绑定。\n\n"
+                             f"{BRAND}"))
         except KeyboardInterrupt:
             print("\n[bot] 停止")
             return

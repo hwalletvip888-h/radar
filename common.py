@@ -18,6 +18,7 @@ SUBS_FILE = os.path.join(BASE, "subscriptions.json")
 TIER_EMOJI = {"high": "🔴", "mid": "🟡", "low": "⚪"}
 TIER_LABEL = {"high": "高危", "mid": "中等", "low": "低危"}
 TYPE_LABEL = {"revoked": "矿机被撤销", "counterexample": "新反例登记", "stopped": "矿机停挖"}
+BRAND = "🐬 海豚Radar"
 
 # 处理器合约地址 → 显示名
 PROCESSORS = {
@@ -139,7 +140,7 @@ def format_alert(alert):
         if block:
             L.append(f"▫️ 区块 #{block}")
     L.append("")
-    L.append(f"🐬 海豚Radar · {TIER_EMOJI.get(tier, '⚪')} {TIER_LABEL.get(tier, '')}".strip())
+    L.append(f"{BRAND} · {TIER_EMOJI.get(tier, '⚪')} {TIER_LABEL.get(tier, '')}".strip())
     return "\n".join(L)
 
 
