@@ -62,3 +62,15 @@ API_PORT = 8900
 # ── 扫链 chunk ────────────────────────────────────
 CHUNK = 5000         # 首选块区间（公共 RPC 普遍支持）
 CHUNK_MIN = 50       # 下限（tapeout.net 只允许 0-50 块）
+
+# ── 官方代币 vs 已知假币（Phase 1.3 假币标记）──────
+OFFICIAL_TOKENS = {
+    "BEM": {
+        "bnb": "0x5ce033B2bFCa3Af30b3e8C8457DeaF776A8b695a",
+        "xlayer": "0x60e62Efa9405d6873C5deaBD4E6CC91c25363952",
+    },
+}
+KNOWN_FAKES = [
+    {"name": "TAPEOUTX", "note": "社区举报的假冒 TapeOut 代币"},
+    {"name": "$TapeOut", "note": "社区举报的假冒代币"},
+]

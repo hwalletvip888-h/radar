@@ -133,6 +133,24 @@ def risk_graph_endpoint():
         return risk_graph.risk_graph(c)
 
 
+@app.get("/api/tokens")
+def tokens():
+    from service.config import OFFICIAL_TOKENS, KNOWN_FAKES
+    return {"official": OFFICIAL_TOKENS, "fakes": KNOWN_FAKES}
+
+
+@app.get("/api/permissions")
+def permissions():
+    from service.perm_watch import FACTORY, BASELINE_OWNER
+    with closing(_conn()) as c:
+        return {
+            "factory": FACTORY,
+            "owner": db.get_meta(c, "factoryOwner"),
+            "baseline": db.get_meta(c, "factoryOwnerBaseline") or BASELINE_OWNER,
+            "lastCheckedAt": db.get_meta(c, "factoryOwnerCheckedAt"),
+        }
+
+
 @app.get("/api/alerts")
 def alerts(limit: int = Query(50, le=500)):
     with closing(_conn()) as c:
