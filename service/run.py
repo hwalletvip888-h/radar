@@ -22,7 +22,7 @@ if ROOT not in sys.path:
 
 import uvicorn
 
-from service import db, ingest, rate, risk, alert, api
+from service import db, ingest, rate, risk, risk_graph, alert, api
 from service.config import POLL_INTERVAL, API_HOST, API_PORT
 
 
@@ -63,6 +63,11 @@ def run_pipeline():
     except Exception as e:
         print(f"[run] 初始风险引擎失败: {e}")
 
+    try:
+        risk_graph.risk_graph(c)
+    except Exception as e:
+        print(f"[run] 初始风险关联失败: {e}")
+
     while True:
         time.sleep(POLL_INTERVAL)
         try:
@@ -79,6 +84,10 @@ def run_pipeline():
             risk.risk_all(c)
         except Exception as e:
             print(f"[run] 风险引擎失败: {e}")
+        try:
+            risk_graph.risk_graph(c)
+        except Exception as e:
+            print(f"[run] 风险关联失败: {e}")
         try:
             k = alert.process_new_alerts(c)
             if k:

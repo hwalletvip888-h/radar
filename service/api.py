@@ -126,6 +126,13 @@ def risks(suspect: str = None, level: str = None,
     return {"total": total, "items": items}
 
 
+@app.get("/api/risk-graph")
+def risk_graph_endpoint():
+    from service import risk_graph
+    with closing(_conn()) as c:
+        return risk_graph.risk_graph(c)
+
+
 @app.get("/api/alerts")
 def alerts(limit: int = Query(50, le=500)):
     with closing(_conn()) as c:
