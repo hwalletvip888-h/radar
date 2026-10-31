@@ -106,19 +106,18 @@ def rating_detail(cid: int):
 @app.get("/api/risks")
 def risks(suspect: str = None, level: str = None,
           limit: int = Query(2000, le=5000), offset: int = 0):
-    sql = "SELECT * FROM risks"
     where, args = [], []
     if suspect:
         where.append("suspect=?"); args.append(suspect)
     if level:
         where.append("level=?"); args.append(level)
-    if where:
-        sql += " WHERE " + " AND ".join(where)
-    sql += " ORDER BY risk DESC, circuit_id ASC LIMIT ? OFFSET ?"
-    args += [limit, offset]
+    where_clause = (" WHERE " + " AND ".join(where)) if where else ""
     with closing(_conn()) as c:
-        rows = c.execute(sql, args).fetchall()
-        total = c.execute("SELECT COUNT(*) n FROM risks").fetchone()["n"]
+        total = c.execute("SELECT COUNT(*) n FROM risks" + where_clause, args).fetchone()["n"]
+        rows = c.execute(
+            "SELECT * FROM risks" + where_clause + " ORDER BY risk DESC, circuit_id ASC LIMIT ? OFFSET ?",
+            args + [limit, offset],
+        ).fetchall()
     items = []
     for r in rows:
         d = db.to_dict(r)
