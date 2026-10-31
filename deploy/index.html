@@ -28,7 +28,7 @@
         <button class="cs-opt" type="button" role="radio" aria-checked="false" data-chain="bnb" title="BNB Chain · 挖矿层"><i data-chain-ic="bnb"></i><span class="cs-label">BNB Chain</span></button>
         <i class="cs-thumb" aria-hidden="true"></i>
       </div>
-      <a class="btn btn-ghost" href="ratings.html" style="margin-right:8px">📊 安全评级</a>
+      <a class="btn btn-ghost" href="ratings-live.html" style="margin-right:8px">📊 安全评级</a>
       <a class="btn btn-ghost" href="subscribe.html" style="margin-right:8px">🔔 订阅推送</a>
       <div class="wallet">
         <button class="btn btn-holo" id="connectBtn" type="button" data-act="connect"><i data-ic="wallet"></i><span class="lbl-long">连接钱包</span><span class="lbl-short">连接</span></button>
@@ -43,6 +43,10 @@
 </header>
 
 <main id="top">
+  <div id="liveBar" style="max-width:1080px;margin:12px auto 0;padding:10px 20px;display:flex;align-items:center;gap:10px;font-size:13px;color:#CEC7DF;background:linear-gradient(110deg,rgba(246,200,222,.08),rgba(217,198,244,.08),rgba(174,157,232,.08));border:1px solid rgba(206,194,240,.12);border-radius:12px;">
+    <span id="lbDot" style="width:8px;height:8px;border-radius:50%;background:#968EAE;flex:none;"></span>
+    <span id="lbText">正在连接实时数据…</span>
+  </div>
   <section class="hero container">
     <div class="hero-copy">
       <div class="eyebrow"><i class="live" aria-hidden="true"></i>实时监测 · 运行于 X Layer DeWEB <code>tape://11.2.4.tape</code></div>
@@ -165,5 +169,6 @@
 <div class="toasts" id="toasts" aria-live="polite"></div>
 
 <script src="app.js"></script>
+<script src="live.js"></script>
 </body>
 </html>

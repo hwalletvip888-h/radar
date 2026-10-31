@@ -9,9 +9,16 @@ watcher_state.json
 __pycache__/
 *.pyc
 
+# 运行时数据库（可由 real_chain_data.json 重建）
+data/
+service_console.log
+
 # 无关构建产物
 main_app.js
 
 # 系统
 .DS_Store
 Thumbs.db
+
+# 构建产物
+*.zip

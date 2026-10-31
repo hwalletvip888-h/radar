@@ -72,10 +72,21 @@ deweb-search/
 ├── brand/               海豚珍珠品牌资产（logo / favicon / 头像）
 ├── DEMO.md / DEMO_VIDEO_BRIEF.md / DEMO_STORYBOARD.md   演示脚本 + 视频简报
 ├── ROADMAP.md           长期路线图（定位：TapeOut 链上安全数据层）
+├── service/             常驻服务（SQLite + 增量扫链 + 评级 + REST API，见 SERVICE.md）
+├── SERVICE.md           服务架构文档
 └── vendor/              本地化的 vis-network（离线/上链也能跑）
 ```
 
 ## 运行
+
+**常驻服务（推荐，7×24 自动）** —— 见 [SERVICE.md](SERVICE.md)：
+
+```bash
+cd deweb-search
+python -m service.run    # 建库 + seed + 增量扫链 + 评级 + REST API（http://127.0.0.1:8900）
+```
+
+**离线重扫（原型脚本，可选）**：
 
 ```bash
 cd deweb-search
