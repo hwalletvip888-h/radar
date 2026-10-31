@@ -70,6 +70,19 @@ CREATE TABLE IF NOT EXISTS rating_history (
 );
 CREATE INDEX IF NOT EXISTS idx_rh_circuit ON rating_history(circuit_id, at);
 
+CREATE TABLE IF NOT EXISTS risks (
+    circuit_id  INTEGER PRIMARY KEY,
+    processor   TEXT,
+    task_id     INTEGER,
+    risk        INTEGER,
+    level       TEXT,
+    status      TEXT,
+    labels      TEXT,
+    suspect     TEXT,
+    updated_at  INTEGER
+);
+CREATE INDEX IF NOT EXISTS idx_risks_risk ON risks(risk);
+
 CREATE TABLE IF NOT EXISTS alerts (
     id          TEXT PRIMARY KEY,
     type        TEXT,
