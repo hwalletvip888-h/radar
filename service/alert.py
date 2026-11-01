@@ -33,7 +33,7 @@ def build_alert(e, m=None):
         return {
             "ts": int(time.time() * 1000), "type": "revoked", "tier": tier,
             "title": f"🚨 矿机被撤销：{proc} #{m['circuit_id'] if m else '?'}",
-            "detail": f"题 #{m['task_id'] if m else '?'} · 向量 #{e.get('vectorIndex')}",
+            "detail": f"题 #{m['task_id'] if m else '?'} · 向量 #{e.get('vector_index')}",
             "impact": f"冻结未领 {debt_bem} BEM",
             "challenger": e.get("challenger"), "owner": m["registrant"] if m else None,
             "tx": e["tx"], "block": e["block"],
@@ -42,8 +42,8 @@ def build_alert(e, m=None):
         proc = PROCESSORS.get((e.get("circuits") or "").lower(), (e.get("circuits") or "?")[:10])
         return {
             "ts": int(time.time() * 1000), "type": "demoted", "tier": "mid",
-            "title": f"🟡 电路被夺最优：{proc} #{e.get('circuitId')}",
-            "detail": f"题 #{e.get('taskId')} 的最优设计被更小电路取代",
+            "title": f"🟡 电路被夺最优：{proc} #{e.get('circuit_id')}",
+            "detail": f"题 #{e.get('task_id')} 的最优设计被更小电路取代",
             "impact": "设计溢价被收回",
             "tx": e["tx"], "block": e["block"],
         }
@@ -60,8 +60,8 @@ def build_alert(e, m=None):
         proc = PROCESSORS.get((e.get("circuits") or "").lower(), (e.get("circuits") or "?")[:10])
         return {
             "ts": int(time.time() * 1000), "type": "counterexample", "tier": "mid",
-            "title": f"⚠️ 新反例登记：{proc} #{e.get('circuitId')}",
-            "detail": f"题 #{e.get('taskId')} 被补入新反例向量",
+            "title": f"⚠️ 新反例登记：{proc} #{e.get('circuit_id')}",
+            "detail": f"题 #{e.get('task_id')} 被补入新反例向量",
             "impact": "参考实现被加固",
             "tx": e["tx"], "block": e["block"],
         }
@@ -100,9 +100,11 @@ def process_new_alerts(conn):
 
     new_count = 0
     max_block = cursor
-    for e in rows:
+    for row in rows:
+        e = db.to_dict(row)
         alert_id = f"{e['tx']}:{e['log_index']}"
-        m = conn.execute("SELECT * FROM miners WHERE key=?", (e["key"],)).fetchone() if e["key"] else None
+        m_row = conn.execute("SELECT * FROM miners WHERE key=?", (e["key"],)).fetchone() if e["key"] else None
+        m = db.to_dict(m_row)
         alert = build_alert(e, m)
         if not alert:
             continue
